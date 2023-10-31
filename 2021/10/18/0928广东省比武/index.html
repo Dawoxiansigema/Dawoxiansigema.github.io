@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Eureka">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Eureka">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="广东某比武题解 仅供内部观看 密码请联系笔者获取">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0928广东省比武">
+<meta property="og:url" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="广东某比武题解 仅供内部观看 密码请联系笔者获取">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/1.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/2.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/3.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/4.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/5.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/6.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/7.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/8.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/9.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/11.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/12.png">
+<meta property="article:published_time" content="2021-10-18T12:25:48.000Z">
+<meta property="article:modified_time" content="2023-10-31T01:55:52.511Z">
+<meta property="article:author" content="Eureka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/1.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/favicon.ico">
+    
+    <title>0928广东省比武 · fi3ework&#39;s Studio</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- Google tag (gtag.js) -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>fi3ework's Studio.</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">0928广东省比武</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+    
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                0928广东省比武
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+</div>
+
+                
+                <!-- 文章字数统计 -->
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2021/10/18</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <p><strong>广东某比武题解 仅供内部观看 密码请联系笔者获取</strong></p>
+<span id="more"></span>
+
+<h1 id="0928广东省比武"><a href="#0928广东省比武" class="headerlink" title="0928广东省比武"></a>0928广东省比武</h1><h2 id="检材1-APK"><a href="#检材1-APK" class="headerlink" title="检材1-APK"></a>检材1-APK</h2><p><strong>P.S.只是部分题目 因部分题目需要比赛时主办方提供的网络环境 故无法复现</strong></p>
+<p><strong>13-17题都可以火眼软件一把梭 就不写了</strong></p>
+<p><strong>18.逆向脱壳涉案APK，该APK现阶段是属于 DEBUG版本还是RELEASE版本</strong></p>
+<p>发现这个apk是邦邦加壳了 我们分析必须要先把它脱壳 你可以手工脱也可以借助工具 雷电可以一键脱壳还能帮你整理好源码</p>
+<p>根据学过的 看过的就该知道 只需要分析com目录下对应包名里的源码就好了 我们发现了他总共有这几个函数</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/1.png" class="">
+
+<p>很明显这题去看buildconfig函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package com.kuaile.hua;</span><br><span class="line"></span><br><span class="line">public final class BuildConfig &#123;</span><br><span class="line">    public static final String APPLICATION_ID = &quot;com.kuaile.hua&quot;;</span><br><span class="line">    public static final String BUILD_TYPE = &quot;release&quot;;</span><br><span class="line">    public static final boolean DEBUG = false;</span><br><span class="line">    public static final int VERSION_CODE = 1;</span><br><span class="line">    public static final String VERSION_NAME = &quot;1.3&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>19.脱壳逆向涉案APK，查找APK程序入口Activity为</strong></p>
+<p>我觉得甚至就看名字都知道是哪个</p>
+<p><strong>20.脱壳逆向涉案APK，该APK启动是否有做手机root检测</strong></p>
+<p>之前做cnas2021的时候 遇到过类似的题目 我甚至怀疑他们俩用的apk框架都是一模一样的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public void onCreate(Bundle bundle) &#123;</span><br><span class="line">        super.onCreate(bundle);</span><br><span class="line">        if (EasyProtectorLib.checkIsRoot() || EasyProtectorLib.checkIsDebug(this) || EasyProtectorLib.checkIsXposedExist()) &#123;</span><br><span class="line">            new Handler().postDelayed(new Runnable() &#123;</span><br><span class="line">                /* class com.kuaile.hua.MainActivity.AnonymousClass1 */</span><br><span class="line"></span><br><span class="line">                public void run() &#123;</span><br><span class="line">                    System.exit(0);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, 5000);</span><br><span class="line">            AlertDialog create = new AlertDialog.Builder(this).setTitle(&quot;设备环境检查&quot;).setMessage(&quot;检测到您的设备不安全，请使用安全的手机打开应用&quot;).setPositiveButton(&quot;退出&quot;, (DialogInterface.OnClickListener) null).create();</span><br><span class="line">            create.setCanceledOnTouchOutside(false);</span><br><span class="line">            create.show();</span><br><span class="line">            create.getButton(-1).setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">                /* class com.kuaile.hua.MainActivity.AnonymousClass2 */</span><br><span class="line"></span><br><span class="line">                public void onClick(View view) &#123;</span><br><span class="line">                    System.exit(0);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>检测root debug模式 xposed框架</p>
+<p><strong>20.脱壳逆向涉案APK，该APK启动是否有做手机root检测</strong></p>
+<p>有</p>
+<p><strong>21.脱壳逆向涉案APK，写出APK中实现指向网站链接地址的功能Activity为</strong></p>
+<p>有手就行 webactivity</p>
+<p><strong>22.脱壳分析涉案APK，查询APK指向涉案主网站的主域名为</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public void onCreate(Bundle bundle) &#123;</span><br><span class="line">        super.onCreate(bundle);</span><br><span class="line">        setContentView(R.layout.activity_web);</span><br><span class="line">        String decodeToString = DecodeAct.decodeToString(&quot;OTM5cHd3LmNuLw==&quot;);</span><br><span class="line">        Log.i(&quot;URl=&quot;, decodeToString);</span><br><span class="line">        PWebView pWebView = (PWebView) findViewById(R.id.webView);</span><br><span class="line">        pWebView.loadUrl(&quot;http://&quot; + decodeToString);</span><br><span class="line">        pWebView.hideBrowserController();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我感觉能拿到这份镜像的都能看懂这段代码写的啥吧 看不懂的可以去面壁了</p>
+<p><strong>23-26都是需要主办方的在线网络环境 所以没办法复现 不过难度应该约等于百度</strong></p>
+<h1 id="检材1-IPA"><a href="#检材1-IPA" class="headerlink" title="检材1-IPA"></a>检材1-IPA</h1><p><strong>P.S.这辈子第一次做到IPA文件解析 由于网上资源太少所以肯定有不准的地方</strong></p>
+<p>前置知识:IPA其实也跟APK一样 都是可以通过压缩包打开的 而一般的IPA解包之后会有三个文件夹 题目的环境只是payload文件夹下的bundle 说人话就是主要源码</p>
+<p><strong>27.分析涉案IPA文件，该IPA文件最低支持的IOS系统版本为</strong></p>
+<p>先查看info.plist 这个文件相当于apk的manifest.xml </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;MinimumOSVersion&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;9.0&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+
+<p>慢慢找吧 总能找到</p>
+<p><strong>28.分析涉案IPA文件，该IPA文件的打包公司为</strong></p>
+<p>这题我没有找到确凿实锤的证据 只有看了这个文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HBuilder.app\Pandora\apps\H583BDA6F\www\manifest.json</span><br></pre></td></tr></table></figure>
+
+<p>才能推测出这个是打包公司</p>
+<p><strong>29.分析涉案IPA文件，该IPA文件打包公司的APPID为</strong></p>
+<p>就是刚刚路径下的那个序列号一样的文件夹 H583BDA6F</p>
+<p><strong>30.分析涉案IPA文件，该IPA签名的通用唯一标识码UUID值为</strong></p>
+<p>embedded.mobileprovision这个文件 就在题目环境根目录下 这个文件也是配置信息 UUID从这个文件里面找 我个人理解是info.plist里面的部分信息可能就是从这里提取的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5a59f44a-8db7-479f-9c39-628fd83a537e</span><br></pre></td></tr></table></figure>
+
+<p><strong>31.分析涉案IPA文件，该IPA是否具有&ldquo;IOS跟踪用户活动&rdquo;的权限功能</strong></p>
+<p>如果你仔细看了info.plist文件 你会发现这样一段字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;使用相机&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSContactsUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;访问通讯录&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSLocationAlwaysAndWhenInUseUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;运行期&amp;amp;后台运行时访问位置信息&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSLocationAlwaysUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;后台运行访问位置信息&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSLocationUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;访问位置信息&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;运行期访问位置信息&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;使用麦克风&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSMotionUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;使用传感器&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSPhotoLibraryAddUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;更改相册&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;读取相册&lt;/string&gt;</span><br><span class="line">	&lt;key&gt;NSUserTrackingUsageDescription&lt;/key&gt;</span><br><span class="line">	&lt;string&gt;请放心，开启权限不会获取您在其他站点的隐私信息，该权限仅用于标识设备并保障服务安全与提示浏览体验&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+
+<p>是的这就是对应的权限表 但是如果你去看embedded.mobileprovision 你会发现有个这个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;Entitlements&lt;/key&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个键值对应的就是需要申请的权限 只不过都是英文 都一样</p>
+<p><strong>32-33</strong></p>
+<p>查看这个文件就行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HBuilder.app\Pandora\apps\H583BDA6F\www\manifest.json</span><br></pre></td></tr></table></figure>
+
+<p>34-35也是需要在线环境</p>
+<h1 id="检材2"><a href="#检材2" class="headerlink" title="检材2"></a>检材2</h1><p>体验了一下检材1发现 还是很简单的嘛 但是从检材2开始 题目就开始难了 检材2给了两个vmdk 是一个站库分离的服务器</p>
+<p><strong>1.查询嫌疑人用户名&ldquo;liumosheng&rdquo;于9月15日登录涉案贷款网站服务器的IP为</strong></p>
+<p>之前说了 站库分离 进入第一个镜像之后 稍微看一眼根目录也就该知道这个服务器是搞网站的 并且还是宝塔的目录系统 极可能是装了宝塔 为啥这么说呢</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj6cdohtk3dk1oc6r0vdlZ www]# ls</span><br><span class="line">Recycle_bin  backup  disk.pl  houtai  server  swap  wwwlogs  wwwroot</span><br></pre></td></tr></table></figure>
+
+<p>这个根目录下www&#x2F;wwwroot wwwlogs是宝塔一键安装的标志目录 我们尝试着在shell输入bt发现雀食 他装了</p>
+<p>回到题目 如果没有用户名这个东西 其实应该先去看一眼日志 但是他有说用户名 所以很大概率是指登录linux系统 我们last一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">liumoshe pts/2        113.119.27.244   Wed Sep 15 15:23 - 15:29  (00:06)</span><br><span class="line">liumoshe pts/4        113.119.27.244   Wed Sep 15 15:22 - 15:22  (00:00)</span><br><span class="line">liumoshe pts/7        113.119.27.244   Wed Sep 15 15:22 - 15:22  (00:00)</span><br><span class="line">liumoshe pts/6        113.119.27.244   Wed Sep 15 15:22 - 15:22  (00:00)</span><br><span class="line">liumoshe pts/5        113.119.27.244   Wed Sep 15 15:22 - 15:22  (00:00)</span><br><span class="line">liumoshe pts/5        113.119.27.244   Wed Sep 15 15:22 - 15:22  (00:00)</span><br><span class="line">liumoshe pts/4        113.119.27.244   Wed Sep 15 15:21 - 15:22  (00:01)</span><br></pre></td></tr></table></figure>
+
+<p>嗯 都能对上</p>
+<p><strong>2.查询服务器用户名“wangwu”的登录密码为</strong></p>
+<p>就在刚刚那个地方下面 就有这条记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wangwu   pts/3        124.156.149.200  Wed Sep 15 15:03 - 15:22  (00:19)</span><br><span class="line">wangwu   pts/2        124.156.149.200  Wed Sep 15 15:03 - 15:22  (00:19)</span><br></pre></td></tr></table></figure>
+
+<p>所以这个服务器还是指的这个linux 而我们也知道 这个linux的用户登录密码是存放在shadow文件里的 并且是通过sha256加密的 不过题目都这么说了那肯定是弱密码爆破</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">xhx@ubuntu:~/Desktop/john-1.8.0/run$ ./john -w=password.lst shadow</span><br><span class="line">Loaded 3 password hashes with 3 different salts (crypt, generic crypt(3) [?/64])</span><br><span class="line">Remaining 1 password hash</span><br><span class="line">Press &#x27;q&#x27; or Ctrl-C to abort, almost any other key for status</span><br><span class="line">0g 0:00:00:06 100% 0g/s 508.0p/s 508.0c/s 508.0C/s !@#$%..sss</span><br><span class="line">Session completed</span><br><span class="line">xhx@ubuntu:~/Desktop/john-1.8.0/run$ ./john --show shadow</span><br><span class="line">wangwu:root:18885:0:99999:7:::</span><br><span class="line">liumosheng:root:18885:0:99999:7:::</span><br><span class="line"></span><br><span class="line">2 password hashes cracked, 1 left</span><br></pre></td></tr></table></figure>
+
+<p>本质上还是个弱口令</p>
+<p><strong>3.分析涉案服务器，该服务器系统Centos的版本为</strong></p>
+<p>仿真的时候一下就能看出来 略</p>
+<p><strong>4.分析涉案网站服务器宝塔面板的默认登录密码为</strong></p>
+<p>证明了我想的 有宝塔 一把梭</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj6cdohtk3dk1oc6r0vdlZ www]# bt default</span><br><span class="line">==================================================================</span><br><span class="line">BT-Panel default info!</span><br><span class="line">==================================================================</span><br><span class="line">外网面板地址: http://120.211.56.145:8888/6813abe1</span><br><span class="line">内网面板地址: http://192.168.222.138:8888/6813abe1</span><br><span class="line">*以下仅为初始默认账户密码，若无法登录请执行bt命令重置账户/密码登录</span><br><span class="line">username: zoyzhp8p</span><br><span class="line">password: db25e059</span><br><span class="line">If you cannot access the panel,</span><br><span class="line">release the following panel port [8888] in the security group</span><br><span class="line">若无法访问面板，请检查防火墙/安全组是否有放行面板[8888]端口</span><br><span class="line">==================================================================</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.分析涉案网站服务器宝塔面板的绑定宝塔手机账号前三位为</strong></p>
+<p>很明显我们需要登录到宝塔 那就登录呗 好在默认账号密码是可以登陆的</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/2.png" class="">
+
+<p><strong>6.分析宝塔配置数据库，查询宝塔面板默认用户的加密盐值salt为</strong></p>
+<p>分析宝塔配置数据库 那我们就需要找到宝塔的源码 宝塔源码在linux的默认路径就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/www/server/panel</span><br></pre></td></tr></table></figure>
+
+<p>分析数据库 那肯定得看看数据库文件了 宝塔的数据库文件是自行处理的 不会依赖于其他的数据库系统 </p>
+<p>尝试性进入data文件夹 看到了defalut.sql 看了眼发现没啥 但是再去看那个defalut.db 我们用sqlite3打开他</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/3.png" class="">
+
+<p>哦吼 这不就找到了那个盐了吗</p>
+<p><strong>7.分析宝塔管理界面，查询网站服务器数据库root账户的密码为</strong></p>
+<p>宝塔一把梭 不说了</p>
+<p><strong>8-1</strong>1</p>
+<p>OK 涉及到网站的重构了 这两题如果能重构起来那么是非常方便的 直接访问发现宕了 查看一下服务发现nginx没有开启 开启之后访问ip 我们发现192.168.222.138这个ip可以进 但是无法访问到我们的站点 加上index.php也是404了 怀疑是nginx.conf配置文件设置不对 去看一眼</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">server</span><br><span class="line">    &#123;</span><br><span class="line">        listen 888;</span><br><span class="line">        server_name phpmyadmin;</span><br><span class="line">        index index.html index.htm index.php;</span><br><span class="line">        root  /www/server/phpmyadmin;</span><br><span class="line">            location ~ /tmp/ &#123;</span><br><span class="line">                return 403;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        #error_page   404   /404.html;</span><br><span class="line">        include enable-php.conf;</span><br><span class="line"></span><br><span class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">        &#123;</span><br><span class="line">            expires      30d;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ .*\.(js|css)?$</span><br><span class="line">        &#123;</span><br><span class="line">            expires      12h;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ /\.</span><br><span class="line">        &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        access_log  /www/wwwlogs/access.log;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>哦吼这写的是phpmyadmin的 难怪访问不到我们的站点 虽然个人觉得改这个有点刻意 但是还是得把他改回去 改好之后 访问index.php 就不是404了 但是比404更头疼的是他报错了</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/4.png" class="">
+
+<p>我们发现他报了这个错 如果自己能看得懂就去审代码 会发现他是数据库连接错误 如果看不懂就去百度 总之你会发现他是数据库连接错误 我去看了眼宝塔里的数据库 看看是连接错了还是咋的</p>
+<p>哦吼 宝塔里面没有数据库 很可能是嫌疑人删库了 那看看有没有备份 宝塔是可以定时备份的 虽然宝塔里面的备份是空的 但是嫌疑人网站根目录下有备份 我们可以新建数据库然后导入 当然还得记着去改一下</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/5.png" class="">
+
+<p>保存之后 刷新就可以进了 到这网站重构就算完成了</p>
+<p>其实如果单从这两题的角度来说 不需要重构到数据库这部分 因为数据库只是导致这个站的部分内容宕了 我们写一个1.php放在根目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/6.png" class="">
+
+<p>就都清清楚楚了</p>
+<p><strong>12.嫌疑人口供，贷款网站后台密码为admin123，登录涉案贷款网站后台，在系统设置的银行卡收款设置中，记录收款银行的银行卡账号为</strong></p>
+<p>其实 如果没有重构出网站的后台 那么直接看网站的数据库备份日志就可以了 重构出来反而还需要仔细看看 首先是对网站根目录的敏感性 我们看到根目录下有一个admin.php 如果比较敏感的话 会去访问一下 就会知道这就是后台登录</p>
+<p>如果不敏感的话 就的去分析一下日志</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/7.png" class="">
+
+<p>也能看到登录页面就是&#x2F;admin.php 但是我们还是需要用户名 我们可以从数据库入手 数据库对存放的密码一般是经过加密处理 但是用户名一般不做处理 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">密码宝塔里有</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from admin;</span><br><span class="line">+----+----------+----------------------------------+-----+------------+------------+--------+------+-----------+--------------+</span><br><span class="line">| id | username | password                         | gid | addtime    | lastlogin  | status | link | ischannel | channel_name |</span><br><span class="line">+----+----------+----------------------------------+-----+------------+------------+--------+------+-----------+--------------+</span><br><span class="line">|  3 | admin    | 0192023a7bbd73250516f069df18b500 |   1 | 1481807439 | 1627460837 |      1 |      |         0 | 总管理 员     |</span><br><span class="line">+----+----------+----------------------------------+-----+------------+------------+--------+------+-----------+--------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>我们找到了用户名 看到了密码是加密的 随便试了一下发现是md5 并且解密之后的密文就是admin123 可是问题是 这个网站有问题 正确的用户名和密码还是无法进入后台 而如果去代码审计找错那就得花很长时间</p>
+<p>换一个思路 直接从网站配置入手</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/8.png" class="">
+
+<p><strong>13.登录涉案贷款网站后台，查询名为&ldquo;admin&rdquo;的管理员账号添加时间为</strong></p>
+<p>刚刚那条sql记录的时间戳 去转换一下就好</p>
+<p><strong>14-15</strong></p>
+<p>刚刚截图里面能看 过</p>
+<p><strong>16-17</strong></p>
+<p>由于需要遍历数据库 所以我们选择网探连接一下</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/9.png" class="">
+
+<p>这样数就好了</p>
+<p><strong>18.分析涉案贷款网站源码，寻找控制网站后台登录功能的模块源码文件</strong></p>
+<p>这题不清楚咋做噢</p>
+<p><strong>19.根据嫌疑人口供，该涉案服务器还存在一个分发网站平台，利用任意方法进入分发网站后台，获取后台全局选项卡中邮件服务的E-mail密码为</strong></p>
+<p>和上一题一模一样的网站重构思路 一模一样的数据库md5加密 一模一样的admin.php 反正进去之后就跟上面那个差不多</p>
+<p><strong>20.分析分发网站后台，下载名为“HKEX”的APK文件，并计算器MD5值</strong></p>
+<p>名字不叫hkex 图标上面倒是写着hkex MD5值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EA2DBBB74D026E7271D2465DA304D4D3    </span><br></pre></td></tr></table></figure>
+
+<p><strong>21.分析分发平台网站和数据库，结合后台信息分析名为“放心借”的APP发布者会员账号为</strong></p>
+<p>进入后台就可以</p>
+
+
+<p><strong>22.分析涉案贷款网站数据库服务器，找出Mysql服务的docker Image ID为</strong></p>
+<p>进去一把梭的事情 过</p>
+<p><strong>23-24</strong></p>
+<p>首先要知道pgsql是个什么东西 pgsql-web是一个用python写的web服务框架 他有数据库叫PostgreSQL 而他问的是数据库的端口和root账户密码 这俩东西是不需要进入数据库查看的 所以我们可以先去寻找网站源码 由于直接在ssh里面查找可能会有点困难 我们使用取证大师导出根目录 就可以一把梭了</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/11.png" class="">
+
+<p><strong>25.尝试登录23题中提到的网站后台，在登录成功后的页面查找嫌疑人邮箱信息</strong></p>
+<p>我们知道了这个pgweb是用python写的 而python是不需要中间件的 我们只需要找到正确的python文件运行就可以了 一般这种文件都在根目录 我们看那个manager.py比较顺眼 用python跑起来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">/root/pgsql-web&gt; python3 ./manage.py</span><br><span class="line"></span><br><span class="line">Type &#x27;manage.py help &lt;subcommand&gt;&#x27; for help on a specific subcommand.</span><br><span class="line"></span><br><span class="line">Available subcommands:</span><br><span class="line"></span><br><span class="line">[auth]</span><br><span class="line">    changepassword</span><br><span class="line">    createsuperuser</span><br><span class="line"></span><br><span class="line">[contenttypes]</span><br><span class="line">    remove_stale_contenttypes</span><br><span class="line"></span><br><span class="line">[django]</span><br><span class="line">    check</span><br><span class="line">    compilemessages</span><br><span class="line">    createcachetable</span><br><span class="line">    dbshell</span><br><span class="line">    diffsettings</span><br><span class="line">    dumpdata</span><br><span class="line">    flush</span><br><span class="line">    inspectdb</span><br><span class="line">    loaddata</span><br><span class="line">    makemessages</span><br><span class="line">    makemigrations</span><br><span class="line">    migrate</span><br><span class="line">    sendtestemail</span><br><span class="line">    shell</span><br><span class="line">    showmigrations</span><br><span class="line">    sqlflush</span><br><span class="line">    sqlmigrate</span><br><span class="line">    sqlsequencereset</span><br><span class="line">    squashmigrations</span><br><span class="line">    startapp</span><br><span class="line">    startproject</span><br><span class="line">    test</span><br><span class="line">    testserver</span><br><span class="line"></span><br><span class="line">[sessions]</span><br><span class="line">    clearsessions</span><br><span class="line"></span><br><span class="line">[staticfiles]</span><br><span class="line">    collectstatic</span><br><span class="line">    findstatic</span><br><span class="line">    runserver</span><br></pre></td></tr></table></figure>
+
+<p>嗯 很明显这里有许多的选项 我们需要登陆后台 那就需要对应的用户名和密码 我们尝试dumpdata一下</p>
+<img src="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/12.png" class="">
+
+<p>嗯 虽然东西特别多 但是可以看到后台的用户名和密码 顺带这题求得email也就找到了 接下来只需要runserver然后登录就行了 成功登录 检材2完结撒花 总结还是比较容易的</p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dawoxiansigema.github.io">Eureka</a>
+            <p>Link：<a href="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/">https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/</a>
+            <p>Publish date：<a href="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/">October 18th 2021, 8:25:48 pm</a>
+            <p>Update date：<a href="https://dawoxiansigema.github.io/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/">October 31st 2023, 9:55:52 am</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/" title="21长安杯">
+                    <div class="nextTitle">21长安杯</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2021/10/06/19%E8%83%BD%E5%8A%9B/" title="cnas2019">
+                    <div class="prevTitle">cnas2019</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6"><span class="toc-number">1.</span> <span class="toc-text">0928广东省比武</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%901-APK"><span class="toc-number">1.1.</span> <span class="toc-text">检材1-APK</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A3%80%E6%9D%901-IPA"><span class="toc-number">2.</span> <span class="toc-text">检材1-IPA</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A3%80%E6%9D%902"><span class="toc-number">3.</span> <span class="toc-text">检材2</span></a></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 8
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/">21长安杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span>
+            <a class="archive-post-title" href="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/">0928广东省比武</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span>
+            <a class="archive-post-title" href="/2021/10/06/19%E8%83%BD%E5%8A%9B/">cnas2019</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span>
+            <a class="archive-post-title" href="/2021/09/26/frida/">Frida</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span>
+            <a class="archive-post-title" href="/2021/09/25/cnas2021/">cnas2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span>
+            <a class="archive-post-title" href="/2021/08/06/FIC2021/">FIC2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/17</span>
+            <a class="archive-post-title" href="/2021/07/17/%E4%B8%AD%E7%A7%91%E7%AC%AC%E4%B8%80%E5%B1%8A/">第一届中科实数杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span>
+            <a class="archive-post-title" href="/2021/03/07/20%E5%B9%B4%E7%BE%8E%E4%BA%9A%E6%9D%AF/">20年美亚杯</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="frida">
+                <span class="iconfont-archer">&#xe606;</span>
+                frida
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Forensic">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Forensic
+        </span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://dawoxiansigema.github.io",
+        root: siteMetaRoot,
+        author: "Eureka"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>

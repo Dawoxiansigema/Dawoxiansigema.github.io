@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Eureka">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Eureka">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="19能力验证题解 仅供内部观看 密码请联系笔者获取">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cnas2019">
+<meta property="og:url" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="19能力验证题解 仅供内部观看 密码请联系笔者获取">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/1.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/2.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/3.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/4.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/5.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/6.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/7.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/8.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/9.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/11.png">
+<meta property="article:published_time" content="2021-10-06T11:05:39.000Z">
+<meta property="article:modified_time" content="2023-10-31T01:55:21.392Z">
+<meta property="article:author" content="Eureka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/1.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/favicon.ico">
+    
+    <title>cnas2019 · fi3ework&#39;s Studio</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- Google tag (gtag.js) -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>fi3ework's Studio.</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">cnas2019</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+    
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                cnas2019
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+</div>
+
+                
+                <!-- 文章字数统计 -->
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2021/10/06</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <p><strong>19能力验证题解 仅供内部观看 密码请联系笔者获取</strong></p>
+<span id="more"></span>
+
+<h1 id="CNAS2019"><a href="#CNAS2019" class="headerlink" title="CNAS2019"></a>CNAS2019</h1><p><strong>1.加载服务器磁盘，计算磁盘源盘的SHA256哈希值</strong></p>
+<p>略</p>
+<p>2.提取“password.txt”文件，并计算文件的SHA256哈希值</p>
+<p>如果说咱要提取password.txt文件 其实没必要连接ssh或者sftp 直接扔取证大师里面跑就行了 毕竟是镜像 如果真就给了个CVM 那咱得连 最次最次也得是截图然后图转字 不提了一把梭的事情</p>
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/1.png" class="">
+
+<p><strong>3.服务器的操作系统版本，网站数据所在分区的文件系统类型</strong></p>
+<p>俩命令事情 8说了</p>
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/2.png" class="">
+
+<p>4.服务器的“root”用户在终端中最后输入运行的命令</p>
+<p>很简单history 如果看不全就重定向然后more</p>
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/3.png" class="">
+
+<p>符合题意得应该是ls命令</p>
+<p><strong>5.“药品直销网”网站域名</strong></p>
+<p>一言难尽 首先我是看到了bash里面有装宝塔 我输入bt 发现他不会跳出宝塔面板 无论重启还是啥 但是能看到账号密码 我想着进网页版 结果我发现ifconfig只有lo网卡 我怀疑他是有网卡没开 然后我去&#x2F;etc&#x2F;sysconfig&#x2F;network-script里面看了一下 有ens33 ifconfig ifcfg-ens33 up 嗯up了 结果ifconfig一看只有ipv6的地址 这回是有ip了不是没开 想着service network restart 又报错了 看了一下那个错修起来很麻烦就 毁灭吧 谁知道他干了啥</p>
+<p>宝塔进不去咱直接去看日志 日志里面是可以看到域名信息的</p>
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/4.png" class="">
+
+<p><strong>6.网站数据库的类型和版本号</strong></p>
+<p>有手就行 当然他还有redis 只不过我看了一下mysql里面有许多网站相关数据 基本是他</p>
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/5.png" class="">
+
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/6.png" class="">
+
+<p>7.固定网站“通知”页面内容</p>
+<p>好吧 这回是逼着我进行网站的重构了 这个过程确实比较曲折 也许该题的本意就是考察你网站重构的 虽然我个人感觉有些地方出的比较刻意 并且可能有些地方的坑是我自己VM或者环境的问题 反正奇奇怪怪</p>
+<p>首先我们仿真 进去之后我们发现 他只有一个lo网卡 ens33并没有 不太可能没有这个卡 应该是没打开 咱输入以下命令</p>
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/7.png" class="">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifconfig ens33 up</span><br><span class="line">systemctl stop NetworkManager</span><br><span class="line">systemctl disable NetworkManager</span><br><span class="line">ifup ens33</span><br></pre></td></tr></table></figure>
+
+<p>哦吼 竟然这个博客里面说的是错的 当我输入ifup ens33之后 他报错了 法克那我们换一个方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/sysconfig/network-scripts</span><br><span class="line">ifconfig ifcfg-ens33</span><br></pre></td></tr></table></figure>
+
+<p>还是报错 报一样的错 后来找了一段时间发现centos要用这个命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmcli n on</span><br><span class="line">ifup ens33</span><br></pre></td></tr></table></figure>
+
+<p>好我们终于是打开了ens33网卡 ip显示是192.168.110.110 当我尝试直接ping通这个ip的时候 我发现ping不通经过haogod的指点 我看了一眼ipconfig就知道原因在哪了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">以太网适配器 VMware Network Adapter VMnet8:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . :</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::2993:eb2:e324:1105%21</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.222.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . :</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/8.png" class="">
+
+<p>咱对应网卡的就是VMnet8 而很明显这俩ip不在一个子网内 所以肯定是没办法ping通的 后续步骤也没法搞 解决办法有两种</p>
+<p>1.改静态ip和掩码 使两ip处于一个网段</p>
+<p>2.打开ens33的dhcp</p>
+<p>我选了第二种</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts</span><br></pre></td></tr></table></figure>
+
+<p>然后把BOOTPROTO&#x3D;static改成dpch 具体为啥请学一门课叫做《计算机网络》然后咱重启</p>
+<p>ifconfig 我们发现ip变成了192.168.222.132 这样就可以ping通了 准备工作也就完成 后来在启动nginx的时候 我发现nginx.conf里的站点配置文件被人为删掉了 因为该镜像没有装ssh 如果手敲可能会比较麻烦</p>
+<p>好在我当时在看history的时候 看到了他装的宝塔 虽然输入bt 不知道为什么进不了宝塔面板 但是我们可以访问4个8端口 bt default可以查看默认用户名密码 只可惜这个默认的进不去 我们需要修改宝塔的密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /www/server/panel &amp;&amp; python tools.pyc panel 123456</span><br></pre></td></tr></table></figure>
+
+<p>会跳出你的用户名 代表着用户名不变 密码修改为123456 我们成功进入宝塔 我们在宝塔里面看到他没有安装nginx 考虑是单独装的nginx 我们找到nginx.conf</p>
+<p>其他配置文件都是对的 但是server里的就 一言难尽 咱把它改成正确的 参考一下我自己博客的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">server</span><br><span class="line">    &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name 192.168.222.132;</span><br><span class="line">        index index.html index.htm index.php;</span><br><span class="line">        root  /home/hexo;</span><br><span class="line"></span><br><span class="line">        #error_page   404   /404.html;</span><br><span class="line">        include enable-php.conf;</span><br><span class="line"></span><br><span class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">        &#123;</span><br><span class="line">            expires      30d;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ .*\.(js|css)?$</span><br><span class="line">        &#123;</span><br><span class="line">            expires      12h;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ /\.</span><br><span class="line">        &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        access_log  /www/wwwlogs/access.log;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/9.png" class="">
+
+<p>Jackpot! 其实把数据库什么的拷到自己的ubuntu下也可以 只不过我比较懒 可以看到内容就是网站目录下images里面的大部分一些内容</p>
+<p>8.网站管理员admin的登录口令</p>
+<p>咕咕咕</p>
+<p><strong>9.网站管理员admin最后登录的IP地址</strong></p>
+<p>曾今年少轻狂的我 想要直接复制数据库data文件 事实证明这样只能有小概率可以看到 并且从结果来看只能看到一部分数据 过程过于坎坷这里就不写了</p>
+<p>第二种思路是尝试从windows端连接centos中的mysql 但是直接连接的话 会报10038错 类似于没有权限 百度了一波说是要这样做</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;grant all privileges on *.*  to  &#x27;root&#x27;@&#x27;%&#x27;  identified by &#x27;youpassword&#x27;  with grant option;</span><br><span class="line">mysql&gt;flush privileges;</span><br><span class="line">/etc/mysql/my.conf</span><br><span class="line">bind-address = 127.0.0.1 ---&gt; bind-address = 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<p> 结果显而易见 没有解决这个10038问题 期间因为这个10038折腾了非常久 后来也是干脆放弃了</p>
+<p>第三种思路 就是使用网探连接 可是之前尝试过 连ssh都无法直接连接这台虚拟机 网探肯定也是不行的 所以优先先搞一下ssh的问题 首先看一下服务有没有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep ssh</span><br><span class="line">openssh-server-7.4p1-11.el7.x86_64</span><br><span class="line">libssh2-1.4.3-10.el7_2.1.x86_64</span><br><span class="line">openssh-7.4p1-11.el7.x86_64</span><br><span class="line">openssh-clients-7.4p1-11.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>咱发现还是有开启的 如果连不上很有可能是因为端口的问题 查看一下端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntpl | grep 22</span><br><span class="line">tcp        0      0 127.0.0.1:6379          0.0.0.0:*               LISTEN      1228/redis-server 1</span><br><span class="line">tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      1422/pure-ftpd (SER</span><br><span class="line">tcp        0      0 0.0.0.0:2222            0.0.0.0:*               LISTEN      3166/sshd</span><br><span class="line">tcp6       0      0 :::21                   :::*                    LISTEN      1422/pure-ftpd (SER</span><br><span class="line">tcp6       0      0 :::2222                 :::*                    LISTEN      3166/sshd</span><br></pre></td></tr></table></figure>
+
+<p>好家伙 端口怎么变成2222了 那咱得改回去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>把2222口改为22口之后 ssh和网探就都可以连接了</p>
+<img src="/2021/10/06/19%E8%83%BD%E5%8A%9B/11.png" class="">
+
+<p>后面的东西 就先咕了 这份做到这我感觉差不多了</p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dawoxiansigema.github.io">Eureka</a>
+            <p>Link：<a href="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/">https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/</a>
+            <p>Publish date：<a href="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/">October 6th 2021, 7:05:39 pm</a>
+            <p>Update date：<a href="https://dawoxiansigema.github.io/2021/10/06/19%E8%83%BD%E5%8A%9B/">October 31st 2023, 9:55:21 am</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/" title="0928广东省比武">
+                    <div class="nextTitle">0928广东省比武</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2021/09/26/frida/" title="Frida">
+                    <div class="prevTitle">Frida</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CNAS2019"><span class="toc-number">1.</span> <span class="toc-text">CNAS2019</span></a></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 8
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/">21长安杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span>
+            <a class="archive-post-title" href="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/">0928广东省比武</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span>
+            <a class="archive-post-title" href="/2021/10/06/19%E8%83%BD%E5%8A%9B/">cnas2019</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span>
+            <a class="archive-post-title" href="/2021/09/26/frida/">Frida</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span>
+            <a class="archive-post-title" href="/2021/09/25/cnas2021/">cnas2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span>
+            <a class="archive-post-title" href="/2021/08/06/FIC2021/">FIC2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/17</span>
+            <a class="archive-post-title" href="/2021/07/17/%E4%B8%AD%E7%A7%91%E7%AC%AC%E4%B8%80%E5%B1%8A/">第一届中科实数杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span>
+            <a class="archive-post-title" href="/2021/03/07/20%E5%B9%B4%E7%BE%8E%E4%BA%9A%E6%9D%AF/">20年美亚杯</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="frida">
+                <span class="iconfont-archer">&#xe606;</span>
+                frida
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Forensic">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Forensic
+        </span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://dawoxiansigema.github.io",
+        root: siteMetaRoot,
+        author: "Eureka"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>

@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Eureka">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Eureka">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="P.S. 大部分的题目还是没有参考复盘视频和wp的 所以如果有不对的地方还请师傅们斧正 复盘的分类是按检材来的 这回的FIC2021题目出的真的很棒 题目要找的FLAG都是相关的 不是跳跃的 出题质量极佳 做题感受满分 下次争取去打一次(就是怕我太菜去了分数不好看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FIC2021">
+<meta property="og:url" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="P.S. 大部分的题目还是没有参考复盘视频和wp的 所以如果有不对的地方还请师傅们斧正 复盘的分类是按检材来的 这回的FIC2021题目出的真的很棒 题目要找的FLAG都是相关的 不是跳跃的 出题质量极佳 做题感受满分 下次争取去打一次(就是怕我太菜去了分数不好看">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/0.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/1.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/2.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/3.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/4.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/5.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/6.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/7.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/8.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/9.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/10.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/11.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/12.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/13.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/14.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/23.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/15.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/17.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/18.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/19.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/20.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/21.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/22.png">
+<meta property="article:published_time" content="2021-08-06T13:51:35.000Z">
+<meta property="article:modified_time" content="2023-10-31T01:56:32.870Z">
+<meta property="article:author" content="Eureka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dawoxiansigema.github.io/2021/08/06/FIC2021/0.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/favicon.ico">
+    
+    <title>FIC2021 · fi3ework&#39;s Studio</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- Google tag (gtag.js) -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>fi3ework's Studio.</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">FIC2021</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+    
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                FIC2021
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+</div>
+
+                
+                <!-- 文章字数统计 -->
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2021/08/06</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <p><strong>P.S. 大部分的题目还是没有参考复盘视频和wp的 所以如果有不对的地方还请师傅们斧正 复盘的分类是按检材来的 这回的FIC2021题目出的真的很棒 题目要找的FLAG都是相关的 不是跳跃的 出题质量极佳 做题感受满分 下次争取去打一次(就是怕我太菜去了分数不好看</strong></p>
+<span id="more"></span>
+
+<h1 id="FIC2021"><a href="#FIC2021" class="headerlink" title="FIC2021"></a>FIC2021</h1><h2 id="检材1：受害者PC"><a href="#检材1：受害者PC" class="headerlink" title="检材1：受害者PC"></a>检材1：受害者PC</h2><p><strong>P.S. 这回镜像的主体终于是受害者了</strong></p>
+<p><strong>1.加载并分析检材1.E01，其对应的原始检材SHA256值为</strong></p>
+<p>这个就用X-Ways跑了 取证大师跑得慢 附上X-Ways的吐槽2333</p>
+<img src="/2021/08/06/FIC2021/0.png" class="">
+
+<p>我跑出来的结果是 注意是检材1的噢 别跑成分区啦</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4C26A9F9A44B4057C678CDF37800435AD58CC42D370B0262B8C992CAA9B2A4DB</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.账户FIC2021的原始登录密码是（FLAG20）</strong></p>
+<p>其实这一上来还把我难到了 因为其实破解系统密码不是一件简单的事情 而且还存在成功率这个东西 我的SamInsider永远跑不出来 但是 我们有仿真啊 仿真的时候会自动获取系统密码 仿真可真是个好东西 黑猫白猫 能抓老鼠就是好猫</p>
+<img src="/2021/08/06/FIC2021/1.png" class="">
+
+<p>仿真结果出来了 如果硬要直接从注册表里面提取也可以 等我啥时候更完了补一下(不可能了) 先鸽</p>
+<p><strong>3.记录Powershell历史命令的文件中，共有多少条记录</strong></p>
+<p>PowerShell的历史记录在ConsoleHost_history.txt这个文件夹里面 具体目录是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\FIC2021\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt</span><br></pre></td></tr></table></figure>
+
+<p>就算不知道 取证大师里面搜一下PowerShell 也该能看到吧 我们打开文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">ipconfig</span><br><span class="line">systeminfo</span><br><span class="line">dir</span><br><span class="line">mv</span><br><span class="line">ls</span><br><span class="line">dir</span><br><span class="line">cd D</span><br><span class="line">d:</span><br><span class="line">ls</span><br><span class="line">c:</span><br><span class="line">dir</span><br><span class="line">cd .\Desktop\</span><br><span class="line">ls</span><br><span class="line">cd ..</span><br><span class="line">cd .\Downloads\</span><br><span class="line">l</span><br><span class="line">ls</span><br><span class="line">dir</span><br><span class="line">cd ..</span><br><span class="line">ls</span><br><span class="line">cd .\Contacts\</span><br><span class="line">ls</span><br><span class="line">cd ..</span><br><span class="line">ls</span><br><span class="line">cd .\FIC2021\</span><br><span class="line">ls</span><br><span class="line">cd .\Documents\</span><br><span class="line">cd ..</span><br><span class="line">ls</span><br><span class="line">cd .\FIC2021\</span><br><span class="line">dir</span><br><span class="line">ls -a</span><br><span class="line">ls</span><br><span class="line">cd .\AppData\</span><br><span class="line">cd .\Roaming\Microsoft\Windows\PowerShell\</span><br><span class="line">ls</span><br><span class="line">cd .\PSReadLine\</span><br><span class="line">ls</span><br><span class="line">cat .\ConsoleHost_history.txt</span><br><span class="line">c:</span><br><span class="line">cd ~</span><br><span class="line">cd ..</span><br><span class="line">Add-PrinterDriver -Name &quot;Generic / Text Only&quot;;</span><br><span class="line">get-printerdriver</span><br><span class="line">Add-PrinterPort -Name &quot;C:\Windows\Temp\MicroPest.txt&quot;;</span><br><span class="line">Get-PrinterPort</span><br><span class="line">add-printer -name &quot;FLAG&quot; -drivername &quot;Generic / Text Only&quot; -portname &quot;C:\Windows\Temp\MicroPest.txt&quot;;</span><br><span class="line">&quot;Thx 4 ur spech on FIC2020!____MicroPest!&quot;|out-printer -name &quot;FLAG&quot;</span><br><span class="line">Hello Erveryone!Welcome to FIC2021,and here is the FLAG1:5YWXQC32</span><br></pre></td></tr></table></figure>
+
+<p>不用数了总共49行 前面40多行都没啥 关键就是在最后的那几行了 最后的那几行意思是啥呢 </p>
+<p>首先他新增(安装)了一个打印驱动 叫做Generic 然后连接上了一个打印机 叫做FLAG 然后用这台打印机打印出了一个叫MicroPest.txt的文件 虽然这顿分析对这题来说没用 但是对后面的题目来说大有用处 真的</p>
+<p><strong>4.分析检材1并找到FLAG1</strong></p>
+<p>啊FLAG1就在刚刚我们找的那个PowerShell历史记录里面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLAG1:5YWXQC32</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.检材中有一加密容器，其密码为</strong></p>
+<p>火眼一把梭 只不过取证大师没办法一把梭 你们这题就忽略我博客里写的吧 直接火眼一把梭就行了</p>
+<img src="/2021/08/06/FIC2021/2.png" class="">
+
+<p>我们导出这个文件 不过只可惜 这是个.Sqlite-wal文件 Sqlite打不开 只能010了</p>
+<img src="/2021/08/06/FIC2021/3.png" class="">
+
+<p>这里 记录下了 该账户的UUID 输入的密码 不过密码个数比较多 可能得一个个试过去了 也就30个 最后的结果是FIC~YYDS! 我们也成功的用它 以及VeraCrypt打开了disk这个加密容器</p>
+<p><strong>6.分析检材1并找到FLAG2</strong></p>
+<p>如果刚刚第五题做出来了 我们直接打开加密容器就能看到FLAG2</p>
+<img src="/2021/08/06/FIC2021/4.png" class="">
+
+<p><strong>7.警方发现张三的加密分区中的word文档涉嫌传播反动言论，但已经被嫌疑人隐藏，请找到FLAG4</strong></p>
+<p>一般来说Word加密反动言论 可以玩的挺花的 因为Word属于压缩包 可以夹带私货 一般入手先是试一下foremost提取 能一把梭就先一把梭 还真出来了 说明就是比较基本的附属文件</p>
+<img src="/2021/08/06/FIC2021/5.png" class="">
+
+<p><strong>8.请分析word文档并找到FLAG5</strong></p>
+<p>这回肯定是得从文件的角度入手了 刚刚已经尝试着直接提取文件了 dddd Word是属于压缩包的 我们可以直接用压缩包打开 看看有没有直接放在压缩包里面 发现没有 直接打开Word肯定也是没有的 想了想 会不会是有些字符没有加载进Word 也算是隐藏的一种</p>
+<img src="/2021/08/06/FIC2021/6.png" class="">
+
+<p>Word结构中 储存文中内容信息的文件就是他 document.xml 而我们打开看一下 可能没那么好找 因为他结构是一字长蛇阵(?</p>
+<img src="/2021/08/06/FIC2021/7.png" class="">
+
+<p>找到啦找到啦</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLAG5:QWFZDKRS</span><br></pre></td></tr></table></figure>
+
+<p><strong>9.张三的加密分区中的“宣传标语-原图.png”涉嫌传播反动言论，其图片高度为多少像素</strong></p>
+<p>对着图片右键-属性-详细信息 一把梭很简单就不贴图了</p>
+<p>10.张三修改了加密分区中的原图，请在新图片“宣传标语-定稿.png”中找到FLAG6</p>
+<p>图片的隐藏内容啊 那就很花了 不过鉴于是取证比赛 先从简单的入手 排除已经考过的foremost 扔进010也没有单独写在里面的额外内容 还能想到什么?</p>
+<p>没错 就是改高度 也很简单 改一下的事情 这个图片比较宽 一点点改就行了 改大了就崩</p>
+<img src="/2021/08/06/FIC2021/8.png" class="">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLAG6:U8BCJR88</span><br></pre></td></tr></table></figure>
+
+<p><strong>11.D盘对应的几个卷影副本，最早的一个副本创建时间为(填写格式：2021-01-01 12:12:12)</strong></p>
+<p>一定要记住一点 凡是题目问你的东西 比较大的可能都是对后面的题目是有用的 就跟高中数学压轴题一样 直接出个第三问不是暴毙了 不扯淡 取证大师有卷影解析的功能 在你最开始加载镜像的时候 就会提示你 我们对D E两个盘都进行解析</p>
+<img src="/2021/08/06/FIC2021/9.png" class="">
+
+<p>至于什么是卷影快照 这个自行百度吧 其实就是相当于备份</p>
+<p><strong>12.分析检材1并找到FLAG3</strong></p>
+<p>这次FIC比武的FLAG 都是和上下题有联系的 于是我们先去卷影副本里面找 诶又一把梭了</p>
+<img src="/2021/08/06/FIC2021/10.png" class=""> 
+
+<p><strong>13.张三曾使用打印机输出过信息，该打印机的设备名为</strong></p>
+<p>还记得在第三题 我们找PowerShell历史记录的时候 找到了被害人连接的打印机吗 名字叫FLAG 但是可能有些人不放心 没事 不放心我们就仿真看一哈</p>
+<img src="/2021/08/06/FIC2021/11.png" class="">
+
+<p>确实 没错 就叫FLAG</p>
+<p><strong>14.分析检材1并找到FLAG7</strong></p>
+<p>还记得上一题吗 上一题题干还有一个很重要的点 他曾用这台打印机打印过东西 而我们要怎么找到这个打出来的东西呢 其实我也找了蛮久的 后来我才发现 在PowerShell记录里面有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Add-PrinterDriver -Name &quot;Generic / Text Only&quot;;</span><br><span class="line">get-printerdriver</span><br><span class="line">Add-PrinterPort -Name &quot;C:\Windows\Temp\MicroPest.txt&quot;;</span><br><span class="line">Get-PrinterPort</span><br><span class="line">add-printer -name &quot;FLAG&quot; -drivername &quot;Generic / Text Only&quot; -portname &quot;C:\Windows\Temp\MicroPest.txt&quot;;</span><br><span class="line">&quot;Thx 4 ur spech on FIC2020!____MicroPest!&quot;|out-printer -name &quot;FLAG&quot;</span><br></pre></td></tr></table></figure>
+
+<p>我感觉如果能注意到这个命令 应该都不难发现 受害者打的资料就在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;C:\Windows\Temp\MicroPest.txt&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>于是我们去看一哈 诶但是这边要注意 受害者的电脑是被搞崩过 所以系统盘符现在是D盘 不要过去看了好久C盘跟我说没有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thx 4 ur spech on FIC2020!____MicroPest! F~L~A~G~7:8KC3HRZG</span><br></pre></td></tr></table></figure>
+
+<p>注意 注意 注意 直接在取证大师里面看表面上的文本的话 是看不到FLAG的 因为有个x00截断符 所以以后看那种明显的可疑的文件 一定要留心一下16进制的hex 没看16进制这个FLAG7你肯定找不到</p>
+<p><strong>15.张三总计通过浏览器下载了多少个程序（或文件）</strong></p>
+<p>去看下载记录吧 就只有Chrome有 下了小火箭 easyVPN v2rayNG(2个不一样的)</p>
+<p><strong>16.张三下载的恶意程序运行后，恶意程序会试图通过修改系统配置实现开机自启动，据此分析程序并找到FLAG8</strong></p>
+<p>划重点啦划重点啦 仔细看题 恶意程序试图通过修改系统配置实现开机自启动 开机自启动通过的就是设置系统服务(services) 我们去看一眼取证大师</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">服务显示名称：Neuron VPN</span><br><span class="line">描述：FLAG8:B7RPKB46</span><br><span class="line">启动类型：自动</span><br><span class="line">登录类型：LocalSystem</span><br><span class="line">服务路径：C:\Users\FIC2021\Desktop\easyVPN.exe</span><br><span class="line">系统：Windows 10 Pro</span><br><span class="line">删除状态：正常</span><br></pre></td></tr></table></figure>
+
+<p>这个讲道理 一千多个服务找起来确实有点麻烦 可以试一下直接搜索FLAG字符 也很快 说不定就一把梭出来了呢</p>
+<p><strong>17.张三运行该恶意程序后，本地的DNS解析将被绑定至IP</strong></p>
+<p>谈到IP DNS 火速去看网络连接这一块内容 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MAC地址：00-0C-29-9A-D7-3B</span><br><span class="line">默认网关：192.168.150.2</span><br><span class="line">网络名称：Ethernet0</span><br><span class="line">描述：Intel(R) 82574L Gigabit Network Connection</span><br><span class="line">DNS服务器信息：192.168.150.150</span><br><span class="line">DHCP服务器：192.168.150.254</span><br><span class="line">DHCPIP地址：192.168.150.129</span><br><span class="line">DHCP子网掩码：255.255.255.0</span><br><span class="line">租期结束日期：1970-01-01 08:41:33</span><br><span class="line">租期获得日期：1970-01-01 08:11:33</span><br><span class="line">系统：Windows 10 Pro</span><br><span class="line">删除状态：正常</span><br></pre></td></tr></table></figure>
+
+<p>只有这一条是可以供我们解题的 至于为什么 请学《计算机网络》这本书</p>
+<h2 id="检材2：受害者流量包"><a href="#检材2：受害者流量包" class="headerlink" title="检材2：受害者流量包"></a>检材2：受害者流量包</h2><p>P.S. 终于到了流量包了 注意哦 流量包在受害者电脑的桌面上 需要自己导出</p>
+<p><strong>18.张三运行恶意程序后，在浏览网站时不慎下载了勒索软件。下载过程恰巧被捕获（检材2），分析数据包找出该程序，并计算程序的SHA256值</strong></p>
+<p>流量包这部分相对就简单了 因为基本上就是涉及嫌疑人进行的一些下载操作 所以只需要关注HTTP协议部分就可以了</p>
+<img src="/2021/08/06/FIC2021/12.png" class="">
+
+<p>我jio的已经蛮明显的了 然后wireshark支持导出功能 直接导出就行了 EZ</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHA256:02a838a7d793033da30a4093fc80d858868a10b2d6ad9026f957a21c694e29e4</span><br></pre></td></tr></table></figure>
+
+<p><strong>19.分析并找出数据包中的FLAG9</strong></p>
+<p>同理 我们在刚刚的getflag.exe下面看到了flag.png 一样导出就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLAG9:6YRPTUUA</span><br></pre></td></tr></table></figure>
+
+<p><strong>20.张三系统中的一个文件被该勒索软件加密，被加密的后的文件名（含扩展名）是</strong></p>
+<p>(怎么突然又回到张三的PC了 我在寻找他通过浏览器下载的软件的时候 发现了一个神奇的加密文件 flag19.txt.enc 我感觉凭这个后缀都应该知道是加密了吧</p>
+<img src="/2021/08/06/FIC2021/13.png" class="">
+
+<p>如果觉得就这样就判断加密了有点草率的话 可以往后做 做到exe逆向了就会实锤了</p>
+<h2 id="检材3：受害者内存"><a href="#检材3：受害者内存" class="headerlink" title="检材3：受害者内存"></a>检材3：受害者内存</h2><p>P.S. 因为出题时的内存是用win10的内存 所以vol2取不出来 我们必须要用vol3来取 自行安装</p>
+<p><strong>21.为了解密该程序，张三试图制作内存镜像（检材3）分析程序功能，请分析内存镜像中的进程数为</strong></p>
+<p>这题 咋说呢 你如果装了vol3 那就是送分的 如果你只有vol2 那就是送命的 提一嘴 vol3的命令和vol2的有很大区别哦</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 vol.py -f 1.vmem windows.pslist</span><br></pre></td></tr></table></figure>
+
+<p>然后我们就可以获得结果了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">PID     PPID    ImageFileName   Offset(V)       Threads Handles SessionId       Wow64   CreateTime      ExitTime       File output</span><br><span class="line"></span><br><span class="line">4       0       System  0xc208d4c87300  173     -       N/A     False   2021-07-19 08:44:03.000000      N/A     Disabled</span><br><span class="line">104     4       Registry        0xc208d4ced080  4       -       N/A     False   2021-07-19 08:43:57.000000      N/A    Disabled</span><br><span class="line">372     4       smss.exe        0xc208d5c2a040  2       -       N/A     False   2021-07-19 08:44:03.000000      N/A    Disabled</span><br><span class="line">500     484     csrss.exe       0xc208d8697140  10      -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">576     484     wininit.exe     0xc208d880f080  1       -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">588     568     csrss.exe       0xc208d8827140  12      -       1       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">656     576     services.exe    0xc208d885d0c0  9       -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">676     576     lsass.exe       0xc208d5bad080  7       -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">728     568     winlogon.exe    0xc208d88b7080  3       -       1       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">856     656     svchost.exe     0xc208d890e240  13      -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">888     728     fontdrvhost.ex  0xc208d893c140  5       -       1       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">896     576     fontdrvhost.ex  0xc208d893e140  5       -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">992     656     svchost.exe     0xc208d89cf2c0  14      -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">428     728     LogonUI.exe     0xc208d9041080  0       -       1       False   2021-07-19 08:44:04.000000      2021-07-19 08:44:14.000000      Disabled</span><br><span class="line">420     728     dwm.exe 0xc208d9042300  12      -       1       False   2021-07-19 08:44:04.000000      N/A     Disabled</span><br><span class="line">456     656     svchost.exe     0xc208d90ad200  60      -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">1052    656     svchost.exe     0xc208d90c72c0  20      -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">1060    656     svchost.exe     0xc208d90c92c0  16      -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">1152    656     svchost.exe     0xc208d9117240  17      -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">1240    656     svchost.exe     0xc208d9141080  4       -       0       False   2021-07-19 08:44:04.000000      N/A    Disabled</span><br><span class="line">1372    656     svchost.exe     0xc208d91b72c0  25      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1448    4       MemCompression  0xc208d4d77040  54      -       N/A     False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1520    656     WUDFHost.exe    0xc208d923b440  8       -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1636    656     svchost.exe     0xc208d4d16480  24      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1652    656     svchost.exe     0xc208d4d184c0  11      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1832    656     svchost.exe     0xc208d93d02c0  4       -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1840    656     svchost.exe     0xc208d93d22c0  9       -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1892    656     svchost.exe     0xc208d9412240  5       -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1996    656     spoolsv.exe     0xc208d941c540  9       -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1512    656     svchost.exe     0xc208d88ab2c0  12      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">2276    656     svchost.exe     0xc208d95e3200  14      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">2340    656     vmtoolsd.exe    0xc208d960a280  11      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">2348    656     VGAuthService.  0xc208d960c300  2       -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">2420    656     MsMpEng.exe     0xc208d9663300  31      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">2472    656     svchost.exe     0xc208d96d6200  14      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">2912    656     dllhost.exe     0xc208d98f9300  12      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">3012    856     WmiPrvSE.exe    0xc208d991b300  10      -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">1028    656     svchost.exe     0xc208d5e3c200  4       -       0       False   2021-07-19 08:44:05.000000      N/A    Disabled</span><br><span class="line">2992    656     msdtc.exe       0xc208d9949080  9       -       0       False   2021-07-19 08:44:06.000000      N/A    Disabled</span><br><span class="line">3280    456     sihost.exe      0xc208d9ad8280  8       -       1       False   2021-07-19 08:44:06.000000      N/A    Disabled</span><br><span class="line">3320    656     svchost.exe     0xc208d9b052c0  10      -       1       False   2021-07-19 08:44:06.000000      N/A    Disabled</span><br><span class="line">3348    456     taskhostw.exe   0xc208d9b0d300  8       -       1       False   2021-07-19 08:44:06.000000      N/A    Disabled</span><br><span class="line">3552    1152    ctfmon.exe      0xc208d99a4080  12      -       1       False   2021-07-19 08:44:06.000000      N/A    Disabled</span><br><span class="line">3740    728     userinit.exe    0xc208d9c3a340  0       -       1       False   2021-07-19 08:44:06.000000      2021-07-19 08:44:30.000000      Disabled</span><br><span class="line">3784    3740    explorer.exe    0xc208d9c40340  89      -       1       False   2021-07-19 08:44:06.000000      N/A    Disabled</span><br><span class="line">4052    656     svchost.exe     0xc208d9dd0080  8       -       1       False   2021-07-19 08:44:07.000000      N/A    Disabled</span><br><span class="line">3476    856     dllhost.exe     0xc208d9e6f380  5       -       1       False   2021-07-19 08:44:07.000000      N/A    Disabled</span><br><span class="line">3432    856     ChsIME.exe      0xc208d9e71340  53      -       1       False   2021-07-19 08:44:07.000000      N/A    Disabled</span><br><span class="line">3392    856     ShellExperienc  0xc208d9ea00c0  17      -       1       False   2021-07-19 08:44:07.000000      N/A    Disabled</span><br><span class="line">4240    856     SearchUI.exe    0xc208d9f8f080  56      -       1       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">4424    656     NisSrv.exe      0xc208da106380  7       -       0       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">4476    856     RuntimeBroker.  0xc208da0b5300  11      -       1       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">4552    856     RuntimeBroker.  0xc208da111300  7       -       1       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">4792    656     SearchIndexer.  0xc208da294240  18      -       0       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">4912    856     ApplicationFra  0xc208d95020c0  8       -       1       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">4972    856     MicrosoftEdge.  0xc208da2e1080  0       -       1       False   2021-07-19 08:44:08.000000      2021-07-19 08:56:53.000000      Disabled</span><br><span class="line">5072    856     SkypeApp.exe    0xc208da320080  13      -       1       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">5080    856     SkypeBackgroun  0xc208da2dc080  4       -       1       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">3800    856     YourPhone.exe   0xc208da31b240  12      -       1       False   2021-07-19 08:44:08.000000      N/A    Disabled</span><br><span class="line">5260    856     RuntimeBroker.  0xc208da508080  6       -       1       False   2021-07-19 08:44:09.000000      N/A    Disabled</span><br><span class="line">5788    856     LockApp.exe     0xc208da706440  13      -       1       False   2021-07-19 08:44:09.000000      N/A    Disabled</span><br><span class="line">5896    856     RuntimeBroker.  0xc208da78b300  5       -       1       False   2021-07-19 08:44:09.000000      N/A    Disabled</span><br><span class="line">1464    3372    GoogleCrashHan  0xc208d9b6d4c0  3       -       0       True    2021-07-19 08:44:10.000000      N/A    Disabled</span><br><span class="line">5136    3372    GoogleCrashHan  0xc208da7f9080  3       -       0       False   2021-07-19 08:44:10.000000      N/A    Disabled</span><br><span class="line">5880    856     RuntimeBroker.  0xc208da8e8300  4       -       1       False   2021-07-19 08:44:10.000000      N/A    Disabled</span><br><span class="line">6120    856     WindowsInterna  0xc208dac09280  21      -       1       False   2021-07-19 08:44:13.000000      N/A    Disabled</span><br><span class="line">6324    856     RuntimeBroker.  0xc208dacc0080  3       -       1       False   2021-07-19 08:44:16.000000      N/A    Disabled</span><br><span class="line">6384    856     smartscreen.ex  0xc208daad7080  18      -       1       False   2021-07-19 08:44:19.000000      N/A    Disabled</span><br><span class="line">6440    3784    SecurityHealth  0xc208dab42080  3       -       1       False   2021-07-19 08:44:19.000000      N/A    Disabled</span><br><span class="line">6476    656     SecurityHealth  0xc208d4f07080  9       -       0       False   2021-07-19 08:44:19.000000      N/A    Disabled</span><br><span class="line">6628    3784    vm3dservice.ex  0xc208da14b340  1       -       1       False   2021-07-19 08:44:20.000000      N/A    Disabled</span><br><span class="line">6660    3784    vmtoolsd.exe    0xc208da14a080  9       -       1       False   2021-07-19 08:44:20.000000      N/A    Disabled</span><br><span class="line">6756    3784    OneDrive.exe    0xc208da1b43c0  20      -       1       True    2021-07-19 08:44:21.000000      N/A    Disabled</span><br><span class="line">6964    856     WmiPrvSE.exe    0xc208da154080  7       -       0       False   2021-07-19 08:44:25.000000      N/A    Disabled</span><br><span class="line">7016    656     svchost.exe     0xc208da149080  9       -       0       False   2021-07-19 08:44:26.000000      N/A    Disabled</span><br><span class="line">4648    856     WinStore.App.e  0xc208d9bf1080  12      -       1       False   2021-07-19 08:44:55.000000      N/A    Disabled</span><br><span class="line">936     856     RuntimeBroker.  0xc208db3e9300  3       -       1       False   2021-07-19 08:44:55.000000      N/A    Disabled</span><br><span class="line">4560    856     SystemSettings  0xc208db3e5080  18      -       1       False   2021-07-19 08:45:05.000000      N/A    Disabled</span><br><span class="line">504     1652    audiodg.exe     0xc208db4a7080  5       -       0       False   2021-07-19 08:45:06.000000      N/A    Disabled</span><br><span class="line">2956    656     svchost.exe     0xc208d9579080  9       -       0       False   2021-07-19 08:46:05.000000      N/A    Disabled</span><br><span class="line">876     656     SgrmBroker.exe  0xc208db3e2080  3       -       0       False   2021-07-19 08:46:06.000000      N/A    Disabled</span><br><span class="line">6488    656     svchost.exe     0xc208d9083080  6       -       0       False   2021-07-19 08:46:06.000000      N/A    Disabled</span><br><span class="line">4616    3784    chrome.exe      0xc208d91b3080  0       -       1       False   2021-07-19 08:46:42.000000      2021-07-19 08:48:22.000000      Disabled</span><br><span class="line">4716    4616    chrome.exe      0xc208dafae080  0       -       1       False   2021-07-19 08:46:43.000000      2021-07-19 08:48:22.000000      Disabled</span><br><span class="line">4256    4616    WinRAR.exe      0xc208d9e8c4c0  20      -       1       False   2021-07-19 08:47:55.000000      N/A    Disabled</span><br><span class="line">4164    856     dllhost.exe     0xc208dabc8080  8       -       1       False   2021-07-19 08:48:26.000000      N/A    Disabled</span><br><span class="line">5528    656     svchost.exe     0xc208dd08b080  5       -       0       False   2021-07-19 08:48:50.000000      N/A    Disabled</span><br><span class="line">3204    3784    easyVPN.exe     0xc208dafaf500  12      -       1       False   2021-07-19 08:50:41.000000      N/A    Disabled</span><br><span class="line">5012    3204    conhost.exe     0xc208dbaf7080  5       -       1       False   2021-07-19 08:50:41.000000      N/A    Disabled</span><br><span class="line">5928    3784    Wireshark.exe   0xc208d991a080  15      -       1       False   2021-07-19 08:51:54.000000      N/A    Disabled</span><br><span class="line">3544    5928    dumpcap.exe     0xc208db3df4c0  0       -       1       False   2021-07-19 08:51:56.000000      2021-07-19 08:51:56.000000      Disabled</span><br><span class="line">4928    5928    dumpcap.exe     0xc208dabb0080  0       -       1       False   2021-07-19 08:52:02.000000      2021-07-19 08:53:27.000000      Disabled</span><br><span class="line">8096    656     svchost.exe     0xc208dbff12c0  3       -       0       False   2021-07-19 08:52:17.000000      N/A    Disabled</span><br><span class="line">6464    856     MicrosoftEdge.  0xc208dd31d540  32      -       1       False   2021-07-19 08:56:53.000000      N/A    Disabled</span><br><span class="line">616     856     browser_broker  0xc208da558540  5       -       1       False   2021-07-19 08:56:53.000000      N/A    Disabled</span><br><span class="line">3572    5260    MicrosoftEdgeS  0xc208dbedc080  9       -       1       False   2021-07-19 08:56:53.000000      N/A    Disabled</span><br><span class="line">6504    856     MicrosoftEdgeC  0xc208d9580080  16      -       1       False   2021-07-19 08:56:53.000000      N/A    Disabled</span><br><span class="line">1040    4792    SearchProtocol  0xc208dbedb080  8       -       0       False   2021-07-19 08:57:26.000000      N/A    Disabled</span><br><span class="line">4984    4792    SearchFilterHo  0xc208dd1724c0  5       -       0       False   2021-07-19 08:57:26.000000      N/A    Disabled</span><br><span class="line">5964    396     Eraser.exe      0xc208db59a540  16      -       1       False   2021-07-19 08:58:14.000000      N/A    Disabled</span><br><span class="line">2400    856     dllhost.exe     0xc208dd2b4540  8       -       1       False   2021-07-19 08:58:51.000000      N/A    Disabled</span><br><span class="line">4684    856     dllhost.exe     0xc208dd80b080  8       -       0       False   2021-07-19 08:58:51.000000      N/A    Disabled</span><br><span class="line">3504    3784    GetFlag.exe     0xc208d9ad12c0  5       -       1       True    2021-07-19 08:58:51.000000      N/A    Disabled</span><br><span class="line">7664    3504    conhost.exe     0xc208da6e6080  10      -       1       False   2021-07-19 08:58:51.000000      N/A    Disabled</span><br><span class="line">572     2340    cmd.exe 0xc208dd0904c0  0       -       0       False   2021-07-19 08:58:56.000000      2021-07-19 08:58:56.000000      Disabled</span><br><span class="line">7924    572     conhost.exe     0xc208d9866080  0       -       0       False   2021-07-19 08:58:56.000000      2021-07-19 08:58:56.000000      Disabled</span><br></pre></td></tr></table></figure>
+
+<p>答案是106个</p>
+<p><strong>22.内存镜像中，恶意进程对应的进程PID为</strong></p>
+<p>分清楚啊 恶意进程是他从浏览器下载下来的 而不是之前那个easyVPN噢 那个这是想要开机自启 而另一个是恶意加密你的文件 就是那个从流量包里面分析出来的 所以是那个GetFlag.exe PID也就是3504</p>
+<p><strong>23.对该程序进行分析FLAG17</strong></p>
+<p>P.S. 这部分想让皓神写一下的 到时候我也学着 嘤嘤嘤</p>
+<p>(一个web手从0开始学逆向的苦 呜呜呜呜) 因为我才刚学逆向 所以这部分如果我有说错的地方 还请师父斧正 首先我们需要一个IDA 可能还需要一个OD(但是我还在学咋用) 我们先用IDA打开它(东方魔力版)</p>
+<p>我们载入之后先进入main函数 按F5查看伪代码 因为汇编代码太难看了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">int __cdecl main(int argc, const char **argv, const char **envp)</span><br><span class="line">&#123;</span><br><span class="line">  int v3; // ebp</span><br><span class="line">  __m128i v5; // [esp-B0h] [ebp-BCh] BYREF</span><br><span class="line">  __m128i v6; // [esp-A0h] [ebp-ACh]</span><br><span class="line">  __m128i v7; // [esp-90h] [ebp-9Ch]</span><br><span class="line">  __m128i v8; // [esp-80h] [ebp-8Ch]</span><br><span class="line">  _BYTE v9[16]; // [esp-64h] [ebp-70h] BYREF</span><br><span class="line">  int v10; // [esp-54h] [ebp-60h]</span><br><span class="line">  int v11; // [esp-4Ch] [ebp-58h]</span><br><span class="line">  int v12; // [esp-48h] [ebp-54h]</span><br><span class="line">  const char *v13; // [esp-44h] [ebp-50h]</span><br><span class="line">  int v14; // [esp-40h] [ebp-4Ch]</span><br><span class="line">  __m128i *v15; // [esp-3Ch] [ebp-48h]</span><br><span class="line">  __m128i **v16; // [esp-38h] [ebp-44h]</span><br><span class="line">  __m128i *v17; // [esp-34h] [ebp-40h] BYREF</span><br><span class="line">  int v19; // [esp-2Ch] [ebp-38h] BYREF</span><br><span class="line">  HMODULE v20; // [esp-28h] [ebp-34h]</span><br><span class="line">  char v21; // [esp-24h] [ebp-30h]</span><br><span class="line">  char v22; // [esp-1Eh] [ebp-2Ah]</span><br><span class="line">  char v23; // [esp-1Dh] [ebp-29h]</span><br><span class="line">  char v24; // [esp-1Ch] [ebp-28h]</span><br><span class="line">  char v25; // [esp-16h] [ebp-22h]</span><br><span class="line">  char v26; // [esp-15h] [ebp-21h]</span><br><span class="line">  char v27; // [esp-14h] [ebp-20h]</span><br><span class="line">  char v28; // [esp-13h] [ebp-1Fh]</span><br><span class="line">  char v29; // [esp-12h] [ebp-1Eh]</span><br><span class="line">  char v30; // [esp-11h] [ebp-1Dh]</span><br><span class="line">  int *v31; // [esp-10h] [ebp-1Ch]</span><br><span class="line">  struct _EXCEPTION_REGISTRATION_RECORD *v32; // [esp-Ch] [ebp-18h]</span><br><span class="line">  void *v33; // [esp-8h] [ebp-14h]</span><br><span class="line">  int v34; // [esp-4h] [ebp-10h]</span><br><span class="line">  int v35; // [esp+0h] [ebp-Ch]</span><br><span class="line">  int v36; // [esp+4h] [ebp-8h]</span><br><span class="line">  int v37; // [esp+8h] [ebp-4h] BYREF</span><br><span class="line">  int retaddr; // [esp+Ch] [ebp+0h]</span><br><span class="line"></span><br><span class="line">  v35 = v3;</span><br><span class="line">  v36 = retaddr;</span><br><span class="line">  v34 = -1;</span><br><span class="line">  v33 = &amp;loc_451965;</span><br><span class="line">  v32 = NtCurrentTeb()-&gt;NtTib.ExceptionList;</span><br><span class="line">  v31 = &amp;v37;</span><br><span class="line">  v11 = 0;</span><br><span class="line">  v20 = GetModuleHandleA(0);</span><br><span class="line">  if ( v20 == (HMODULE)-1 )</span><br><span class="line">    return 1;</span><br><span class="line">  if ( !memcmp(v20 + 1, &quot;FIC2021&quot;, 7u) )</span><br><span class="line">  &#123;</span><br><span class="line">    v30 = 0;</span><br><span class="line">    v24 = 0;</span><br><span class="line">    v29 = 0;</span><br><span class="line">    v28 = 0;</span><br><span class="line">    v23 = 0;</span><br><span class="line">    v27 = 0;</span><br><span class="line">    v26 = 0;</span><br><span class="line">    v22 = 0;</span><br><span class="line">    v25 = 0;</span><br><span class="line">    v21 = 0;</span><br><span class="line">    v17 = &amp;v5;</span><br><span class="line">    v16 = &amp;v17;</span><br><span class="line">    v7 = stru_45E634;</span><br><span class="line">    v8 = stru_45E624;</span><br><span class="line">    v6 = _mm_mullo_epi32(stru_45E624, stru_45E634);</span><br><span class="line">    v5 = v6;</span><br><span class="line">    v15 = &amp;v5;</span><br><span class="line">    sub_401030(&quot;flag17:%s\n&quot;, (char)&amp;v5);</span><br><span class="line">  &#125;</span><br><span class="line">  sub_401530(&amp;v19);</span><br><span class="line">  v34 = 0;</span><br><span class="line">  sub_4015A0(v9, &quot;http://www.fic2021.com/flag18&quot;);</span><br><span class="line">  LOBYTE(v34) = 1;</span><br><span class="line">  v14 = v10;</span><br><span class="line">  if ( v10 == 8 )</span><br><span class="line">  &#123;</span><br><span class="line">    v13 = (const char *)sub_402400(v9);</span><br><span class="line">    dword_461540 = (int)_strdup(v13);</span><br><span class="line">    LOBYTE(v34) = 2;</span><br><span class="line">    sub_401F80(0);</span><br><span class="line">    LOBYTE(v34) = 1;</span><br><span class="line">    sub_4016F0();</span><br><span class="line">  &#125;</span><br><span class="line">  else</span><br><span class="line">  &#123;</span><br><span class="line">    sub_401030(&quot;flag18.size() is not 8\n&quot;, v5.m128i_i8[0]);</span><br><span class="line">  &#125;</span><br><span class="line">  sub_401030(&quot;FIC2021: Love Ningbo,Love Zhejiang  --- by Spring\n&quot;, v5.m128i_i8[0]);</span><br><span class="line">  Sleep(0x1388u);</span><br><span class="line">  sub_401320();</span><br><span class="line">  v12 = 0;</span><br><span class="line">  LOBYTE(v34) = 0;</span><br><span class="line">  sub_401DC0(v9);</span><br><span class="line">  v34 = -1;</span><br><span class="line">  sub_402CE0(v19);</span><br><span class="line">  sub_402E80();</span><br><span class="line">  return v12;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>别的不看 我们看到了flag15</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sub_401030(&quot;flag17:%s\n&quot;, (char)&amp;v5);</span><br></pre></td></tr></table></figure>
+
+<p>而这句话其实还调用了sub_401030这个子函数 我们也得去看看他</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int sub_401030(char *Format, ...)</span><br><span class="line">&#123;</span><br><span class="line">  unsigned __int64 *v1; // eax</span><br><span class="line">  FILE *v3; // [esp-10h] [ebp-14h]</span><br><span class="line">  va_list ArgList; // [esp+10h] [ebp+Ch] BYREF</span><br><span class="line"></span><br><span class="line">  va_start(ArgList, Format);</span><br><span class="line">  v3 = _acrt_iob_func(1u);</span><br><span class="line">  v1 = (unsigned __int64 *)sub_401020();</span><br><span class="line">  return _stdio_common_vfprintf(*v1, v3, Format, 0, ArgList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很简练 其实刚到这我是不会做的 逆向手打完逆向不要删题 复制完扔给队友赏一下 假的web手(我)都看哭了 直到我看到了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return _stdio_common_vfprintf(*v1, v3, Format, 0, ArgList);</span><br></pre></td></tr></table></figure>
+
+<p>因为函数名什么的 一般不会乱写的 所以我打算去查一下 看这玩意是不是就是个print函数 结果查了msvc 还真是 附上msvc的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">_Check_return_opt_   </span><br><span class="line">_CRT_STDIO_INLINE int __CRTDECL printf(        </span><br><span class="line">    _In_z_ _Printf_format_string_ char const* const _Format,        		...)    	</span><br><span class="line">#if defined _NO_CRT_STDIO_INLINE    </span><br><span class="line">;    </span><br><span class="line">#else</span><br><span class="line">&#123;        </span><br><span class="line">	int _Result;        </span><br><span class="line">	va_list _ArgList;        </span><br><span class="line">	__crt_va_start(_ArgList, _Format);        </span><br><span class="line">	_Result = _vfprintf_l(stdout, _Format, NULL, _ArgList);        			__crt_va_end(_ArgList);        </span><br><span class="line">	return _Result;    </span><br><span class="line">&#125;   </span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<p>基本上是一模一样 现在问题就是怎么触发那个if 让他调用这个函数 分析一波</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if ( !memcmp(v20 + 1, &quot;FIC2021&quot;, 7u) )</span><br></pre></td></tr></table></figure>
+
+<p>要分析的是这句话 这个if进了 那就出flag了 memcmp是把这个exe存储区的前n个字节进行比较 比较对象就是FIC2021 7u忽略不计 那v20+1呢 v20是HMODULE类型 并且前面对v20进行了赋值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v20 = GetModuleHandleA(0);</span><br></pre></td></tr></table></figure>
+
+<p>这句话意思是赋值了句柄 其实可以理解为exe加载到内存之后的最开始的位置 应该就是文件头的位置 而v20+1指的就是开头之后的4个字节 要让他等于FIC2021 试一下</p>
+<img src="/2021/08/06/FIC2021/14.png" class="">
+
+<p>运行exe程序 放心能在题目里拿到的都是无毒无害的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flag17:T32JEYHN</span><br><span class="line">flag18.size() is not 8</span><br><span class="line">FIC2021: Love Ningbo,Love Zhejiang  --- by Spring</span><br></pre></td></tr></table></figure>
+
+<p>起飞！</p>
+<p>其实flag17还有另一种做法 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">if ( !memcmp(v20 + 1, &quot;FIC2021&quot;, 7u) )</span><br><span class="line">  &#123;</span><br><span class="line">    v30 = 0;</span><br><span class="line">    v24 = 0;</span><br><span class="line">    v29 = 0;</span><br><span class="line">    v28 = 0;</span><br><span class="line">    v23 = 0;</span><br><span class="line">    v27 = 0;</span><br><span class="line">    v26 = 0;</span><br><span class="line">    v22 = 0;</span><br><span class="line">    v25 = 0;</span><br><span class="line">    v21 = 0;</span><br><span class="line">    v17 = &amp;v5;</span><br><span class="line">    v16 = &amp;v17;</span><br><span class="line">    v7 = stru_45E634;</span><br><span class="line">    v8 = stru_45E624;</span><br><span class="line">    v6 = _mm_mullo_epi32(stru_45E624, stru_45E634);</span><br><span class="line">    v5 = v6;</span><br><span class="line">    v15 = &amp;v5;</span><br><span class="line">    sub_401030(&quot;flag17:%s\n&quot;, (char)&amp;v5);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>很明显我们是要进入这个if里面 进了这个if就能输出flag 但是我们如果就不改其他的东西 在OD里面强制到这个if判真 也是可以的 试一下 首先我们要找到这个函数的位置 到了之后设断点</p>
+<img src="/2021/08/06/FIC2021/23.png" class="">
+
+<p>找到了memcmp 找到了FIC2021 就是这里 而if的实现在这里就是通过那个jnz(jump if not zero)来实现的 我们在这设置断点 到这之后修改ZF寄存器的值 0改成1 1改成0 让他不实现跳转 然后往后步入几步 观察右下角那个不知道叫啥的黑框框</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0093F6F8   005BE5AC  ASCII &quot;flag17:%s\n&quot;</span><br><span class="line">0093F6FC   0093F700  ASCII &quot;T32JEYHN&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>24.对该程序进行分析FLAG18</strong></p>
+<p>同样的我们先找到源码 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">sub_401530(&amp;v19);</span><br><span class="line">v34 = 0;</span><br><span class="line">sub_4015A0(v9, &quot;http://www.fic2021.com/flag18&quot;);</span><br><span class="line">LOBYTE(v34) = 1;</span><br><span class="line">v14 = v10;</span><br><span class="line">if ( v10 == 8 )</span><br><span class="line">&#123;</span><br><span class="line">  v13 = (const char *)sub_402400(v9);</span><br><span class="line">  dword_461540 = (int)_strdup(v13);</span><br><span class="line">  LOBYTE(v34) = 2;</span><br><span class="line">  sub_401F80(0);</span><br><span class="line">  LOBYTE(v34) = 1;</span><br><span class="line">  sub_4016F0();</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">  sub_401030(&quot;flag18.size() is not 8\n&quot;, v5.m128i_i8[0]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相关的就这些 能看到关于flag18的输出就在这俩判断里 要么输出flag18.size() is not 8\n 要么就是进入了v10&#x3D;&#x3D;8的if 那么应该是能猜到if条件成立就能进 sub_4015A0函数的作用就是从这个网址上下载flag18 如果是8字节的话 就进入461540 那个_strdup是c的字符串复制函数 复制到内存里 基本逻辑是这样的 这个网站肯定宕了 不然不是有手就行的题目 我们需要自己搭建 当然肯定不能真的搭这个域名 我们可以改个host</p>
+<p>表面上真的是这样做 但是转身一想 如果按上述的思路做 搭网站 改host 读flag18发现8字节 执行_strcpy 将或许是真的flag复制到内存中的某个地方 但是如果要这样做的话 我们就得判断这个函数在自己计算机内存中的地址了 也是可行的 但是题目有给我们一个内存镜像 不至于到目前为止这个内存就让我们pslist了一下 而且我们看到了getflag.exe在内存中是出于运行状态的 试一下说不定可以从镜像中提取 我们首先需要获得该程序在内存里的基址 这里我们需要volshell.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python3 volshell.py -f 1.vmem -w</span><br><span class="line">cp(3504)</span><br><span class="line">(primary_Process3504) &gt;&gt;&gt; for entry in ps()[102].load_order_modules():</span><br><span class="line">...     print(entry.BaseDllName.get_string(),hex(entry.DllBase))</span><br><span class="line">GetFlag.exe 0x11d0000</span><br></pre></td></tr></table></figure>
+
+<p>这里的python语法很像ctf里的模板注入 都是调用了python里的一些自带的类 我们获得了这个GetFlag.exe在内存里的基址 接下来我们还需要知道他在代码里的相对地址 这样相加才是这个函数在内存里真正的的偏移地址 这个函数名是sub_461540 而代码的基址就是400000 相减就是代码的相对地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(primary_Process3504) &gt;&gt;&gt; db(0x11d0000+0x461540-0x400000)</span><br><span class="line">0x1231540    78 f8 68 01 00 00 00 00 24 00 00 00 00 00 00 00    x.h.....$.......</span><br><span class="line">0x1231550    01 00 00 00 00 00 00 00 80 96 98 00 00 00 00 00    ................</span><br><span class="line">0x1231560    02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................</span><br><span class="line">0x1231570    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................</span><br><span class="line">0x1231580    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................</span><br><span class="line">0x1231590    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................</span><br><span class="line">0x12315a0    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................</span><br><span class="line">0x12315b0    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................</span><br></pre></td></tr></table></figure>
+
+<p>可是着很明显不是flag 我们去看一下_strdup这个函数的源码 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">char *</span><br><span class="line">__strdup (const char *s)</span><br><span class="line">&#123;</span><br><span class="line">	//此处使用了strlen(s),所以s不能为NULL</span><br><span class="line">	//+1的原因是，字符串后面还有&#x27;\0&#x27;,但是strlen求出的长度是不包含&#x27;\0&#x27;字符的。</span><br><span class="line">  size_t len = strlen (s) + 1;</span><br><span class="line">  void *new = malloc (len);</span><br><span class="line"> </span><br><span class="line">  if (new == NULL)</span><br><span class="line">    return NULL;</span><br><span class="line">  	 	/*	strlen(s)计算的长度不包含，&#x27;\0&#x27;, 所以len = strlen(s)+1,这样</span><br><span class="line">  	 	 * 	在执行malloc才能分配足够的空间，memcpy才能够将&#x27;\0&#x27;字符也复制过去</span><br><span class="line">  	 	 * */</span><br><span class="line">  return (char *) memcpy (new, s, len);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们看到他拷贝的是地址 地址 地址 不是真的字符串 但是他好像是倒序复制的 因为我正向看找不到 倒过来看就看到了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(primary_Process3504) &gt;&gt;&gt; db(0x0168f878)</span><br><span class="line">0x168f878    57 39 36 53 43 55 4b 56 00 00 00 00 68 92 6a 01    W96SCUKV....h.j.</span><br><span class="line">0x168f888    c0 94 87 f5 00 15 00 88 b0 f6 68 01 50 c4 68 01    ..........h.P.h.</span><br><span class="line">0x168f898    08 cc 68 01 b8 c6 68 01 c5 94 84 f5 00 16 00 88    ..h...h.........</span><br><span class="line">0x168f8a8    64 68 54 6c 08 00 00 00 00 00 00 00 30 1a 69 01    dhTl........0.i.</span><br><span class="line">0x168f8b8    c6 94 89 f5 00 17 00 88 c0 f8 68 01 f8 07 69 01    ..........h...i.</span><br><span class="line">0x168f8c8    c8 f8 68 01 21 0c 69 01 cb 94 8e f5 00 18 00 8c    ..h.!.i.........</span><br><span class="line">0x168f8d8    01 01 00 00 00 00 00 05 13 00 00 00 6e 00 00 00    ............n...</span><br><span class="line">0x168f8e8    cc 94 93 f5 00 19 00 88 77 77 77 2e 66 69 63 32    ........www.fic2</span><br></pre></td></tr></table></figure>
+
+<p>Jackpot!</p>
+<p><strong>25.对该程序进行分析FLAG18</strong></p>
+<p>算法问题 咕咕一下歇会</p>
+<h2 id="检材4：嫌疑人服务器"><a href="#检材4：嫌疑人服务器" class="headerlink" title="检材4：嫌疑人服务器"></a>检材4：嫌疑人服务器</h2><p><strong>准备工作</strong></p>
+<p>磨刀不误砍柴工 这边还是建议各位使用仿真的形式解题 因为就只使用火眼分析或者取证大师的话 抛开一些Linux系统加密的文件无法直接查看之外 还可能出现诸如路径错误或者解析不完整的问题 特别是服务器这块 保险起见还是使用仿真来做比较好 打铁还需自身硬</p>
+<p>我们需要一个仿真软件 一个Xshell 为什么需要Xshell呢 因为你仿真之后是使用VMware打开的 而VMware都知道 第一字比较小 也没办法放大 第二他没办法复制 进虚拟机之后鼠标也会消失 来回切进程很麻烦 而我们Xshell是可以连接VMware的 我们在VMware里面ifconfig一下 得到的局域网ip地址记住之后 去Xshell输入ip 连接之后root 123456登录即可</p>
+<img src="/2021/08/06/FIC2021/15.png" class="">
+
+<p><strong>26.请分析检材4，指出被管理员删除的压缩包，其解压密码是</strong></p>
+<p>压缩包删除的方法不确定 可以直接鼠标右键删了 按键盘给他删了 还可以打开Terminal输入指令给他删了 但是但是但是 如果要对这个加密压缩一个文件 大概率都是通过Terminal来实现的 可以指定-p 密码 所以我们打开Terminal history一下 而且如果是Xshell界面 鼠标滚轮就可以往上翻 很方便</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">1  reboot</span><br><span class="line">2  history</span><br><span class="line">3  netstat -naplt</span><br><span class="line">4  cd /usr/local/nginx/conf/</span><br><span class="line">5  ls</span><br><span class="line">6  vim nginx.conf</span><br><span class="line">7  systemctl restart nginx</span><br><span class="line">8  vim nginx.conf</span><br><span class="line">9  systemctl restart nginx</span><br><span class="line">10  vim nginx.conf</span><br><span class="line">11  systemctl restart nginx</span><br><span class="line">12  clear</span><br><span class="line">13  cd ~</span><br><span class="line">14  ls</span><br><span class="line">15  history</span><br><span class="line">16  cd /data/</span><br><span class="line">17  ls</span><br><span class="line">18  cd compatition/</span><br><span class="line">19  ls</span><br><span class="line">20  wq</span><br><span class="line">21  ls -a</span><br><span class="line">22  clear</span><br><span class="line">23  cd ~</span><br><span class="line">24  unzip -P HL7001 FIC2021.zip </span><br><span class="line">25  ls</span><br><span class="line">26  unzip FIC2021.zip </span><br><span class="line">27  ls -a</span><br><span class="line">28  vim FIC2021</span><br><span class="line">29  rm -rf FIC2021.zip </span><br><span class="line">30  history</span><br><span class="line">31  vim FIC2021 </span><br><span class="line">32  last</span><br><span class="line">33  shutdown now</span><br><span class="line">34  ifocnifgh</span><br><span class="line">35  ifconfig</span><br><span class="line">36  ifup ens33</span><br><span class="line">37  ifconfig</span><br><span class="line">38  history</span><br><span class="line">39  clear</span><br><span class="line">40  ls</span><br><span class="line">41  reboot</span><br><span class="line">42  clear</span><br><span class="line">43  history</span><br><span class="line">44  reboot</span><br><span class="line">45  ifup ens33</span><br><span class="line">46  history</span><br><span class="line">47  shutdown now</span><br><span class="line">48  history</span><br></pre></td></tr></table></figure>
+
+<p>看第24行 很明显哦</p>
+<p><strong>27.分析检材4并找出FLAG10</strong></p>
+<p>这里的flag都和上下文有关系的 所以我们可以试着去找一下那个FIC2021 注意不是压缩包 而是他后面vim的 看看还在不在 我们find一下 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name FIC2021</span><br></pre></td></tr></table></figure>
+
+<p>定位到路径 直接打开 却发现 里面没有flag 但是暗示了flag就在这附近 想办法搞到 想了想 会不会是有文件隐藏了没看到 我们ls -a试一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.   1.txt  2.txt            .bash_history  .bash_profile  .cache       .config  .docker  .FIC2021.swn  .FIC2021.swp  log        nginx-1.20.1         .pki  .tcshrc</span><br><span class="line">..  1.xtt  anaconda-ks.cfg  .bash_logout   .bashrc        compati.tar  .cshrc   FIC2021  .FIC2021.swo  .lesshst      mongo.tar  nginx-1.20.1.tar.gz  .rnd  .viminfo</span><br></pre></td></tr></table></figure>
+
+<p>前面带.的是隐藏的文件 我们直接cat .swo&#x2F;.swp&#x2F;.swn这些 这些是临时文件 是会存储文本信息的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">U3210#&quot;! Utadʐ꩞ތFLAG10:G94HVP5G FLAG10 isFIC 2021,Evidence No.2</span><br></pre></td></tr></table></figure>
+
+<p><strong>28.请分析服务器并找出，网站代码所在的docker容器的完整ID为</strong></p>
+<p>考docker其实应该蛮庆幸的 因为考烂了考点什么的大家都熟悉 我们进入Terminal之后 敲一下docker 发现docker没开 我们把它打开</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<p>打开之后我们列出所有容器 保险起见我们列出包括隐藏的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+<p>讲道理列出来以后就能看出哪个是网站哪个是数据库了 mongodb是一个很常见的数据库名称(不认识去面壁) 另一个大概率是 我们保险起见的话可以进到容器里面走一圈</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CONTAINER ID   IMAGE                                                                COMMAND                  CREATED       STATUS                    PORTS                                           NAMES</span><br><span class="line">0d5e746a89dc   nginx                                                                &quot;/docker-entrypoint.…&quot;   2 weeks ago   Exited (255) 5 days ago   80/tcp                                          flag</span><br><span class="line">3b801e86c92e   registry.forensix.cn/docker/mongo:4.2.0                              &quot;docker-entrypoint.s…&quot;   2 weeks ago   Up 2 minutes              0.0.0.0:27017-&gt;27017/tcp, :::27017-&gt;27017/tcp   compatition_mongo_1</span><br><span class="line">fb264d648683   registry.forensix.cn/temporaryproject/2021ficcompetition:1.0.0.211   &quot;docker-entrypoint.s…&quot;   2 weeks ago   Up 2 minutes              0.0.0.0:80-&gt;8000/tcp, :::80-&gt;8000/tcp           compatition_web_1</span><br></pre></td></tr></table></figure>
+
+<p><strong>29.请分析服务器，并找出FLAG11的值为</strong></p>
+<p>讲道理 肯定是要进入服务器网站代码所在容器了 我们进去走一圈 结果我什么都没发现 那没有再去mongo数据库容器里面转一圈 结果还是没有 不行 docker ps -a一下 看看隐藏(未开启)容器 发现有个nginx的 我们要先打开</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start 0d5e</span><br></pre></td></tr></table></figure>
+
+<p>打开之后在搜索find -name flag 才在根目录下面找到flag11 其实找不到不要硬刚 可以试一下取证大师直接全盘搜索 切忌不要太头铁</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag11: 3D55UPUH</span><br></pre></td></tr></table></figure>
+
+<p><strong>30.经分析发现，该服务器中监听90端口的服务是</strong></p>
+<p>内存取证一般碰上监听端口服务的 netscan一下就行 Linux里面也有一个类似的 叫netstat 但是问题是 这个netstat之后出来的结果不带端口 但是我们可以使用lsof这个命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:90</span><br></pre></td></tr></table></figure>
+
+<p>结果显而易见</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx   1245   root    6u  IPv4  20583      0t0  TCP *:dnsix (LISTEN)</span><br><span class="line">nginx   1246 nobody    6u  IPv4  20583      0t0  TCP *:dnsix (LISTEN)</span><br></pre></td></tr></table></figure>
+
+<p><strong>31.经分析，发现当访问者为特定IP时，服务器会将访问会重定向到其他页面，该特定IP地址为</strong></p>
+<p>这种重定向的功能 是网站自身配置的功能 和服务器或者Linux机子本身没有关系 所以我们必须要去找网站的配置文件 我们docker ps之后也知道 这个网站是用Nginx来建设的 Nginx的配置文件是Nginx.conf</p>
+<p><strong>注意注意注意</strong> 整个服务器里面有两个Nginx 一个是docker专门用来搭了一个Nginx 另一个是docker外面的 如果是docker外面的 我们直接find -name 注意哦 find命令是区分大小写的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./root/nginx-1.20.1/conf/nginx.conf</span><br><span class="line">./var/lib/docker/overlay2/4dd9db98e2f77a81b005f8995dd5b785f8a079c584cb2e39bca0d4972a30f4de/diff/etc/nginx/nginx.conf</span><br><span class="line">./usr/local/nginx/conf/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>第二个明显的是docker里的 反正一个个都看过去吧</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    #log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">    #                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">    #                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    #access_log  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       90;</span><br><span class="line">     #   listen      443 ssl;</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        root   html;</span><br><span class="line">        #charset koi8-r;       </span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"> </span><br><span class="line">        location / &#123;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        if ($remote_addr = 192.168.200.1) &#123;</span><br><span class="line">              proxy_pass http://www.forensix.cn;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        # FLAG  </span><br><span class="line">        location /f/a5f13df39a9f4cde86bc &#123; </span><br><span class="line">        if ($remote_addr = 192.168.200.1)</span><br><span class="line">             &#123;proxy_pass http://pan.forensix.cn;&#125;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>不仅看到了ip 还看到了一个FLAG</p>
+<p><strong>32.请分析检材4并找出FLAG12的值为</strong></p>
+<p>怎么说呢 我不知道能不能跟你们解释的清楚 感觉有手就行 重点看这一部分</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        if ($remote_addr = 192.168.200.1) &#123;</span><br><span class="line">              proxy_pass http://www.forensix.cn;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        # FLAG  </span><br><span class="line">location /f/a5f13df39a9f4cde86bc &#123; </span><br><span class="line">        if ($remote_addr = 192.168.200.1)</span><br><span class="line">             &#123;proxy_pass http://pan.forensix.cn;&#125;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个location的意思是 访问到这个网站相对的根目录 也可以说是类似主页 或者index.php这类的东西 如果这点能理解 就会明白第二个location是什么意思了 如果我们访问了网站相对根目录下的f&#x2F;a5f13df39a9f4cde86bc目录 就进到if里面 而他标了个flag 那不得试一下 至于网站嘛 你要是实在纠结就都试一遍</p>
+
+
+<p><strong>33.服务器中提供APK下载页面的网站，所使用的外部端口号为</strong></p>
+<p>回忆一下 docker就仨容器 一个是Nginx 一个是mongo 另一个是网站源码 你说是哪个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CONTAINER ID   IMAGE                                                                COMMAND                  CREATED       STATUS                    PORTS                                           NAMES</span><br><span class="line">0d5e746a89dc   nginx                                                                &quot;/docker-entrypoint.…&quot;   2 weeks ago   Exited (255) 5 days ago   80/tcp                                          flag</span><br><span class="line">3b801e86c92e   registry.forensix.cn/docker/mongo:4.2.0                              &quot;docker-entrypoint.s…&quot;   2 weeks ago   Up 2 minutes              0.0.0.0:27017-&gt;27017/tcp, :::27017-&gt;27017/tcp   compatition_mongo_1</span><br><span class="line">fb264d648683   registry.forensix.cn/temporaryproject/2021ficcompetition:1.0.0.211   &quot;docker-entrypoint.s…&quot;   2 weeks ago   Up 2 minutes              0.0.0.0:80-&gt;8000/tcp, :::80-&gt;8000/tcp           compatition_web_1</span><br></pre></td></tr></table></figure>
+
+<p>然后就看的是这个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.0.0.0:80-&gt;8000/tcp, :::80-&gt;8000/tcp</span><br></pre></td></tr></table></figure>
+
+<p>80是外部端口 别问为什么</p>
+<p><strong>34.上题中网站数据库所使用的端口号为</strong></p>
+<p>虽然 mongodb数据库的端口号我们是需要背下来的 是27017 但是保险起见我们还是找一下配置文件 好吧我没找到配置文件 虽然不知道为什么没找到 但是我看到了docker ps</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3b801e86c92e   registry.forensix.cn/docker/mongo:4.2.0                              &quot;docker-entrypoint.s…&quot;   2 weeks ago   Up 49 minutes             0.0.0.0:27017-&gt;27017/tcp, :::27017-&gt;27017/tcp   compatition_mongo_1</span><br></pre></td></tr></table></figure>
+
+<p>确定了是27017端口</p>
+<p><strong>35.服务器中网站所使用的数据库密码为（FLAG21）</strong></p>
+<p>讲道理 要连接数据库必须要找到他的账户密码  而且是mongodb的数据库 我们要找的目标是mongodb.conf 显然 我们找不到 无论是容器里面还是外面都找不到mongodb.conf这个文件 后来想了蛮久时间 才想起了这个mongodb是用docker起的 如果说他是用docker-compose这个东西起的话 那么肯定会有一个叫docker-compose.yml的配置文件 这个文件相当于是整个容器的配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name docker-compose.yml</span><br></pre></td></tr></table></figure>
+
+<p>找到配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  mongo:</span><br><span class="line">    image: $&#123;REGISTRY&#125;/docker/mongo:4.2.0</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./mongo/data:/data/db</span><br><span class="line">      - ./mongo/dump:/dump</span><br><span class="line">    ports:</span><br><span class="line">      - 27017:27017</span><br><span class="line">    networks:</span><br><span class="line">      - comp_net</span><br><span class="line">    command: mongod --auth</span><br><span class="line">  web:</span><br><span class="line">    image: $&#123;REGISTRY&#125;/temporaryproject/2021ficcompetition:$&#123;TAG&#125;</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      - DOWNLOAD_PASSWORD=$&#123;DOWNLOAD_PASSWORD&#125;</span><br><span class="line">      - MONGO_HOST=mongo</span><br><span class="line">      - MONGO_USER=mongo</span><br><span class="line">      - MONGO_PASS=N6ZCG767</span><br><span class="line">    volumes:</span><br><span class="line">      - ./upload:/app/backend/uploads</span><br><span class="line">      - ./assets:/app/backend/assets</span><br><span class="line">    ports:</span><br><span class="line">      - $&#123;PORT&#125;:8000</span><br><span class="line">    networks:</span><br><span class="line">      - comp_net</span><br><span class="line">networks:</span><br><span class="line">  comp_net:</span><br></pre></td></tr></table></figure>
+
+<p>后来发现也可以进了容器之后 export一下也可以得找到</p>
+<p>36.请分析检材4并找出FLAG22的值为</p>
+<p>上一题让我们找数据库的账号(顺带找的)和密码 这题让我们找flag 很大概率是要让我们登录这个数据库 寻找里面的数据 由于仿真之后服务器完全是命令行 没有GUI 纯手工可能有难度 而且mongo数据库的语法也不熟悉 于是请出网探 连接数据库 找到flag</p>
+<img src="/2021/08/06/FIC2021/17.png" class="">
+
+<p><strong>37.经询问，李四的手机号码为18735787001，请重构该下载网站，并下载李四在案发时下载的APK程序，该APK程序的哈希SHA256值为</strong></p>
+<p>同样的 也是查表 我们发现李四所在数据库那一行 type是2 并且type的值就只有1、2、3 没有超过3的 这时我想起了当时找flag的时候到处翻网站找到的东西</p>
+<img src="/2021/08/06/FIC2021/18.png" class="">
+
+<p>这 只可意会不可言传 你要是硬说不合理 说我就是猜的 我也没办法 并且重构了网站 直接进去之后 也就只有3个可供下载的按钮</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@fb264d648683:/app/backend/assets# sha256sum 2.apk </span><br><span class="line">10b99ee9af2765dd9a1e445af903515917d1e8d7086514a18a5dabe310fc3fb6  2.apk</span><br></pre></td></tr></table></figure>
+
+<p><strong>38.请分析检材4并确认，受害者下载LOL程序的时候，手机的IP地址为</strong></p>
+<p>就在37题下面 就能看到ip 略</p>
+<h2 id="检材5：被害人手机"><a href="#检材5：被害人手机" class="headerlink" title="检材5：被害人手机"></a>检材5：被害人手机</h2><p><strong>39.李四的手机被勒索时候的环境为检材5，请分析检材5，并指出勒索APK程序的安装时间</strong></p>
+<p>题目给了我们可以加载进模拟器的vmdk镜像 我们加载完之后发现 机子已经被锁了我们没办法直接进入系统看安装时间 但是我们可以绕一下 首先我们知道了他下载的是2.apk 你可以直接从重构好的网站下载 也可以取证大师从Linux里面导出 都可 我们导出之后 随便创建一个空的手机虚拟机 用雷神模拟器 打开USB调试 连接雷电智能APP 开始对这个apk进行分析</p>
+<img src="/2021/08/06/FIC2021/19.png" class="">
+
+<p>解析apk的时候需要连接手机 我这是解析过的 不要连接 注意哦 别真连自己的安卓机 找个虚拟机搞 这回apk说不定真有毒</p>
+<p>我们找到了这个apk的包名 cn.forensix.fic 我们直接取证大师加载data.vmdk和system.vmdk 搜索这个包名 时间最新的那个就行</p>
+<img src="/2021/08/06/FIC2021/20.png" class="">
+
+<p><strong>40.受害者李四下载的APK程序的包名为</strong></p>
+<p>上题解出来了</p>
+<p><strong>41.请对勒索APK进行分析，解锁第一关所使用的密码 FLAG14为</strong></p>
+<p>这个apk是加壳了的 我们使用雷电app智能分析 对其脱壳 然后进去看看 进那个最大的就行 并且注意 注意 注意 要在设置里面开启显示不一致的代码 稍微找找 我们在MainActivity里面找到了我们所需要分析的内容</p>
+<p>总共他给你设置了三关 并且加密了你的一些文件 导致我们没办法绕过解flag直接去做后面的mp3 flag14是白给的</p>
+<img src="/2021/08/06/FIC2021/21.png" class="">
+
+<p><strong>42.请对勒索APK进行分析，解锁第二关所使用的密码 FLAG15为</strong></p>
+<p>这题就比较 难搞了 我们得把和FLAG15相关的代码都审一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">else if (App.O000000o.O00000o.equals(this.O00000o0.getText().toString()) &amp;&amp; App.O00000Oo.edit().putInt(&quot;unlocked&quot;, App.O00000Oo.getInt(&quot;unlocked&quot;, 0) | 2).commit()) &#123;</span><br><span class="line">                String string3 = App.O00000Oo.getString(&quot;flag16_tkey&quot;, &quot;&quot;);</span><br><span class="line">                if (App.O00000Oo.edit().putString(&quot;flag16_tkey&quot;, string3 + App.O000000o.O00000o).commit()) &#123;</span><br><span class="line">                    App.O00000o0();</span><br><span class="line">                    PrintStream printStream3 = System.out;</span><br><span class="line">                    O000000o();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先得知道 这个else if对应的才是解FLAG15所需要分析的代码 至于为什么 好好观察onClick函数和O000000o函数里面的每一个if和else if的条件</p>
+<p>知道这一点之后 我们看看这个代码的逻辑 首先这个else if是在onClick函数里面的 对应的就是点击’解锁’按钮的后续操作(自己先把受害者环境加载一下)  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">App.O000000o.O00000o.equals(this.O00000o0.getText().toString())</span><br></pre></td></tr></table></figure>
+
+<p>这一段就是指 把equals前后值进行比较 如果这里是等于就可以进行下一步 我们按住ctrl鼠标左键这个左边的值 进行跟踪 以下代码是我挑着复制的 别问我为什么找不到一样的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public String O00000o;</span><br><span class="line">public native byte[] decrypt(byte[] bArr);</span><br><span class="line">public native byte[] encrypt(byte[] bArr);</span><br><span class="line">public native void init(byte[] bArr);</span><br><span class="line">static &#123;</span><br><span class="line">	System.loadLibrary(&quot;cipher&quot;);</span><br><span class="line">&#125;</span><br><span class="line">this.O00000o = new String(decrypt(O00000Oo.O000000o(&quot;82bae1e442392b9e9c245ea5c7b78747&quot;)));</span><br></pre></td></tr></table></figure>
+
+<p>首先我们在最下面那行看到了 我们这个O00000o字符 是从82bae1e442392b9e9c245ea5c7b78747这段字符以decrypt函数解密来的 而这个函数是使用了native库的 也就是说我们需要用到他apk包里带的so库 然后我们需要生成一个apk 来调用这些函数 输出他的内容 我们使用Android Studio</p>
+<p><strong>P.S. 这个AS环境真的很难很难配 我配了两天两夜才搞好 如果有问题的小伙伴不要硬刚 可以来问问我</strong></p>
+<p>注意啊注意啊 那个.so文件是需要从安卓apk里面提取出来的 apk本质也是压缩包文件 直接用压缩包软件打开就行了</p>
+<img src="/2021/08/06/FIC2021/22.png" class="">
+
+<p>APP.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.forensix.fic;</span><br><span class="line"><span class="keyword">import</span> android.app.Application;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_">Application</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">native</span> <span class="type">byte</span>[] decrypt(<span class="type">byte</span>[] bArr);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">native</span> <span class="type">byte</span>[] encrypt(<span class="type">byte</span>[] bArr);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(<span class="type">byte</span>[] bArr)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.loadLibrary(<span class="string">&quot;cipher&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Main</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="keyword">new</span> <span class="title class_">App</span>().decrypt(O000000o(<span class="string">&quot;82bae1e442392b9e9c245ea5c7b78747&quot;</span>)));</span><br><span class="line">        System.out.println(<span class="string">&quot;value:&quot;</span>+value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">byte</span>[] O000000o(String str) &#123;</span><br><span class="line">        <span class="type">byte</span>[] bArr = <span class="keyword">new</span> <span class="title class_">byte</span>[(str.length() / <span class="number">2</span>)];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i2</span> <span class="operator">=</span> <span class="number">0</span>; i2 &lt; bArr.length; i2++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">i3</span> <span class="operator">=</span> i2 &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            bArr[i2] = (<span class="type">byte</span>) Integer.parseInt(str.substring(i3, i3 + <span class="number">2</span>), <span class="number">16</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> bArr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MainActivity.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.LibCiphertest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.forensix.fic.App;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">Activity</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        App.Main();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>AndroidManifest.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">&quot;com.LibCiphertest&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">application</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:allowBackup</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:icon</span>=<span class="string">&quot;@mipmap/ic_launcher&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:label</span>=<span class="string">&quot;@string/app_name&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:supportsRtl</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:theme</span>=<span class="string">&quot;@android:style/Theme.NoTitleBar.Fullscreen&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:name</span>=<span class="string">&quot;com.LibCiphertest.MainActivity&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:label</span>=<span class="string">&quot;@string/app_name&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后我们连接虚拟机 跑起来 推荐使用雷神模拟器 就不在这边解释代码为什么这样写了 因为我本身也不是二进制方向的 解释不清楚 也没学过java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2021-08-09 10:45:38.915 2258-2258/com.example.myapplication I/System.out: value:FLAG15:TDQ2UWP9</span><br></pre></td></tr></table></figure>
+
+<p>后面第三关我这一段时间应该是不会做了 得写脚本跑 我还在慢慢学 太久没有编程和Crypto了 这一部分复盘暂时就到这里吧</p>
+<p>总结：这一回的出题质量真的很高 考的东西也不是考烂掉的知识点 涉及web re crypto的知识点 案情逻辑简单 完全考察自身功底 还是希望小伙伴们自己回去好好做一遍 </p>
+<p>完结撒花 OvO</p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dawoxiansigema.github.io">Eureka</a>
+            <p>Link：<a href="https://dawoxiansigema.github.io/2021/08/06/FIC2021/">https://dawoxiansigema.github.io/2021/08/06/FIC2021/</a>
+            <p>Publish date：<a href="https://dawoxiansigema.github.io/2021/08/06/FIC2021/">August 6th 2021, 9:51:35 pm</a>
+            <p>Update date：<a href="https://dawoxiansigema.github.io/2021/08/06/FIC2021/">October 31st 2023, 9:56:32 am</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2021/09/25/cnas2021/" title="cnas2021">
+                    <div class="nextTitle">cnas2021</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2021/07/17/%E4%B8%AD%E7%A7%91%E7%AC%AC%E4%B8%80%E5%B1%8A/" title="第一届中科实数杯">
+                    <div class="prevTitle">第一届中科实数杯</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FIC2021"><span class="toc-number">1.</span> <span class="toc-text">FIC2021</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%901%EF%BC%9A%E5%8F%97%E5%AE%B3%E8%80%85PC"><span class="toc-number">1.1.</span> <span class="toc-text">检材1：受害者PC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%902%EF%BC%9A%E5%8F%97%E5%AE%B3%E8%80%85%E6%B5%81%E9%87%8F%E5%8C%85"><span class="toc-number">1.2.</span> <span class="toc-text">检材2：受害者流量包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%903%EF%BC%9A%E5%8F%97%E5%AE%B3%E8%80%85%E5%86%85%E5%AD%98"><span class="toc-number">1.3.</span> <span class="toc-text">检材3：受害者内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%904%EF%BC%9A%E5%AB%8C%E7%96%91%E4%BA%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.4.</span> <span class="toc-text">检材4：嫌疑人服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%905%EF%BC%9A%E8%A2%AB%E5%AE%B3%E4%BA%BA%E6%89%8B%E6%9C%BA"><span class="toc-number">1.5.</span> <span class="toc-text">检材5：被害人手机</span></a></li></ol></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 8
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/">21长安杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span>
+            <a class="archive-post-title" href="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/">0928广东省比武</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span>
+            <a class="archive-post-title" href="/2021/10/06/19%E8%83%BD%E5%8A%9B/">cnas2019</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span>
+            <a class="archive-post-title" href="/2021/09/26/frida/">Frida</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span>
+            <a class="archive-post-title" href="/2021/09/25/cnas2021/">cnas2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span>
+            <a class="archive-post-title" href="/2021/08/06/FIC2021/">FIC2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/17</span>
+            <a class="archive-post-title" href="/2021/07/17/%E4%B8%AD%E7%A7%91%E7%AC%AC%E4%B8%80%E5%B1%8A/">第一届中科实数杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span>
+            <a class="archive-post-title" href="/2021/03/07/20%E5%B9%B4%E7%BE%8E%E4%BA%9A%E6%9D%AF/">20年美亚杯</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="frida">
+                <span class="iconfont-archer">&#xe606;</span>
+                frida
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Forensic">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Forensic
+        </span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://dawoxiansigema.github.io",
+        root: siteMetaRoot,
+        author: "Eureka"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>

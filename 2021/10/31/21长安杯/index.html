@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Eureka">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Eureka">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="这回的长安杯以出题质量来说 难度上相比去年有一定的提升 我们在做题的时候也遇到了比较难过的坎 总结一下 首先是赛制问题 雀食让我们队掉了许多分 出题部分也有点小bug 有客观的原因在 但是主要问题还是我们自身的问题 我们自己的水平还是不够 最后在ban了一些队伍之后勉勉强强拿到了一等奖 还是蛮开心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="21长安杯">
+<meta property="og:url" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这回的长安杯以出题质量来说 难度上相比去年有一定的提升 我们在做题的时候也遇到了比较难过的坎 总结一下 首先是赛制问题 雀食让我们队掉了许多分 出题部分也有点小bug 有客观的原因在 但是主要问题还是我们自身的问题 我们自己的水平还是不够 最后在ban了一些队伍之后勉勉强强拿到了一等奖 还是蛮开心">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/2.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/1.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/3.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/4.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/5.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/12.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/6.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/7.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/8.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/9.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/10.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/11.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/13.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/14.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/15.png">
+<meta property="og:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/16.png">
+<meta property="article:published_time" content="2021-10-31T02:22:31.000Z">
+<meta property="article:modified_time" content="2023-10-31T01:55:58.720Z">
+<meta property="article:author" content="Eureka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/2.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/favicon.ico">
+    
+    <title>21长安杯 · fi3ework&#39;s Studio</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- Google tag (gtag.js) -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>fi3ework's Studio.</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">fi3ework&#39;s Studio.</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">21长安杯</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+    
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                21长安杯
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+</div>
+
+                
+                <!-- 文章字数统计 -->
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2021/10/31</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <p><strong>这回的长安杯以出题质量来说 难度上相比去年有一定的提升 我们在做题的时候也遇到了比较难过的坎 总结一下 首先是赛制问题 雀食让我们队掉了许多分 出题部分也有点小bug 有客观的原因在 但是主要问题还是我们自身的问题 我们自己的水平还是不够 最后在ban了一些队伍之后勉勉强强拿到了一等奖 还是蛮开心</strong></p>
+<span id="more"></span>
+
+<h1 id="2021长安杯"><a href="#2021长安杯" class="headerlink" title="2021长安杯"></a>2021长安杯</h1><p>驴肉火烧yyds! 感谢两位大哥拖着我打 也恭喜各位已经获奖的同学们 长安杯是很多人参加的第一次比赛 我也很欣慰看到你们一步步从0到1 再到这回的拿奖 希望你们在美亚杯的时候可以取得更好的成绩 记住这只是一个开始 咬的住就能成</p>
+<h2 id="检材1"><a href="#检材1" class="headerlink" title="检材1"></a>检材1</h2><p>题目一上来就需要分析检材1 然后出检材2的密码 一个检材出一个检材密码 跟去年赛制是一样的 检材1是个apk文件</p>
+<p><strong>1-4</strong></p>
+<p>雷电app一把梭就行了 很简单略过</p>
+<p><strong>5.该APK发送回后台服务器的数据包含一下哪些内容(多选题)</strong></p>
+<p>可能大多数人抓不了 或者说不会抓这个包 在这题中 如果我们想要抓到这个app返回给服务器的数据包 我们必须要把抓包的模式改为代理模式 普通的http和tcp是抓不到的 可能是因为这个模拟器自己有个代理 走的是本机的ip 于是我们打开代理模式抓包</p>
+<p>可是光打开的话 很久都没有动静 我们看到了app内提醒要我们输入邀请码 这时候想到 很可能我们需要填写这部分的内容 他就会打包发送给服务器 于是填上自己的手机号 邀请码填个123点击确认</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/2.png" class="">
+
+<p>我们发现他申请了访问通讯录的权限 并且在我们代理抓包的地方 发现了他返回给服务器的数据包</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/1.png" class="">
+
+<p>我们不仅可以看到域名 还可以看到api接口地址 以及返回的参数信息</p>
+<p>但是这题其实关键的地方是在E选项 GPS 如果单从这里可能不是很好判断 从后面检材4可以看到 但是从这里的话 也能看到一部分信息 我们先对apk进行反编译</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/3.png" class="">
+
+<p>这个apk比较特殊 上面的源代码都是一些自带调用现成库的函数 没有发现实质性的信息 真正的源码是在下面资源文件 </p>
+<p>也就是说这个apk的逻辑是 使用上面现成函数 调用下方资源文件 所以我们如果细心点 可以在下面看到一个类似网页源码的文件夹 往下翻会看到一个JS加密的字符串 我们使用JsDec解密之后 得到源码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if (e.granted.length &gt; 0) &#123;</span><br><span class="line">	//权限被允许  </span><br><span class="line">	//调用依赖获取定位权限的代码  </span><br><span class="line">	successCallBack()</span><br><span class="line">	// console.log(&#x27;Granted!!! &#x27; + e.granted.toString());  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/4.png" class="">
+
+<p>再结合这里的信息 也能够判断出 但是不准确不能实锤 真正实锤还得后面检材</p>
+<p><strong>6-7</strong></p>
+<p>请求和域名在刚刚抓包的地方就可以看到了 不多说 第七题拿到检材2密码 就可以接下来队友开始分工了 只不过需要注意的是 抓包的时候需要注意 填写的手机号必须是符合规范的 邀请码不能太长 三四位刚好</p>
+<p><strong>8.该APK程序代码中配置的变量apiserver的值为</strong></p>
+<p>还记得我们刚刚解密完的那个函数吗 解密完搜一下apiserver就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var apiserver = &#x27;http://www.honglian7001.com/api/uploads/&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>9.分析该APK，发现该程序还具备获取短信回传到后台的功能，短信上传服务器接口地址为</strong></p>
+<p>还是刚刚那个源码 只不过稍微绕了个弯</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mui.ajax(apiserver + &#x27;apisms&#x27;, &#123;</span><br><span class="line">	data: &#123;</span><br><span class="line">		data: duanxin</span><br><span class="line">	&#125;,</span><br><span class="line">	dataType: &#x27;text&#x27;,//服务器返回json格式数据</span><br><span class="line">	type: &#x27;post&#x27;,//HTTP请求类型</span><br><span class="line">	timeout: 10000,//超时时间设置为10秒；              </span><br><span class="line">		success: function (data) &#123;</span><br><span class="line">		mui.toast(&#x27;获取成功&#x27;)</span><br><span class="line">		//console.log(con)</span><br><span class="line">	&#125;,</span><br><span class="line">	error: function (xhr, type, errorThrown) &#123;</span><br><span class="line">		/异常处理；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>需要在上述apiserver的基础上加个apisms</p>
+<p><strong>10.经分析，发现该APK在运行过程中会在手机中产生一个数据库文件，该文件的文件名为</strong></p>
+<p>之前做到过关于数据库的 524比武的时候 因为当时涉及到数据库的密码 如果选择直接硬刚那个算法可能会比较困难 所以当时选择了frida脚本进行hook处理 这题也一样 我们使用雷电自带的hook工具就可以一把梭了</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/5.png" class="">
+
+<p>当然 我们也可以不用雷电 我们直接进行代码审计 也可以找到对应的函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void mo15055ad() &#123;</span><br><span class="line">	SQLiteDatabase.loadLibs(getApplicationContext());</span><br><span class="line">	new FridaSQLiteHelper(this, &quot;test.db&quot;, null, 1).getWritableDatabase(getMD5(bytesToHex(new byte[]&#123;97, 98, 99, 100, 101, 102&#125;).substring(1, 3))).close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>11.经分析，发现该APK在运行过程中会在手机中产生一个数据库文件，该数据库的初始密码为</strong></p>
+<p>如果我们直接hook 我们会发现刚刚那个结果里面就含有数据库密码了 但是如果我们不用hook呢 我们刚刚找到了对应的函数 而这个函数很明显是str—&gt;hex—&gt;substring—&gt;md5</p>
+<p>在这题内就是将abcdef转为hex 然后截取1到2位 注意初始是0 并且3不截取在内</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char:abcdef</span><br><span class="line">hex:616263646566</span><br><span class="line">substring:16</span><br><span class="line">md5:c74d97b01eae257e44aa9d5bade97baf</span><br></pre></td></tr></table></figure>
+
+<p>不信的话可以自己试一下</p>
+<p>检材1到此结束了 还是很简单的 可能在比赛中会有一些小问题 但是总体难度是不大的(可是我在比赛中却手忙脚乱的)</p>
+<h2 id="检材2"><a href="#检材2" class="headerlink" title="检材2"></a>检材2</h2><p>我们利用检材1中第七题得到的密码 解压检材2镜像 我们发现是个linux镜像 咱们仿真一下在开始解题 由于是有GUI的 所以咱们不需要SSH 不过有个需要注意的点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[ccj@localhost ~]$ history</span><br><span class="line">    1  root</span><br><span class="line">    2  su</span><br><span class="line">    3  init 3</span><br><span class="line">    4  history</span><br></pre></td></tr></table></figure>
+
+<p>这是咱们在默认用户名下的History 我们发现只有几行 而我在实际比武的时候 也确实认为他只有几行 但是我们切换到su下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ccj]# history</span><br><span class="line">    1  ls</span><br><span class="line">    2  cd Desktop/</span><br><span class="line">    3  ls</span><br><span class="line">    4  uname -a</span><br><span class="line">    5  cat /etc/issue</span><br><span class="line">    6  lsb_release -a</span><br><span class="line">    7  cat /proc/cpuinfo </span><br><span class="line">    8  hostname</span><br><span class="line">    9  whoiam</span><br><span class="line">   10  whoani</span><br><span class="line">   11  whoami</span><br><span class="line">   12  lspci</span><br><span class="line">   13  env</span><br><span class="line">   14  lsusb</span><br><span class="line">   15  cat /proc/meminfo </span><br><span class="line">   16  df -h</span><br><span class="line">   17  fsdisk -l</span><br><span class="line">   18  fdisk -l</span><br><span class="line">   19  ps aux</span><br><span class="line">   20  ps -ef</span><br><span class="line">   21  crontab -l</span><br><span class="line">   22  services --status-all</span><br><span class="line">   23  service --status-all</span><br><span class="line">   24  service</span><br><span class="line">   25  service --status-all</span><br><span class="line">   26  systemctl</span><br><span class="line">   27  systemctl --help</span><br><span class="line">   28  systemctl -all</span><br><span class="line">   29  ls</span><br><span class="line">   30  init 3</span><br><span class="line">   31  ls</span><br><span class="line">   32  cd /</span><br><span class="line">   33  ls</span><br><span class="line">   34  cd opt</span><br><span class="line">   35  ls</span><br><span class="line">   36  cd honglianjingsai/</span><br><span class="line">   37  ls</span><br><span class="line">   38  cd chronusNode/</span><br><span class="line">   39  ls</span><br><span class="line">   40  cd logs</span><br><span class="line">   41  ls</span><br><span class="line">   42  rm *</span><br><span class="line">   43  ls</span><br><span class="line">   44  ip a</span><br><span class="line">   45  init 3</span><br><span class="line">   46  ls</span><br><span class="line">   47  who</span><br><span class="line">   48  w</span><br><span class="line">   49  cd /opt/</span><br><span class="line">   50  ls</span><br><span class="line">   51  cd honglianjingsai/</span><br><span class="line">   52  ls</span><br><span class="line">   53  cdd chronusNode/</span><br><span class="line">   54  cd chronusNode/</span><br><span class="line">   55  ;s</span><br><span class="line">   56  ls</span><br><span class="line">   57  cd controller/</span><br><span class="line">   58  ls</span><br><span class="line">   59  ls -l</span><br><span class="line">   60  date</span><br><span class="line">   61  history</span><br><span class="line">   62  ls</span><br><span class="line">   63  cd ..</span><br><span class="line">   64  ls</span><br><span class="line">   65  cd logs/</span><br><span class="line">   66  ls</span><br><span class="line">   67  ls -l</span><br><span class="line">   68  ls</span><br><span class="line">   69  cd ..</span><br><span class="line">   70  ;s</span><br><span class="line">   71  ls</span><br><span class="line">   72  cd controller/</span><br><span class="line">   73  l;s</span><br><span class="line">   74  ls</span><br><span class="line">   75  cd ..</span><br><span class="line">   76  l;s</span><br><span class="line">   77  ls</span><br><span class="line">   78  cd static/</span><br><span class="line">   79  ls</span><br><span class="line">   80  cd .</span><br><span class="line">   81  cd ..</span><br><span class="line">   82  ls</span><br><span class="line">   83  cd uploads/</span><br><span class="line">   84  ls</span><br><span class="line">   85  cd ..</span><br><span class="line">   86  ls</span><br><span class="line">   87  cd ..</span><br><span class="line">   88  ls</span><br><span class="line">   89  more README.txt </span><br><span class="line">   90  ifconfig</span><br><span class="line">   91  netstat -anpt</span><br><span class="line">   92  init 3</span><br><span class="line">   93  vi /etc/sysconfig/network-scripts/ifcfg-ens33 </span><br><span class="line">   94  reboot</span><br><span class="line">   95  ifconfig</span><br><span class="line">   96  init 3</span><br><span class="line">   97  ls</span><br><span class="line">   98  firewall-cmd --add-port 80/tcp</span><br><span class="line">   99  systemctl start firewalld</span><br><span class="line">  100  firewall-cmd --add-port 80/tcp</span><br><span class="line">  101  ip a</span><br><span class="line">  102  cd /opt</span><br><span class="line">  103  ls</span><br><span class="line">  104  cd honglianjingsai/</span><br><span class="line">  105  ls</span><br><span class="line">  106  cd chronusNode/</span><br><span class="line">  107  ls</span><br><span class="line">  108  cd controller/</span><br><span class="line">  109  ls</span><br><span class="line">  110  vi ADProxy.js </span><br><span class="line">  111  ls</span><br><span class="line">  112  cd /opt/</span><br><span class="line">  113  ls</span><br><span class="line">  114  cd honglianjingsai/</span><br><span class="line">  115  ls</span><br><span class="line">  116  cd chronusNode/</span><br><span class="line">  117  ls</span><br><span class="line">  118  cd controller/</span><br><span class="line">  119  ls</span><br><span class="line">  120  more ADProxy.js</span><br><span class="line">  121  clear</span><br><span class="line">  122  ls</span><br><span class="line">  123  cd ..</span><br><span class="line">  124  ls</span><br><span class="line">  125  node app.js </span><br><span class="line">  126  clear</span><br><span class="line">  127  history</span><br><span class="line">  128  cd /opt/honglianjingsai/</span><br><span class="line">  129  ls</span><br><span class="line">  130  cd chronusNode/</span><br><span class="line">  131  ls</span><br><span class="line">  132  cd controller/</span><br><span class="line">  133  ls</span><br><span class="line">  134  vi ADProxy.js </span><br><span class="line">  135  yum vim</span><br><span class="line">  136  yum install vim</span><br><span class="line">  137  ls</span><br><span class="line">  138  ping www.baidu.com</span><br><span class="line">  139  ping baidu.com</span><br><span class="line">  140  yum install vim</span><br><span class="line">  141  vim ADProxy.js </span><br><span class="line">  142   more ADProxy.js </span><br><span class="line">  143  vim ADProxy.js </span><br><span class="line">  144  cd ..</span><br><span class="line">  145  lsls</span><br><span class="line">  146  ls</span><br><span class="line">  147  more README.txt </span><br><span class="line">  148  cd chronusNode/controller/</span><br><span class="line">  149  vim ADProxy.js </span><br><span class="line">  150  cd ..</span><br><span class="line">  151  ls</span><br><span class="line">  152  vim const.js </span><br><span class="line">  153  firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">  154  ifconfig</span><br><span class="line">  155  ping 192.168.110.111</span><br><span class="line">  156  ls</span><br><span class="line">  157  cd controller/</span><br><span class="line">  158  ls</span><br><span class="line">  159  vim ADProxy.js </span><br><span class="line">  160  firewall-cmd --add-port=80/tcp --permanent</span><br><span class="line">  161  systemctl stop firewalld</span><br><span class="line">  162  vim ADProxy.js </span><br><span class="line">  163  LS</span><br><span class="line">  164  ls</span><br><span class="line">  165  cd ..</span><br><span class="line">  166  ls</span><br><span class="line">  167  cd logs/</span><br><span class="line">  168  ls</span><br><span class="line">  169  more 2021-4-23-6-34.log </span><br><span class="line">  170  more 2021-4-23-6-31.log </span><br><span class="line">  171  cd ..</span><br><span class="line">  172  cd controller/</span><br><span class="line">  173  ls</span><br><span class="line">  174  vim ADProxy.js </span><br><span class="line">  175  vim /etc/hosts</span><br><span class="line">  176  vim ADProxy.js </span><br><span class="line">  177  cd ..</span><br><span class="line">  178  ls</span><br><span class="line">  179  node app.js</span><br><span class="line">  180  reboot</span><br><span class="line">  181  cd /opt</span><br><span class="line">  182  ls</span><br><span class="line">  183  cd honglianjingsai/</span><br><span class="line">  184  ls</span><br><span class="line">  185  cd chronusNode/</span><br><span class="line">  186  ls</span><br><span class="line">  187  node app.js</span><br><span class="line">  188  history</span><br><span class="line">  189  cd /opt/</span><br><span class="line">  190  cd honglianjingsai/</span><br><span class="line">  191  ls</span><br><span class="line">  192  cd chronusNode/</span><br><span class="line">  193  cd controller/</span><br><span class="line">  194  ls</span><br><span class="line">  195  vim ADProxy.js </span><br><span class="line">  196  cd ..</span><br><span class="line">  197  ls</span><br><span class="line">  198  cd logs/</span><br><span class="line">  199  l;s</span><br><span class="line">  200  ls</span><br><span class="line">  201  ll</span><br><span class="line">  202  vim 2021-4-23-17-36.log </span><br><span class="line">  203  cd /opt/</span><br><span class="line">  204  ls</span><br><span class="line">  205  cd honglianjingsai/</span><br><span class="line">  206  ls</span><br><span class="line">  207  cd chronusNode/</span><br><span class="line">  208  ls</span><br><span class="line">  209  cd controller/</span><br><span class="line">  210  ls</span><br><span class="line">  211  vim ADProxy.js </span><br><span class="line">  212  history</span><br><span class="line">  213  reboot</span><br><span class="line">  214  cd /opt/honglianjingsai/</span><br><span class="line">  215  ls</span><br><span class="line">  216  cd chronusNode/</span><br><span class="line">  217  ls</span><br><span class="line">  218  cd logs</span><br><span class="line">  219  ls -la</span><br><span class="line">  220  cat 2021-4-23-6-53.log </span><br><span class="line">  221  cat 2021-4-23-17-39.log </span><br><span class="line">  222  date</span><br><span class="line">  223  systemctl start firewalld</span><br><span class="line">  224  firewall-cmd --add-port 80/tcp</span><br><span class="line">  225  cd ..</span><br><span class="line">  226  ls</span><br><span class="line">  227  cd controller/</span><br><span class="line">  228  ls</span><br><span class="line">  229  vi ADProxy.js </span><br><span class="line">  230  ls</span><br><span class="line">  231  vi ADTCPDeliver.js </span><br><span class="line">  232  vi ADFileServer.js </span><br><span class="line">  233  ls</span><br><span class="line">  234  cd ..</span><br><span class="line">  235  ls</span><br><span class="line">  236  vi app.js </span><br><span class="line">  237  ls</span><br><span class="line">  238  cd controller/</span><br><span class="line">  239  ls</span><br><span class="line">  240  vi ADProxy.js </span><br><span class="line">  241  ls</span><br><span class="line">  242  cd ..</span><br><span class="line">  243  ls</span><br><span class="line">  244  cd model/</span><br><span class="line">  245  ls</span><br><span class="line">  246  cd ..</span><br><span class="line">  247  ls</span><br><span class="line">  248  cd node_modules/</span><br><span class="line">  249  ls</span><br><span class="line">  250  ifconfig</span><br><span class="line">  251  reboot</span><br><span class="line">  252  clear</span><br><span class="line">  253  cd /opt/honglianjingsai/chronusNode/</span><br><span class="line">  254  ls</span><br><span class="line">  255  cd logs/</span><br><span class="line">  256  ls</span><br><span class="line">  257  ls -la</span><br><span class="line">  258  cd .</span><br><span class="line">  259  ls</span><br><span class="line">  260  ls -la</span><br><span class="line">  261  date</span><br><span class="line">  262  vim 2021-4-23-18-59.log </span><br><span class="line">  263  date</span><br><span class="line">  264  timedatectl</span><br><span class="line">  265  timedatectl set-timezone UTC</span><br><span class="line">  266  timedatectl</span><br><span class="line">  267  date</span><br><span class="line">  268  ls</span><br><span class="line">  269  last</span><br><span class="line">  270  clear</span><br><span class="line">  271  ififconfigiig</span><br><span class="line">  272  ifconfig</span><br><span class="line">  273  reboot</span><br><span class="line">  274  clear</span><br><span class="line">  275  ifconfig</span><br><span class="line">  276  ifconfig</span><br><span class="line">  277  cd /opt/honglianjingsai/chronusNode/</span><br><span class="line">  278  node app.js </span><br><span class="line">  279  shutdown -r now</span><br><span class="line">  280  ls</span><br><span class="line">  281  history</span><br></pre></td></tr></table></figure>
+
+<p>整整快三百行 而且我们会发现很多有意思的地方 火眼会默认把root用户密码设置为123456 如果不行也可以sudo password root改密码</p>
+<p><strong>12.检材二的原始硬盘的SHA256值为</strong></p>
+<p>略</p>
+<p><strong>13.查询涉案于案发时间段内登陆服务器的IP地址为</strong></p>
+<p>我们读题发现 他是在涉案时间内 登陆了这个服务器 这句话不是废话 这个服务器是我们溯源找到的 也就是嫌疑人的服务器 而且如果这个Ip不是127的话 他也还是远程登陆的 所以咱进入之后last</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ccj]# last</span><br><span class="line">ccj      pts/0        :0               Fri Oct 29 12:23   still logged in   </span><br><span class="line">ccj      :0           :0               Fri Oct 29 12:22   still logged in   </span><br><span class="line">(unknown :0           :0               Fri Oct 29 12:22 - 12:22  (00:00)    </span><br><span class="line">reboot   system boot  3.10.0-514.el7.x Fri Oct 29 12:22 - 12:26  (00:04)    </span><br><span class="line">reboot   system boot  3.10.0-514.el7.x Fri Oct 29 12:21 - 12:26  (00:05)    </span><br><span class="line">root     pts/0        192.168.110.156  Wed Apr 28 07:10 - 07:10  (00:00)    </span><br><span class="line">(unknown :0           :0               Wed Apr 28 07:09 - crash (184+05:11) </span><br><span class="line">reboot   system boot  3.10.0-514.el7.x Wed Apr 28 07:09 - 12:26 (184+05:17) </span><br><span class="line">root     pts/0        :0               Sat Apr 24 13:24 - 13:24  (00:00)    </span><br><span class="line">root     pts/2        :0               Sat Apr 24 11:42 - 13:24  (01:42)    </span><br><span class="line">root     pts/1        192.168.110.203  Sat Apr 24 11:28 - 12:40  (01:11)    </span><br><span class="line">root     pts/1        192.168.110.203  Sat Apr 24 08:12 - 08:12  (00:00)    </span><br><span class="line">root     pts/3        192.168.110.203  Sat Apr 24 04:29 - 08:03  (03:34)    </span><br><span class="line">root     pts/2        192.168.110.203  Sat Apr 24 03:31 - 06:37  (03:06)    </span><br><span class="line">root     pts/1        192.168.110.203  Sat Apr 24 03:29 - 06:37  (03:08) </span><br></pre></td></tr></table></figure>
+
+<p>只截取了部分 我们知道4月25号这个受害者报警说被诈骗了 而且是24号下载的app 也就是说这个登陆时间肯定是4月24或者25 所以只能是192.168.110.203 至于下面还有个.129的ip 但是他只登陆了三秒钟 不现实 所以是他</p>
+<p><strong>14.请对检材二进行分析，并回答该服务器在集群中承担的主要作用是</strong></p>
+<p>我们看那个history的话 我们会发现有个honglianjingsai的文件夹 我们访问它 随便看看都会知道他就是网站的一个源代码 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[ccj@localhost chronusNode]$ cd controller/</span><br><span class="line">[ccj@localhost controller]$ ls</span><br><span class="line">ADBrain.js       ADProxy.js       ADUDPDeliver.js</span><br><span class="line">ADFileServer.js  ADTCPDeliver.js  ADWSDeliver.js</span><br></pre></td></tr></table></figure>
+
+<p>我们看到了那个ADProxy.js 我们往下读题也会发现有相应的转发ip操作 我们查看他</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">[ccj@localhost controller]$ cat ADProxy.js </span><br><span class="line">/**</span><br><span class="line"> * 反向代理</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">module.exports = function(_brain, _app) &#123;</span><br><span class="line">    /* INCLUDE */</span><br><span class="line">    const path = _brain.A.path;</span><br><span class="line">    const async = _brain.A.async;</span><br><span class="line">    const proxy = require(&#x27;http-proxy-middleware&#x27;);</span><br><span class="line">    const net = require(&#x27;net&#x27;);</span><br><span class="line">    /* DEFINE */</span><br><span class="line">    const _tag = path.basename(__filename, &quot;.js&quot;);</span><br><span class="line">    var _isBanned = false;</span><br><span class="line">    var _isStarted = false;</span><br><span class="line">    if(!_brain.A.checkIsNull(_brain.C.autorun_config[_tag], _tag))&#123;</span><br><span class="line">        _isStarted = _brain.C.autorun_config[_tag];</span><br><span class="line">    &#125;</span><br><span class="line">    /* DEFINE PROXY */</span><br><span class="line">    const _proxy50 = &#123;</span><br><span class="line">        protocol: &#x27;http:&#x27;,</span><br><span class="line">        host: &#x27;192.168.110.111&#x27;,</span><br><span class="line">        port: 80</span><br><span class="line">    &#125;</span><br><span class="line">    const _proxy100 = &#123;</span><br><span class="line">        protocol: &#x27;http:&#x27;,</span><br><span class="line">        host: &#x27;192.168.110.112&#x27;,</span><br><span class="line">        port: 80</span><br><span class="line">    &#125;</span><br><span class="line">    const _proxy100p = &#123;</span><br><span class="line">        protocol: &#x27;http:&#x27;,</span><br><span class="line">        host: &#x27;192.168.110.113&#x27;,</span><br><span class="line">        port: 80</span><br><span class="line">    &#125;</span><br><span class="line">    /* Private Function */</span><br><span class="line">    /**</span><br><span class="line">     * Service Running</span><br><span class="line">     */</span><br><span class="line">    var service = function ()&#123;</span><br><span class="line">        if(!_isStarted) return;</span><br><span class="line">        // proxy middleware options</span><br><span class="line">        const _proxyer_chronus = proxy(&#123;</span><br><span class="line">            target: &#x27;/&#x27;, // target host</span><br><span class="line">            changeOrigin: true,               // needed for virtual hosted sites</span><br><span class="line">            ws: true,                          // proxy websockets</span><br><span class="line">            router: function(req) &#123;</span><br><span class="line">                var clientIP = req.get(&quot;x-forwarded-for&quot;)</span><br><span class="line">                if (clientIP == undefined) &#123;</span><br><span class="line">                    clientIP = req.connection.remoteAddress</span><br><span class="line">                &#125;</span><br><span class="line">                var clientIPArr = clientIP.split(&quot;.&quot;)</span><br><span class="line">                if (clientIPArr.length == 4) &#123;</span><br><span class="line">                    var clientIP3Int = parseInt(clientIPArr[2])</span><br><span class="line">                    global.logger.warn(&#x27;[Proxy_RequestHeader] -&gt; &#x27; + JSON.stringify(req.headers));</span><br><span class="line">                    global.logger.warn(&#x27;[Proxy_ClientIP] -&gt; &#x27; + clientIP);</span><br><span class="line">                    if (clientIP3Int &lt;= 50) &#123;</span><br><span class="line">                        global.logger.warn(&#x27;[Proxy_Destination] -&gt; &#x27; + JSON.stringify(_proxy50));</span><br><span class="line">                        return _proxy50</span><br><span class="line">                    &#125; else if (clientIP3Int &lt;= 100) &#123;</span><br><span class="line">                        global.logger.warn(&#x27;[Proxy_Destination] -&gt; &#x27; + JSON.stringify(_proxy100));</span><br><span class="line">                        return _proxy100</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        global.logger.warn(&#x27;[Proxy_Destination] -&gt; &#x27; + JSON.stringify(_proxy100p));</span><br><span class="line">                        return _proxy100p</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        _app.all(&#x27;/*&#x27;, _proxyer_chronus);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Service Killing</span><br><span class="line">     */</span><br><span class="line">    var serviceKiller = function ()&#123;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /* Public Function */</span><br><span class="line">    /* 返回_tag */</span><br><span class="line">    var getTag = function ()&#123;</span><br><span class="line">        return _tag;</span><br><span class="line">    &#125;;</span><br><span class="line">    /* 判断服务是否开启 */</span><br><span class="line">    var isStarted = function ()&#123;</span><br><span class="line">        return _isStarted;</span><br><span class="line">    &#125;;</span><br><span class="line">    /* 判断服务是否被意外禁止 */</span><br><span class="line">    var isBanned = function ()&#123;</span><br><span class="line">        return _isBanned;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    /* 服务开关 */</span><br><span class="line">    var startServer = function (callBack)&#123;</span><br><span class="line">        _isStarted = true;</span><br><span class="line">        service();</span><br><span class="line">        if(callBack)</span><br><span class="line">            callBack(100, _tag + &#x27; Started&#x27;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    var stopServer = function (callBack)&#123;</span><br><span class="line">        _isStarted = false;</span><br><span class="line">        serviceKiller();</span><br><span class="line">        if(callBack)</span><br><span class="line">            callBack(100, _tag + &#x27; Stopped&#x27;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    /* Service AutoRun */</span><br><span class="line">    if(_isStarted)&#123;</span><br><span class="line">        startServer();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        stopServer();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return&#123;</span><br><span class="line">        getTag             : getTag,</span><br><span class="line">        isStarted          : isStarted,</span><br><span class="line">        isBanned           : isBanned,</span><br><span class="line">        startServer        : startServer,</span><br><span class="line">        stopServer         : stopServer,</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们看到了 他是对来的ip进行转发操作 可以看作是一个代理转发服务器 并且从日志和下方题目的问法都可以确定这件事</p>
+<p><strong>15.上一题中，提到的主要功能对应的服务监听的端口为</strong></p>
+<p>如果是转发操作 那对应的就是http服务 那就是80端口了 但是咱讲话要讲证据嘛</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[2021-04-24 12:20:59.277] [WARN] Chronus - [Proxy_ClientIP] -&gt; 192.168.110.252</span><br><span class="line">[2021-04-24 12:20:59.277] [WARN] Chronus - [Proxy_Destination] -&gt; &#123;&quot;protocol&quot;:&quot;http:&quot;,&quot;host&quot;:&quot;192.168.110.113&quot;,&quot;port&quot;:80&#125;</span><br><span class="line">[2021-04-24 12:21:02.716] [WARN] Chronus - [Proxy_RequestHeader] -&gt; &#123;&quot;host&quot;:&quot;www.honglian7001.com&quot;,&quot;connection&quot;:&quot;keep-alive&quot;,&quot;content-length&quot;:&quot;43&quot;,&quot;accept&quot;:&quot;text/plain&quot;,&quot;origin&quot;:&quot;file://&quot;,&quot;x-requested-with&quot;:&quot;XMLHttpRequest&quot;,&quot;user-agent&quot;:&quot;Mozilla/5.0 (Linux; Android 8.0.0; MI 5s Plus Build/OPR1.170623.032; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.99 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/24.0)&quot;,&quot;content-type&quot;:&quot;application/x-www-form-urlencoded&quot;,&quot;accept-encoding&quot;:&quot;gzip, deflate&quot;,&quot;accept-language&quot;:&quot;zh-CN,en-US;q=0.9&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个是我从日志里面找的一部分 首先可以看到他确实是一个转发服务器 并且端口是80</p>
+<p><strong>16.上一题中，提到的服务所使用的启动命令为</strong></p>
+<p>我们首先知道 这个网站他是用js写的 不仅是网站 连着他的代理转发服务都是使用js语言写的 所以我们去看history的时候应该就会注意到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">125  node app.js </span><br></pre></td></tr></table></figure>
+
+<p>这个命令了 对js后缀文件的 除了vim修改以外就它了</p>
+<p><strong>17.经分析，该服务对于请求来源IP的处理依据是：根据请求源IP地址的第（）位进行判断</strong></p>
+<p>那很明显是要看源码了 从上面截取一段下来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (clientIPArr.length == 4) &#123;</span><br><span class="line">	var clientIP3Int = parseInt(clientIPArr[2])</span><br><span class="line">	global.logger.warn(&#x27;[Proxy_RequestHeader] -&gt; &#x27; + JSON.stringify(req.headers));</span><br></pre></td></tr></table></figure>
+
+<p>我们看到 他是把ip按点分段 分成四段 如果是四段说明这个ip是正确的 而以题目的逻辑的话 一位就是一段ip 所以在这个逻辑内 是3 第三段 而且你也可以看上面那个转发表 有一点点奇怪</p>
+<p><strong>18.经分析，当判断条件小于50时，服务器会将该请求转发到IP为（）的服务器上</strong></p>
+<p>看上面那个源码</p>
+<p><strong>19.请分析，该服务器转发的目标服务器一共有几台</strong></p>
+<p>三台 我们从上面转发表可以看到 就仨ip 而且我们看检材3也会发现 三台转发服务器</p>
+<p><strong>20.请分析，受害者通讯录被获取时，其设备的IP地址为</strong></p>
+<p>请看完第三部分再看这题</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/12.png" class="">
+
+<p>我们在第二部分检材那边看到了转发日志 第三部分我们可以看到这台手机 也就是被害人的手机记录到数据库里的时间 也就大概是转发ip的时间 但是注意检材2的时区是UTC时区 所以要+8 对应去找ip</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.110.252</span><br></pre></td></tr></table></figure>
+
+<p><strong>21.请分析，受害者的通讯录被窃取之后，经由该服务器转发到了IP为（）的服务器上</strong></p>
+<p>知道案发时间了 2021-4-24 我们查看日志 发现这一天的日志只有一个文件 其他都是23号的 咱查看日志 无一例外都转发到192.168.110.103下了 注意看的是[Proxy_Destination] 不要看错了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[2021-04-24 11:49:26.187] [WARN] Chronus - [Proxy_ClientIP] -&gt; 192.168.110.203</span><br><span class="line">[2021-04-24 11:49:26.187] [WARN] Chronus - [Proxy_Destination] -&gt; &#123;&quot;protocol&quot;:&quot;http:&quot;,&quot;host&quot;:&quot;192.168.110.113&quot;,&quot;port&quot;:80&#125;</span><br><span class="line">[2021-04-24 11:49:28.530] [WARN] Chronus - [Proxy_RequestHeader] -&gt; &#123;&quot;host&quot;:&quot;192.168.110.110&quot;,&quot;connection&quot;:&quot;keep-alive&quot;,&quot;upgrade-insecure-requests&quot;:&quot;1&quot;,&quot;user-agent&quot;:&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36&quot;,&quot;accept&quot;:&quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&quot;,&quot;referer&quot;:&quot;http://192.168.110.110/admin/appv1/user.shtml?page=324&quot;,&quot;accept-encoding&quot;:&quot;gzip, deflate&quot;,&quot;accept-language&quot;:&quot;zh-CN,zh;q=0.9&quot;,&quot;cookie&quot;:&quot;PHPSESSID=oqle76t6iueu8acuauksda37l2&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="检材3"><a href="#检材3" class="headerlink" title="检材3"></a>检材3</h2><p>我们用21题答案加上盐值解压检材3</p>
+<p><strong>22.检材三的原始硬盘的SHA256值为</strong></p>
+<p>略</p>
+<p><strong>23.请分析第21题中，所指的服务器的开机密码为</strong></p>
+<p>这题也是得从后面的检材看的 先略</p>
+<p><strong>24.嫌疑人架设网站使用了宝塔面板，请问面板的登陆用户名为</strong></p>
+<p>我们首先知道 我们拿到检材之后有3个镜像 对应的就是刚刚我们发现转发到的三台服务器 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@server ~]# ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.110.113  netmask 255.255.255.0  broadcast 192.168.110.255</span><br><span class="line">        inet6 fe80::f3d5:1ccf:6715:ef23  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:aa:96:3b  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 129  bytes 11843 (11.5 KiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 83  bytes 9261 (9.0 KiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 340  bytes 26684 (26.0 KiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 340  bytes 26684 (26.0 KiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+
+<p>并且 在比武的时候 如果检材相关性很强 我们最好不要去更改检材的ip 因为如果更改检材的ip可能会导致很多例如网站重构数据库连不上的错误 到时候改配置文件可能会很麻烦 所以我们选择更改本地网卡的ip 使得物理机和虚拟机在一个网段上 这样就可以连接了 没有GUI我们需要SSH</p>
+<p>他说架设了宝塔 那咱直接重构宝塔 P.S. 为什么我的环境网这么卡</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@server ~]# bt default</span><br><span class="line">curl: (28) Connection timed out after 10001 milliseconds</span><br><span class="line">==================================================================</span><br><span class="line">BT-Panel default info!</span><br><span class="line">==================================================================</span><br><span class="line">外网面板地址: http://:8888/12345678</span><br><span class="line">内网面板地址: http://192.168.110.113:8888/12345678</span><br><span class="line">username: hl123</span><br><span class="line">password: 65606fc8</span><br><span class="line">If you cannot access the panel,</span><br><span class="line">release the following panel port [8888] in the security group</span><br><span class="line">若无法访问面板，请检查防火墙/安全组是否有放行面板[8888]端口</span><br><span class="line">==================================================================</span><br></pre></td></tr></table></figure>
+
+<p><strong>25.请分析用于重置宝塔面板密码的函数名为</strong></p>
+<p>用于充值宝塔面板密码 首先我们要进宝塔在这题的环境内肯定是要重设的 然后咱如果熟悉宝塔就知道 他是有控制面板的 并且知道宝塔面板的根目录在&#x2F;www&#x2F;server&#x2F;panel下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@server ~]# bt</span><br><span class="line">===============宝塔面板命令行==================</span><br><span class="line">(1) 重启面板服务           (8) 改面板端口</span><br><span class="line">(2) 停止面板服务           (9) 清除面板缓存</span><br><span class="line">(3) 启动面板服务           (10) 清除登录限制</span><br><span class="line">(4) 重载面板服务           (11) 取消入口限制</span><br><span class="line">(5) 修改面板密码           (12) 取消域名绑定限制</span><br><span class="line">(6) 修改面板用户名         (13) 取消IP访问限制</span><br><span class="line">(7) 强制修改MySQL密码      (14) 查看面板默认信息</span><br><span class="line">(22) 显示面板错误日志      (15) 清理系统垃圾</span><br><span class="line">(23) 关闭BasicAuth认证     (16) 修复面板(检查错误并更新面板文件到最新版)</span><br><span class="line">(24) 关闭谷歌认证          (17) 设置日志切割是否压缩</span><br><span class="line">(25) 设置是否保存文件历史副本  (18) 设置是否自动备份面板</span><br><span class="line">(0) 取消</span><br><span class="line">===============================================</span><br></pre></td></tr></table></figure>
+
+<p>就是这个 在这里就可以修改密码 也就是说这个会调用修改密码的函数 咱找一下</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/6.png" class="">
+
+<p>不难发现这个tools.py 然后顺着找就行了 调用的函数就是set_panel_pwd</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if sys.version_info[0] == 2:</span><br><span class="line">	input_pwd = raw_input(&quot;请输入新的面板密码：&quot;)</span><br><span class="line">else:</span><br><span class="line">	input_pwd = input(&quot;请输入新的面板密码：&quot;)</span><br><span class="line">if len(input_pwd.strip()) &lt; 5:</span><br><span class="line">	print(&quot;|-错误，密码长度不能小于5位&quot;)</span><br><span class="line">	return</span><br><span class="line">set_panel_pwd(input_pwd.strip(),True)</span><br></pre></td></tr></table></figure>
+
+<p><strong>26.请分析宝塔面板登陆密码的加密方式所使用的哈希算法为</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#设置面板密码</span><br><span class="line">def set_panel_pwd(password,ncli = False):</span><br><span class="line">    import db</span><br><span class="line">    sql = db.Sql()</span><br><span class="line">    result = sql.table(&#x27;users&#x27;).where(&#x27;id=?&#x27;,(1,)).setField(&#x27;password&#x27;,public.password_salt(public.md5(password),uid=1))</span><br><span class="line">    username = sql.table(&#x27;users&#x27;).where(&#x27;id=?&#x27;,(1,)).getField(&#x27;username&#x27;)</span><br><span class="line">    if ncli:</span><br><span class="line">        print(&quot;|-用户名: &quot; + username)</span><br><span class="line">        print(&quot;|-新密码: &quot; + password)</span><br><span class="line">    else:</span><br><span class="line">        print(username)</span><br></pre></td></tr></table></figure>
+
+<p>跟进那个函数就可以看到了 或者可以去宝塔的数据库 去撞 因为你可以注册一个 然后有了明文可以直接去撞</p>
+<p><strong>27.请分析宝塔面板对于其默认用户的密码一共执行了几次上题中的哈希算法</strong></p>
+<p>dbq 不能去撞 有多重哈希</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/7.png" class="">
+
+<p>我们可以看到那个pssword_salt函数前面有个public. 说明可能是调用了public 找到之后发现里面有两重md5 合在一起算三重</p>
+<p><strong>28.请分析当前宝塔面板密码加密过程中所使用的salt值为</strong></p>
+<p>老生常谈了这个盐值 在defalut.db里面 和广东比武的题目重复度比较高</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/8.png" class="">
+
+<p><strong>29.请分析该服务器，网站源代码所在的绝对路径为</strong></p>
+<p>略 找不到可以面壁了</p>
+<p><strong>30.请分析，网站所使用的数据库位于IP为（）的服务器上</strong></p>
+<p>我们需要网站重构 发现的问题有:</p>
+<p>1.nginx配置不对 2.数据库连不上 </p>
+<p>好吧后面发现其实这题不要网站重构 我们网站重构的过程中发现报错说数据库连不上 这是正常的 如果数据库是本地ip肯定能连的上 但是也不会有这题了</p>
+<p>这个是THINKPHP的框架 又是和广东省比武高度重合了 在网站根目录下app文件夹里</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">return [</span><br><span class="line">    // 数据库类型</span><br><span class="line">    &#x27;type&#x27;            =&gt; &#x27;mysql&#x27;,</span><br><span class="line">    // 服务器地址</span><br><span class="line">    &#x27;hostname&#x27;        =&gt; &#x27;192.168.110.115&#x27;,</span><br><span class="line">    // 数据库名</span><br><span class="line">    &#x27;database&#x27;        =&gt; &#x27;www_honglian7001&#x27;,</span><br><span class="line">    // 用户名</span><br><span class="line">    &#x27;username&#x27;        =&gt; &#x27;www_honglian7001&#x27;,</span><br><span class="line">    // 密码</span><br><span class="line">    &#x27;password&#x27;        =&gt; &#x27;wxrM5GtNXk5k5EPX&#x27;,</span><br><span class="line">    // 端口</span><br><span class="line">    &#x27;hostport&#x27;        =&gt; &#x27;3306&#x27;,</span><br><span class="line">    // 连接dsn</span><br><span class="line">    &#x27;dsn&#x27;             =&gt; &#x27;&#x27;,</span><br><span class="line">    // 数据库连接参数</span><br><span class="line">    &#x27;params&#x27;          =&gt; [],</span><br><span class="line">    // 数据库编码默认采用utf8</span><br><span class="line">    &#x27;charset&#x27;         =&gt; &#x27;utf8&#x27;,</span><br><span class="line">    // 数据库表前缀</span><br><span class="line">    &#x27;prefix&#x27;          =&gt; &#x27;app_&#x27;,</span><br><span class="line">    // 数据库调试模式</span><br><span class="line">    &#x27;debug&#x27;           =&gt; true,</span><br><span class="line">    // 数据库部署方式:0 集中式(单一服务器),1 分布式(主从服务器)</span><br><span class="line">    &#x27;deploy&#x27;          =&gt; 0,</span><br><span class="line">    // 数据库读写是否分离 主从式有效</span><br><span class="line">    &#x27;rw_separate&#x27;     =&gt; false,</span><br><span class="line">    // 读写分离后 主服务器数量</span><br><span class="line">    &#x27;master_num&#x27;      =&gt; 1,</span><br><span class="line">    // 指定从服务器序号</span><br><span class="line">    &#x27;slave_no&#x27;        =&gt; &#x27;&#x27;,</span><br><span class="line">    // 是否严格检查字段是否存在</span><br><span class="line">    &#x27;fields_strict&#x27;   =&gt; true,</span><br><span class="line">    // 数据集返回类型</span><br><span class="line">    &#x27;resultset_type&#x27;  =&gt; &#x27;array&#x27;,</span><br><span class="line">    // 自动写入时间戳字段</span><br><span class="line">    &#x27;auto_timestamp&#x27;  =&gt; true,</span><br><span class="line">    // 时间字段取出后的默认时间格式</span><br><span class="line">    &#x27;datetime_format&#x27; =&gt; &#x27;Y-m-d H:i:s&#x27;,</span><br><span class="line">    // 是否需要进行SQL性能分析</span><br><span class="line">    &#x27;sql_explain&#x27;     =&gt; false,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>而检材4是个raid 咱得先组起来 不然网站数据库连不上 而且正是因为这多个镜像相关性很强 稍微改改ip的话 也能 你自己把所有配置文件改一下 但是划不来</p>
+<p>组raid这部分会在后面单独说明 这里咱组好raid 我们发现 诶雀食这个ip和mysql啥的都能对的上 没有错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.110.115  netmask 255.255.255.0  broadcast 192.168.110.255</span><br><span class="line">        inet6 fe80::20c:29ff:fe3f:dc19  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:3f:dc:19  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 116  bytes 11503 (11.2 KiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 106  bytes 18278 (17.8 KiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 472  bytes 40532 (39.5 KiB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 472  bytes 40532 (39.5 KiB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>网站也是顺理成章的可以进入了</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/9.png" class="">
+
+<p><strong>31.请分析，数据库的登陆密码为</strong></p>
+<p>刚刚的配置文件</p>
+<p><strong>32.请尝试重构该网站，并指出，该网站的后台管理界面的入口为</strong> </p>
+<p>&#x2F;admin app里面也能看</p>
+<p><strong>33.已该涉案网站代码中对登录用户的密码做了加密处理。请找出加密算法中的salt值</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function password($password, $password_code=&#x27;lshi4AsSUrUOwWV&#x27;)</span><br><span class="line">&#123;</span><br><span class="line">    return md5(md5($password) . md5($password_code));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 管理员操作日志</span><br><span class="line"> * @param  [type] $data [description]</span><br><span class="line"> * @return [type]       [description]</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<p>这几题都比较简单</p>
+<p><strong>34.请分析该网站的管理员用户的密码为</strong></p>
+<p>这题比较 坑 竟然要看日志 就他设置登录日志会存储post信息 </p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/10.png" class="">
+
+<p>这个确实 不会做就算了 但是这题讲的不是这个点 如果你真就不知道这个密码咋办呢 其实很简单</p>
+<p>首先我们需要登陆数据库 但是我们发现这个数据库好像用账号密码登不进去 但是网站是可以连接的 我们需要跳过mysql的密码验证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">skip_grant_tables</span><br><span class="line">mysql -u root -p 直接回车就行</span><br></pre></td></tr></table></figure>
+
+<p>我们就可以进入mysql了 进入之后可以还是改一下root密码 这样方便navicat连接</p>
+<p>这个时候我们在linux里面 利用mysql命令修改admin表里面的密码字段就行 利用这个函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function password($password, $password_code=&#x27;lshi4AsSUrUOwWV&#x27;)</span><br><span class="line">&#123;</span><br><span class="line">    return md5(md5($password) . md5($password_code));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 管理员操作日志</span><br><span class="line"> * @param  [type] $data [description]</span><br><span class="line"> * @return [type]       [description]</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<p>这个正向在明文可控情况下是可以的</p>
+<p><strong>35.在对后台账号的密码加密处理过程中，后台一共计算几次哈希值</strong></p>
+<p>三次</p>
+<p><strong>36.请统计，后台中，一共有多少条设备记录</strong></p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/11.png" class="">
+
+<p>改了root密码 然后navicat就简单了</p>
+<p><strong>37.请通过后台确认，本案中受害者的手机号码为</strong></p>
+<p>从检材4那边看的 话说被害人真惨</p>
+<p><strong>38.请分析，本案中受害者的通讯录一共有多少条记录</strong></p>
+<p>后台那边查看通讯录就好了</p>
+<h2 id="检材4"><a href="#检材4" class="headerlink" title="检材4"></a>检材4</h2><p>这部分就很简单了 我感觉大部分题目都可以跳过 再不会真面壁了 唯一需要关注的就是前面的受害者手机号码可以在检材4得到印证 而且关于上钩时间 也就是后台日志记录时间也差不多相当于他下载软件的时间</p>
+<p>还有就是这题 如果用火眼分析的话 可以看到一个xshell的连接记录 那个记录里的bash密码就是之前问的服务器检材登录密码</p>
+<p><strong>49.请综合分析，嫌疑人用于管理敲诈对象的容器文件的SHA256值为</strong></p>
+<p>当时确实是菜 然后也有点急因为在组那个raid 然后没有发现这个虚拟机里面套了一个虚拟机 就是之前让我算的那个哈希值 那个我的赚钱工具 哎真的是打比赛的时候脑子瓦特了没去看 血亏 背锅背锅</p>
+<p>并且非常脑洞的是 这个套娃虚拟机压缩包的密码 是这个检材4的PC开机密码 说是社工 但是真能想到的我感觉没几个 这玩意一言难尽</p>
+<p>我们打开vmx 进入vm发现这个虚拟机需要密码 我们如果绕过密码比较麻烦 我们试一下用火眼仿真去看密码</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/13.png" class="">
+
+<p>不得不说火眼仿真雀食比较厉害 接下来还有一个坑</p>
+<p>我们进入虚拟机发现他是空的 啥都没有 但是我们可以通过各种快捷访问发现这个虚拟机曾经存在过一堆东西 这个时候的脑洞就是</p>
+<p>这是个虚拟机 他可能会存在快照这个玩意 (在脑子里把出题人全家上下都问候了一遍)</p>
+<p>我们恢复快照 进入虚拟机</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/14.png" class="">
+
+<p>这里的信息非常多 首先是我们要找的通讯录 以及金先生转账记录这个zip 后面的题目也会问到 并且有个key 这个文件是压缩包 要密码我们打不开 但是看名字比较特殊 而那个小白鼠就是我们要找的容器了 大到无法用记事本打开 你觉得是啥 key就是密钥文件 挂载容器 多个嫌疑人并且还有我们要寻找的郭先生 </p>
+<h2 id="RAID"><a href="#RAID" class="headerlink" title="RAID"></a>RAID</h2><p>这个raid毕竟是弘联出的 我们如果跟19年美亚那个raid一样 一把梭的话是梭不出来的 非常多的可能性 我们试着用rstudio分析一下</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/15.png" class="">
+
+<p>这个raid我们用rstudio分析一波 他给出了一个最有可能的组合 左异步的raid5 而且顺序不变就是123 我们去xways里面看一下 这边要注意一个问题</p>
+<img src="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/16.png" class="">
+
+<p>我没记错的话 在有的地方汉化的xways 这个画圈起来的地方翻译的是块大小 但是你如果在这填上块大小64的话 肯定组不起来</p>
+<p>这个地方其实不是块大小 可能翻译错误 这个地方是前偏移地址 如果是windows的raid的话 也可以叫做DBR的地址 我们这里按照rstudio的建议 前偏移都是0 这样就可以组好raid了 组好之后制作镜像 仿真跑起来就行 然后就网站就可以连接这个数据库了 当然你也可以直接navicat查看 怎么样都行</p>
+<p>至此长安杯复盘基本完毕了 本次长安杯出题质量在难度上可以说是很好 出题知识点上到APK逆向下到网站重构宝塔面板 raid还有liunx服务器全考到了 就是题目脑洞大了点 案情逻辑太简单了 不过比赛体验还是很好的 明年争取再来</p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dawoxiansigema.github.io">Eureka</a>
+            <p>Link：<a href="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/">https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/</a>
+            <p>Publish date：<a href="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/">October 31st 2021, 10:22:31 am</a>
+            <p>Update date：<a href="https://dawoxiansigema.github.io/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/">October 31st 2023, 9:55:58 am</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/" title="0928广东省比武">
+                    <div class="prevTitle">0928广东省比武</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2021%E9%95%BF%E5%AE%89%E6%9D%AF"><span class="toc-number">1.</span> <span class="toc-text">2021长安杯</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%901"><span class="toc-number">1.1.</span> <span class="toc-text">检材1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%902"><span class="toc-number">1.2.</span> <span class="toc-text">检材2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%903"><span class="toc-number">1.3.</span> <span class="toc-text">检材3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9D%904"><span class="toc-number">1.4.</span> <span class="toc-text">检材4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAID"><span class="toc-number">1.5.</span> <span class="toc-text">RAID</span></a></li></ol></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 8
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/">21长安杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span>
+            <a class="archive-post-title" href="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/">0928广东省比武</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span>
+            <a class="archive-post-title" href="/2021/10/06/19%E8%83%BD%E5%8A%9B/">cnas2019</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span>
+            <a class="archive-post-title" href="/2021/09/26/frida/">Frida</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span>
+            <a class="archive-post-title" href="/2021/09/25/cnas2021/">cnas2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span>
+            <a class="archive-post-title" href="/2021/08/06/FIC2021/">FIC2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/17</span>
+            <a class="archive-post-title" href="/2021/07/17/%E4%B8%AD%E7%A7%91%E7%AC%AC%E4%B8%80%E5%B1%8A/">第一届中科实数杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span>
+            <a class="archive-post-title" href="/2021/03/07/20%E5%B9%B4%E7%BE%8E%E4%BA%9A%E6%9D%AF/">20年美亚杯</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="frida">
+                <span class="iconfont-archer">&#xe606;</span>
+                frida
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Forensic">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Forensic
+        </span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://dawoxiansigema.github.io",
+        root: siteMetaRoot,
+        author: "Eureka"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>
