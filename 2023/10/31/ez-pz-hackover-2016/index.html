@@ -27,7 +27,7 @@
 <meta property="og:description" content="ret2syscall的题目做得少 总会有点不熟练">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-31T14:16:56.000Z">
-<meta property="article:modified_time" content="2023-10-31T14:23:17.494Z">
+<meta property="article:modified_time" content="2023-11-01T02:07:59.378Z">
 <meta property="article:author" content="Eureka">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
@@ -500,7 +500,7 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <p>ret2syscall的题目做得少 总会有点不熟练</p>
+        <p><strong>ret2syscall的题目做得少 总会有点不熟练</strong></p>
 <span id="more"></span>
 
 <h1 id="ret2syscall-ez-pz-hackover-2016"><a href="#ret2syscall-ez-pz-hackover-2016" class="headerlink" title="[ret2syscall]ez_pz_hackover_2016"></a>[ret2syscall]ez_pz_hackover_2016</h1><h2 id="审题"><a href="#审题" class="headerlink" title="审题"></a>审题</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> *<span class="title function_">chall</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">  size_t v0; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">void</span> *result; <span class="comment">// eax</span></span><br><span class="line">  char s; <span class="comment">// [esp+Ch] [ebp-40Ch]</span></span><br><span class="line">  _BYTE *v3; <span class="comment">// [esp+40Ch] [ebp-Ch]</span></span><br><span class="line"></span><br><span class="line">  <span class="title function_">printf</span>(<span class="string">&quot;Yippie, lets crash: %p\\n&quot;</span>, &amp;s);</span><br><span class="line">  <span class="title function_">printf</span>(<span class="string">&quot;Whats your name?\\n&quot;</span>);</span><br><span class="line">  <span class="title function_">printf</span>(<span class="string">&quot;&gt; &quot;</span>);</span><br><span class="line">  <span class="title function_">fgets</span>(&amp;s, <span class="number">1023</span>, stdin);</span><br><span class="line">  v0 = <span class="title function_">strlen</span>(&amp;s);</span><br><span class="line">  v3 = <span class="title function_">memchr</span>(&amp;s, <span class="number">10</span>, v0);</span><br><span class="line">  <span class="keyword">if</span> ( v3 )</span><br><span class="line">    *v3 = <span class="number">0</span>;</span><br><span class="line">  <span class="title function_">printf</span>(<span class="string">&quot;\\nWelcome %s!\\n&quot;</span>, &amp;s);</span><br><span class="line">  result = (<span class="keyword">void</span> *)<span class="title function_">strcmp</span>(&amp;s, <span class="string">&quot;crashme&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> ( !result )</span><br><span class="line">    result = <span class="title function_">vuln</span>((unsigned int)&amp;s, 0x400u);</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -527,7 +527,7 @@
             <p>Author：<a href="https://dawoxiansigema.github.io">Eureka</a>
             <p>Link：<a href="https://dawoxiansigema.github.io/2023/10/31/ez-pz-hackover-2016/">https://dawoxiansigema.github.io/2023/10/31/ez-pz-hackover-2016/</a>
             <p>Publish date：<a href="https://dawoxiansigema.github.io/2023/10/31/ez-pz-hackover-2016/">October 31st 2023, 10:16:56 pm</a>
-            <p>Update date：<a href="https://dawoxiansigema.github.io/2023/10/31/ez-pz-hackover-2016/">October 31st 2023, 10:23:17 pm</a>
+            <p>Update date：<a href="https://dawoxiansigema.github.io/2023/10/31/ez-pz-hackover-2016/">November 1st 2023, 10:07:59 am</a>
             <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -794,7 +794,99 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -917,7 +1009,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 19
+        Total : 25
         </div>
         <!-- search  -->
         
@@ -931,6 +1023,42 @@
             <div class="archive-year"> 2023 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/Black-Watch-%E5%85%A5%E7%BE%A4%E9%A2%98-PWN/">(栈转移)Black_Watch_入群题_PWN</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/CISCN-2019-es-2/">(栈转移)CISCN_2019_es_2</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/CISCN-2019-s-3/">(Srop&Ret2csu)CISCN_2019_s_3</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/bjdctf-2020-babyrop2/">(canary)bjdctf_2020_babyrop2</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/jarvisoj-fm/">(栈对齐)jarvisoj_fm</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/%E7%AC%AC%E4%BA%94%E7%A9%BA%E9%97%B42019%E5%86%B3%E8%B5%9B-PWN5/">第五空间2019决赛_PWN5</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">10/31</span>
@@ -952,13 +1080,13 @@
         
         <li class="archive-post-item">
             <span class="archive-post-date">10/31</span>
-            <a class="archive-post-title" href="/2023/10/31/OGeek2019-babyrop/">(Libc泄露)OGeek2019_babyrop</a>
+            <a class="archive-post-title" href="/2023/10/31/Mac%E4%B8%8BHexo%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">Mac下Hexo踩坑记录</a>
         </li>
     
         
         <li class="archive-post-item">
             <span class="archive-post-date">10/31</span>
-            <a class="archive-post-title" href="/2023/10/31/Mac%E4%B8%8BHexo%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">Mac下Hexo踩坑记录</a>
+            <a class="archive-post-title" href="/2023/10/31/OGeek2019-babyrop/">(Libc泄露)OGeek2019_babyrop</a>
         </li>
     
         
@@ -1076,14 +1204,14 @@
             Forensic
         </span>
     
-        <span class="sidebar-category-name" data-categories="Stack/Basic">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Stack/Basic
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Stack/Medium">
             <span class="iconfont-archer">&#xe60a;</span>
             Stack/Medium
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Stack/Basic">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Stack/Basic
         </span>
     
         <span class="sidebar-category-name" data-categories="Stack/Advanced">
